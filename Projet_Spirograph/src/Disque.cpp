@@ -1,11 +1,11 @@
 #include "Disque.h"
 
-Disque::Disque()
+Disc::Disc()
 {
     //ctor
 }
 
-Disque::~Disque()
+Disc::~Disc()
 {
     //dtor
 }

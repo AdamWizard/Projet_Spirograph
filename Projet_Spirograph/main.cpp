@@ -7,22 +7,22 @@ using namespace std;
 
 int main()
 {
-    int nbDisques;
-    cout << "Combien de disques ce spirographe aura-t-il? ";
-    cin >> nbDisques;
+    int nbDiscs;
+    cout << "How many discs will this spirograph have? ";
+    cin >> nbDiscs;
 
     float d;
-    cout << "Quelle est la distance entre le centre du dernier disque et le point mobile?";
+    cout << "What will be the distance between the last discs center and the pencil?";
     cin >> d;
 
     Spirograph *spirograph = new Spirograph();
 
-    Disque* disqueActuel = new Disque();
-    float rayon;
+    Disc* currentDisc = new Disc();
+    float radius;
     //coordonnees centrees
-    for (int i=0;i<nbDisques;i++){
-            cout << "rayon du disque numero " << i+1 << ": ";
-            cin >> rayon ;
+    for (int i=0;i<nbDiscs;i++){
+            cout << "radius of disc number " << i+1 << ": ";
+            cin >> radius ;
         //ajouter un disque au spirograph aux coordonnees [somme des rayons des autres disques] en x
     }
 

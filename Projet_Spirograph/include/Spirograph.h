@@ -6,11 +6,11 @@ class Spirograph
 {
     public:
         Spirograph();
-        Spirograph(Disque* disques);
+        Spirograph(Disc* discs);
         virtual ~Spirograph();
 
     private:
-        Disque* disques;
+        Disc* discs;
         //ajouter une couleur
 };
 

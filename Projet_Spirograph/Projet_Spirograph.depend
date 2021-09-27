@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1632738901 source:d:\git\projet_spirograph\projet_spirograph\src\disque.cpp
+1632739330 source:d:\git\projet_spirograph\projet_spirograph\src\disque.cpp
 	"Disque.h"
 
-1632738901 d:\git\projet_spirograph\projet_spirograph\include\disque.h
+1632739322 d:\git\projet_spirograph\projet_spirograph\include\disque.h
 
 1632738714 source:d:\git\projet_spirograph\projet_spirograph\src\point.cpp
 	"../include/Point.h"
@@ -10,9 +10,9 @@
 
 1632738714 d:\git\projet_spirograph\projet_spirograph\include\point.h
 
-1632738185 source:d:\git\projet_spirograph\projet_spirograph\src\spirograph.cpp
+1632739317 source:d:\git\projet_spirograph\projet_spirograph\src\spirograph.cpp
 	"Spirograph.h"
 
-1632738178 d:\git\projet_spirograph\projet_spirograph\include\spirograph.h
+1632739322 d:\git\projet_spirograph\projet_spirograph\include\spirograph.h
 	"Disque.h"
 

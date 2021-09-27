@@ -2,11 +2,11 @@
 #define DISQUE_H
 
 
-class Disque
+class Disc
 {
     public:
-        Disque();
-        virtual ~Disque();
+        Disc();
+        virtual ~Disc();
 
     protected:
 
