@@ -2,10 +2,10 @@
 
 Spirograph::Spirograph()
 {
-    //ctor
+
 }
 
 Spirograph::~Spirograph()
 {
-    //dtor
+
 }
