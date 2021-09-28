@@ -16,7 +16,7 @@
 					<Add option="-g" />
 					<Add option="-DSFML_STATIC" />
 					<Add directory="include" />
-					<Add directory="D:/Program Files (x86)/SFML-2.5.1/include" />
+					<Add directory="SFML-2.5.1/include" />
 				</Compiler>
 				<Linker>
 					<Add library="sfml-graphics-s-d" />
@@ -35,7 +35,7 @@
 					<Add library="vorbisfile" />
 					<Add library="vorbis" />
 					<Add library="ogg" />
-					<Add directory="D:/Program Files (x86)/SFML-2.5.1/lib" />
+					<Add directory="SFML-2.5.1/lib" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -56,11 +56,11 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="include/Disque.h" />
+		<Unit filename="include/Disc.h" />
 		<Unit filename="include/Point.h" />
 		<Unit filename="include/Spirograph.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="src/Disque.cpp" />
+		<Unit filename="src/Disc.cpp" />
 		<Unit filename="src/Point.cpp" />
 		<Unit filename="src/Spirograph.cpp" />
 		<Extensions>

@@ -7,42 +7,42 @@ Point::Point()
     y = 0;
 }
 
-Point::Point(double x0, double y0)
+Point::Point(float x0, float y0)
 {
     x = x0;
     y = y0;
 }
 
-double Point::getX() const
+float Point::getX() const
 {
     return x;
 }
 
-double Point::getY() const
+float Point::getY() const
 {
     return y;
 }
 
-Point::Point(const Point& pointCopie)
+Point::Point(const Point& copyPoint)
 {
-    x = pointCopie.getX();
-    y = pointCopie.getY();
+    x = copyPoint.getX();
+    y = copyPoint.getY();
 }
 
-void Point::setX(double newX)
+void Point::setX(float newX)
 {
     x = newX;
 }
 
-void Point::setY(double newY)
+void Point::setY(float newY)
 {
     y = newY;
 }
 
 double Point::distanceFromPoint(Point point2)
 {
-    int X = point2.getX()-getX();
-    int Y = point2.getY() - getY();
-    return sqrt(X^2 + Y^2);
+    float X = (point2.getX()-getX())*(point2.getX()-getX());
+    float Y = (point2.getY() - getY())*(point2.getY() - getY());
+    return sqrt(X + Y);
 }
 

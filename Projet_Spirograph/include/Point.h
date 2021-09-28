@@ -6,20 +6,20 @@ class Point
 {
     public:
         Point();
-        Point(double x, double y);
-        Point(const Point& pointCopie);
+        Point(float x, float y);
+        Point(const Point& copyPoint);
 
-        double getX() const;
-        double getY() const;
+        float getX() const;
+        float getY() const;
 
-        void setX(double newX);
-        void setY(double newX);
+        void setX(float newX);
+        void setY(float newX);
 
         double distanceFromPoint(Point point2);
 
     private:
-        double x;
-        double y;
+        float x;
+        float y;
 };
 
 #endif // POINT_H

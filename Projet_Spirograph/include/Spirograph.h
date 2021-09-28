@@ -1,16 +1,15 @@
 #ifndef SPIROGRAPH_H
 #define SPIROGRAPH_H
-#include "Disque.h"
+#include "Disc.h"
 
 class Spirograph
 {
     public:
         Spirograph();
-        Spirograph(Disc* discs);
-        virtual ~Spirograph();
+        ~Spirograph();
 
     private:
-        Disc* discs;
+        Disc** discs;
         //ajouter une couleur
 };
 
