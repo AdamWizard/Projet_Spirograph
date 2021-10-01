@@ -1,5 +1,6 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include <SFML/Window.hpp>
 
 #include "Spirograph.h"
 
@@ -26,7 +27,37 @@ int main()
         //ajouter un disque au spirograph aux coordonnees [somme des rayons des autres disques] en x
     }
 
-    //faire le travail d'affichage du spirograph
+    //travail d'affichage du spirograph
+
+    //mettre en place une fenetre et la possibilité d'intéragir
+    sf::RenderWindow window(sf::VideoMode(640,640), "Spirograph",sf::Style::Titlebar | sf::Style::Close);
+    sf::Event ev;
+
+    //game loop
+    while(window.isOpen()){
+        //on regarde les evenements
+        while(window.pollEvent(ev)){
+            switch(ev.type)
+            {
+            case sf::Event::Closed:
+                window.close();
+                break;
+            case sf::Event::KeyPressed:
+                if (ev.key.code==sf::Keyboard::Escape){
+                    window.close();
+                }
+                break;
+            }
+        }
+
+        //mise a jour de l'environnement
+
+        window.clear(); //effacer l'ancien ecran
+        //affichage
+
+        //fin affichage
+        window.display(); //dire que la fenetre a fini d'etre dessinee
+    }
 
 
     return 0;
