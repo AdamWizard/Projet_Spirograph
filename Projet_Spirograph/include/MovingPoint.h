@@ -9,7 +9,7 @@ class MovingPoint
         MovingPoint();
         MovingPoint(const MovingPoint& copyPoint);
         MovingPoint(MovingPoint* origin0, float rho0, float theta0, float angSpeed0);
-        ~MovingPoint();*
+        ~MovingPoint();
 
         float getRho() const;
         float getTheta() const;
@@ -20,7 +20,7 @@ class MovingPoint
         void setAngSpeed(float newAngSpeed);
 
     private:
-        Point* origin;
+        MovingPoint* origin;
         float rho;
         float theta;
         float angSpeed;

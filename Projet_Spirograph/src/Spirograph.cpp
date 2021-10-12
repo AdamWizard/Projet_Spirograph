@@ -1,11 +1,13 @@
 #include "../include/Spirograph.h"
 #include <malloc.h>
+#include <iostream>
+
 Spirograph::Spirograph()
 {
     int nbDisc;
-    cout << "How many discs do you want ? (enter a positive integer)" << endl;
+    std::cout << "How many discs do you want ? (enter a positive integer)\n";
     do
-        cin >> nbDisc;
+        std::cin >> nbDisc;
     while(nbDisc<=0);
 
     mPoints = (MovingPoint**)malloc(sizeof(MovingPoint*)*nbDisc);
@@ -16,14 +18,14 @@ Spirograph::Spirograph()
     float angSpeed = 0; float radius = 0;
     for(int i = 1; i < nbDisc; i++)
     {
-        cout << "What is the radius of the " << i << " th disc ? (enter  an integer > 0)" << endl;
+        std::cout << "What is the radius of the " << i << " th disc ? (enter  an integer > 0)\n";
         do
-            cin >> radius;
+            std::cin >> radius;
         while(radius<=0);
 
-        cout << "What is the angular speed of the " << i << " th disc in revolutions/min ? (enter  an integer > 0)" << endl;
+        std::cout << "What is the angular speed of the " << i << " th disc in revolutions/min ? (enter  an integer > 0)\n";
         do
-            cin >> angSpeed;
+            std::cin >> angSpeed;
         while(angSpeed<=0);
 
         mPoints[i] = new MovingPoint(mPoints[i-1], radius, 0, angSpeed);
