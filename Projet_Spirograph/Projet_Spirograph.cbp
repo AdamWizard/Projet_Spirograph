@@ -57,6 +57,7 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="include/Disc.h" />
+		<Unit filename="include/MovingPoint.h" />
 		<Unit filename="include/Point.h" />
 		<Unit filename="include/Spirograph.h" />
 		<Unit filename="main.cpp" />
