@@ -3,44 +3,43 @@
 
 Point::Point()
 {
-    r = 0;
+    rho = 0;
     theta = 0;
 }
 
-Point::Point(float r0, float t0)
+Point::Point(float rho0, float theta0)
 {
-    r = r0;
-    theta = t0;
+    rho = rho0;
+    theta = theta0;
 }
 
-float Point::getR() const
+float Point::getRho() const
 {
-    return r;
+    return rho;
 }
 
-float Point::getT() const
+float Point::getTheta() const
 {
-    return t;
+    return theta;
 }
 
 Point::Point(const Point& copyPoint)
 {
-    r = copyPoint.getR();
-    theta = copyPoint.getT();
+    rho = copyPoint.getRho();
+    theta = copyPoint.getTheta();
+
+void Point::setRho(float newRho)
+{
+    rho = newRho;
 }
 
-void Point::setR(float newR)
+void Point::setTheta(float newTheta)
 {
-    r = newR;
-}
-
-void Point::setT(float newT)
-{
-    theta = newT;
+    theta = newTheta;
 }
 
 double Point::distanceFromPoint(Point point2)
 {
-    return((getR())^2+(point2.getR())^2 - 2*getR()*point2.getR()*cos(point2.getT()-getT()));
+    return((getRho())^2+(point2.getRho())^2 - 2*getRho()*point2.getRho()*cos(point2.getTheta()-getTheta()));
 }
 

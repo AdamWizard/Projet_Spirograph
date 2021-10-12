@@ -6,19 +6,19 @@ class Point
 {
     public:
         Point();
-        Point(float r, float theta);
+        Point(float rho0, float theta0);
         Point(const Point& copyPoint);
 
-        float getR() const;
-        float getT() const;
+        float getRho() const;
+        float getTheta() const;
 
-        void setR(float newX);
-        void setT(float newX);
+        void setRho(float newRho);
+        void setTheta(float newTheta);
 
         double distanceFromPoint(Point point2);
 
     private:
-        float r;
+        float rho;
         float theta;
 };
 
