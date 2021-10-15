@@ -1,23 +1,18 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
-#include "Spirograph.h"
+#include "../include/Spirograph.h"
 
 using namespace std;
 
 int main()
 {
-    int nbDiscs;
-    cout << "How many discs will this spirograph have? ";
-    cin >> nbDiscs;
-
-    float d;
-    cout << "What will be the distance between the last discs center and the pencil?";
-    cin >> d;
+    //FOR WAY LATER
+    int nbDiscs = 2;
 
     Spirograph *spirograph = new Spirograph();
 
-    Disc* currentDisc = new Disc();
+    MovingPoint *currentPoint = new MovingPoint();
     float radius;
     //coordonnees centrees
     for (int i=0;i<nbDiscs;i++){
@@ -57,7 +52,7 @@ int main()
     movingCircle2.setOutlineColor(sf::Color::White);
     movingCircle2.setPosition(window.getSize().x/2+movingCircle.getRadius()+movingCircle2.getRadius(),window.getSize().y/2);
 
-    float[2]* list;
+    //float[2] *list;
     //FIN TEST
 
     float vx=0;

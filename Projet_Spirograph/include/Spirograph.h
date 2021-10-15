@@ -1,7 +1,7 @@
 #ifndef SPIROGRAPH_H
 #define SPIROGRAPH_H
 
-#include "MovingPoint.h"
+#include "../include/MovingPoint.h"
 
 class Spirograph
 {

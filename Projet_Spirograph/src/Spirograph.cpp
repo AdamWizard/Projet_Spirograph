@@ -18,12 +18,12 @@ Spirograph::Spirograph()
     float angSpeed = 0; float radius = 0;
     for(int i = 1; i < nbDisc; i++)
     {
-        std::cout << "What is the radius of the " << i << " th disc ? (enter  an integer > 0)\n";
+        std::cout << "What is the radius of the " << i << " th disc ? (enter  a positive integer)\n";
         do
             std::cin >> radius;
         while(radius<=0);
 
-        std::cout << "What is the angular speed of the " << i << " th disc in revolutions/min ? (enter  an integer > 0)\n";
+        std::cout << "What is the angular speed of the dis number "<< i <<" in radians/seconds ? (enter a positive integer)\n";
         do
             std::cin >> angSpeed;
         while(angSpeed<=0);
