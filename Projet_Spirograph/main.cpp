@@ -30,7 +30,7 @@ int main()
 
     //mettre en place une fenetre et la possibilité d'intéragir
     sf::RenderWindow window(sf::VideoMode(640,640), "Spirograph",sf::Style::Titlebar | sf::Style::Close);
-    window.setFramerateLimit(60);
+    window.setFramerateLimit(120);
     sf::Event ev;
 
     //game loop
