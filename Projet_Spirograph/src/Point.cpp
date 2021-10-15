@@ -27,6 +27,7 @@ Point::Point(const Point& copyPoint)
 {
     rho = copyPoint.getRho();
     theta = copyPoint.getTheta();
+}
 
 void Point::setRho(float newRho)
 {
@@ -40,6 +41,8 @@ void Point::setTheta(float newTheta)
 
 double Point::distanceFromPoint(Point point2)
 {
-    return((getRho())^2+(point2.getRho())^2 - 2*getRho()*point2.getRho()*cos(point2.getTheta()-getTheta()));
+    float rhoSquared= getRho()* getRho();
+    float rho2Squared= point2.getRho() * point2.getRho();
+    return( (rhoSquared+rho2Squared) - 2*getRho()*point2.getRho()*cos(point2.getTheta()-getTheta()));
 }
 

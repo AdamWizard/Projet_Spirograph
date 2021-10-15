@@ -8,8 +8,13 @@ class Spirograph
     public:
         Spirograph();
         ~Spirograph();
+        update();
+        getmPoints();
+        getFirst();
+        getLast();
 
     private:
+        int nbPoints;
         MovingPoint** mPoints;
         MovingPoint* first;
         MovingPoint* last;

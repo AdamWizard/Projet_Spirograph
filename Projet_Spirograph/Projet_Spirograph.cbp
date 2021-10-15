@@ -56,12 +56,11 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="include/Disc.h" />
 		<Unit filename="include/MovingPoint.h" />
 		<Unit filename="include/Point.h" />
 		<Unit filename="include/Spirograph.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="src/Disc.cpp" />
+		<Unit filename="src/MovingPoint.cpp" />
 		<Unit filename="src/Point.cpp" />
 		<Unit filename="src/Spirograph.cpp" />
 		<Extensions>

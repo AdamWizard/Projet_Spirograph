@@ -3,7 +3,9 @@
 MovingPoint::MovingPoint()
 {
     origin = nullptr;
-    rho = 0; theta = 0; angSpeed = 0;
+    rho = 0;
+    theta = 0;
+    angSpeed = 0;
 }
 
 MovingPoint::MovingPoint(const MovingPoint& copyPoint)
