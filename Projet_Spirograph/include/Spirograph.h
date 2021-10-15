@@ -1,6 +1,7 @@
 #ifndef SPIROGRAPH_H
 #define SPIROGRAPH_H
-#include "Disc.h"
+
+#include "MovingPoint.h"
 
 class Spirograph
 {
@@ -9,7 +10,9 @@ class Spirograph
         ~Spirograph();
 
     private:
-        Disc** discs;
+        MovingPoint** mPoints;
+        MovingPoint* first;
+        MovingPoint* last;
         //ajouter une couleur
 };
 

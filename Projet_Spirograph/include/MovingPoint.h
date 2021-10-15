@@ -1,21 +1,29 @@
 #ifndef MOVINGPOINT_H
 #define MOVINGPOINT_H
 
-#include "Point.h"
+//#include "Point.h"
 
 class MovingPoint
 {
     public:
         MovingPoint();
         MovingPoint(const MovingPoint& copyPoint);
-        MovingPoint(Point* origin0, const Point& coord0);
-        ~MovingPoint();*
+        MovingPoint(MovingPoint* origin0, float rho0, float theta0, float angSpeed0);
+        ~MovingPoint();
 
+        float getRho() const;
+        float getTheta() const;
+        float getAngSpeed() const;
 
+        void setRho(float newRho);
+        void setTheta(float newTheta);
+        void setAngSpeed(float newAngSpeed);
 
     private:
-        Point* origin;
-        Point coord;
+        MovingPoint* origin;
+        float rho;
+        float theta;
+        float angSpeed;
 };
 
 #endif // MOVINGPOINT_H
