@@ -876,11 +876,13 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1634043938 source:c:\users\florian\desktop\projet_spiro\projet_spirograph\projet_spirograph\main.cpp
+1634634687 source:c:\users\florian\desktop\projet_spiro\projet_spirograph\projet_spirograph\main.cpp
 	<iostream>
 	<SFML/Graphics.hpp>
 	<SFML/Window.hpp>
-	"Spirograph.h"
+	<SFML/Graphics/Texture.hpp>
+	"../include/Spirograph.h"
+	<cmath>
 
 1525812018 c:\users\florian\desktop\projet_spiro\projet_spirograph\projet_spirograph\sfml-2.5.1\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -1291,15 +1293,15 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1634043545 c:\users\florian\desktop\projet_spiro\projet_spirograph\projet_spirograph\include\spirograph.h
-	"MovingPoint.h"
+1634631197 c:\users\florian\desktop\projet_spiro\projet_spirograph\projet_spirograph\include\spirograph.h
+	"../include/MovingPoint.h"
 
 1634044189 c:\users\florian\desktop\projet_spiro\projet_spirograph\projet_spirograph\include\movingpoint.h
 
-1634044341 source:c:\users\florian\desktop\projet_spiro\projet_spirograph\projet_spirograph\src\movingpoint.cpp
+1634465038 source:c:\users\florian\desktop\projet_spiro\projet_spirograph\projet_spirograph\src\movingpoint.cpp
 	"../include/MovingPoint.h"
 
-1634044540 source:c:\users\florian\desktop\projet_spiro\projet_spirograph\projet_spirograph\src\spirograph.cpp
+1634631428 source:c:\users\florian\desktop\projet_spiro\projet_spirograph\projet_spirograph\src\spirograph.cpp
 	"../include/Spirograph.h"
 	<malloc.h>
 	<iostream>
@@ -1308,4 +1310,10 @@
 
 1634315344 source:d:\git\projet_spirograph\projet_spirograph\src\movingpoint.cpp
 	"../include/MovingPoint.h"
+
+1634465038 source:c:\users\florian\desktop\projet_spiro\projet_spirograph\projet_spirograph\src\point.cpp
+	"../include/Point.h"
+	<cmath>
+
+1634038644 c:\users\florian\desktop\projet_spiro\projet_spirograph\projet_spirograph\include\point.h
 

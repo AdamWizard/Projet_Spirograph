@@ -9,9 +9,9 @@ class Spirograph
         Spirograph();
         ~Spirograph();
         update();
-        getmPoints();
-        getFirst();
-        getLast();
+        MovingPoint* getPoint(int i);
+        //getFirst();
+        //getLast();
 
     private:
         int nbPoints;
