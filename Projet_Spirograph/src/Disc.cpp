@@ -1,23 +1,33 @@
 #include "../include/Disc.h"
 #include <iostream>
-Disc::Disc(sf::CircleShape newCircle)
+#include <cmath>
+#ifndef M_PI
+#define M_PI (3.14159265358979323846)
+#endif
+
+Disc::Disc(sf::CircleShape* newCircle)
 {
     circle = newCircle;
     listPencils = nullptr;
     nbPencils = 0;
+
+    theta = 0; angSpeed = M_PI/120;
 }
 
-Disc::Disc(float radius, float x, float y)
+Disc::Disc(float radius, float x, float y, float newAngSpeed)
 {
-    circle.setRadius(radius);
-    circle.setOrigin(circle.getRadius(), circle.getRadius());
-    circle.setOutlineThickness(1);
-    circle.setFillColor(sf::Color::Transparent);
-    circle.setOutlineColor(sf::Color::White);
-    circle.setPosition(x, y);
+    circle = new sf::CircleShape();
+    circle->setRadius(radius);
+    circle->setOrigin(circle->getRadius(), circle->getRadius());
+    circle->setOutlineThickness(1);
+    circle->setFillColor(sf::Color::Transparent);
+    circle->setOutlineColor(sf::Color::White);
+    circle->setPosition(x, y);
 
     listPencils = nullptr;
     nbPencils = 0;
+
+    theta = 0; angSpeed = newAngSpeed;
 }
 
 Disc::~Disc()
@@ -34,7 +44,7 @@ Disc::~Disc()
 
 sf::CircleShape* Disc::getCircle()
 {
-    return &circle;
+    return circle;
 }
 
 float Disc::getRadius()
@@ -52,6 +62,15 @@ float Disc::getY()
     return getCircle()->getPosition().y;
 }
 
+float Disc::getTheta()
+{
+    return theta;
+}
+
+float Disc::getAngSpeed()
+{
+    return angSpeed;
+}
 
 unsigned int Disc::getNbPencils(){
     return nbPencils;
@@ -60,6 +79,16 @@ unsigned int Disc::getNbPencils(){
 void Disc::setPosition(float newX, float newY)
 {
     getCircle()->setPosition(newX, newY);
+}
+
+void Disc::setTheta(float newTheta)
+{
+    theta = newTheta;
+}
+
+void Disc::setAngSpeed(float newAngSpeed)
+{
+    angSpeed = newAngSpeed;
 }
 
 Pencil* Disc::getPencil(int i)
@@ -73,12 +102,8 @@ Pencil* Disc::getPencil(int i)
 void Disc::addPencil(Pencil* pencil)
 {
     Pencil** newList = new Pencil*[nbPencils+1];
-    for(int i = 0; i < nbPencils; i++)
-    {
-        newList[i] = listPencils[i];
-    }
+    std::copy(listPencils, listPencils+nbPencils, newList);
     newList[nbPencils] = pencil;
     nbPencils++;
     listPencils = newList;
-    delete newList; newList = nullptr;
 }

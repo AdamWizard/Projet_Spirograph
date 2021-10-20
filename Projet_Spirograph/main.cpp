@@ -100,7 +100,6 @@ int main()
         //updating
         window.clear();
         //updating spiro
-        cout<<"updating spiro"<<endl;
         spiro.update();
 
         //end updating spiro
@@ -112,12 +111,13 @@ int main()
 
 
         //drawing
-        //debugging
-        cout<<"beginning drawing spiro"<<endl;
+        window.draw(sprite);
+
         for (int i=0;i<spiro.getNbDiscs();i++){
                 //drawing discs
                 if(drawDiscs)
                 {
+                    //sf::CircleShape currentCircle = );
                     window.draw(*(spiro.getDisc(i)->getCircle()));
                 }
                 //drawing pencil lines
@@ -134,13 +134,14 @@ int main()
                         pixels[4*(tempy*winX+tempx)+1] = 100;
                         pixels[4*(tempy*winX+tempx)+2] = 100+2*int(sin(phi)*50);
                     }
+                    window.draw(*(currentPencil->getCircle()));
 
                 }
 
         }
 
         texture.update(pixels);
-		window.draw(sprite);
+
 		//end drawing
         window.display(); //window is done drawing
     }
