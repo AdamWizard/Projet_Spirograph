@@ -21,45 +21,6 @@ int main()
     window.setFramerateLimit(60);
     sf::Event ev;
 
-    //game loop
-/*
-    sf::CircleShape tabCircle[spiro.getNbPoints()]; // +1 to add the pencil in the circles list
-    for(int i = 0; i < spiro.getNbPoints(); i++)
-    {
-        sf::CircleShape circle(1);
-        if(i < spiro.getNbPoints()-1)
-            circle.setRadius(spiro.getPoint(i+1)->getRho());
-
-        circle.setOrigin(circle.getRadius(), circle.getRadius());
-        circle.setOutlineThickness(1);
-        circle.setFillColor(sf::Color::Transparent);
-        circle.setOutlineColor(sf::Color::White);
-        int sumX = winX/2;
-        for(int j = i; j>0; j--)
-        {
-            sumX += tabCircle[j-1].getRadius();
-        }
-        circle.setPosition(sumX, winY/2);
-
-        tabCircle[i] = circle;
-    }
-
-    sf::CircleShape movingCircle(spiro.getPoint(2)->getRho());
-    movingCircle.setOrigin(movingCircle.getRadius(), movingCircle.getRadius());
-    movingCircle.setOutlineThickness(1);
-    movingCircle.setFillColor(sf::Color::Transparent);
-    movingCircle.setOutlineColor(sf::Color::White);
-    movingCircle.setPosition(winX/2+circle.getRadius()+movingCircle.getRadius(),winY/2);
-
-
-    sf::CircleShape movingCircle2(1);
-    movingCircle2.setOrigin(movingCircle2.getRadius(), movingCircle2.getRadius());
-    movingCircle2.setOutlineThickness(2);
-    movingCircle2.setFillColor(sf::Color::Transparent);
-    movingCircle2.setOutlineColor(sf::Color::White);
-    movingCircle2.setPosition(winX/2+movingCircle.getRadius()+movingCircle2.getRadius(),winY/2);*/
-
-    //FIN TEST
 
     sf::Uint8*	pixels = new sf::Uint8[winX*winY*4];
 	sf::Texture texture;
@@ -75,9 +36,9 @@ int main()
 	}
 
     //float angspeed = M_PI/200;
-
     bool drawDiscs = true;
 
+    //game loop
     while(window.isOpen()){
         //on regarde les evenements
         while(window.pollEvent(ev)){
@@ -97,19 +58,13 @@ int main()
             }
         }
 
-        //updating
+        //updating window
         window.clear();
+
         //updating spiro
         cout<<"updating spiro"<<endl;
         spiro.update();
-
         //end updating spiro
-
-        //SKETCH : rayon variable pour le disque tournant
-        //R+=sin(theta)/3;
-        //movingCircle.setRadius(R);
-        //FIN SKETCH
-
 
         //drawing
         //debugging
