@@ -13,19 +13,16 @@ using namespace std;
 
 int main()
 {
-    /*Spirograph spiro;
+    //initializing rendering window
 
-    //travail d'affichage du spirograph
-
-    //mettre en place une fenetre et la possibilité d'intéragir
     int winX = 640; int winY = 640;
+    Spirograph spiro(winX, winY);
     sf::RenderWindow window(sf::VideoMode(winX, winY), "Spirograph",sf::Style::Titlebar | sf::Style::Close);
     window.setFramerateLimit(60);
     sf::Event ev;
 
     //game loop
-    //TEST initialiser les cercles et la liste de points
-
+/*
     sf::CircleShape tabCircle[spiro.getNbPoints()]; // +1 to add the pencil in the circles list
     for(int i = 0; i < spiro.getNbPoints(); i++)
     {
@@ -47,7 +44,7 @@ int main()
         tabCircle[i] = circle;
     }
 
-    /*sf::CircleShape movingCircle(spiro.getPoint(2)->getRho());
+    sf::CircleShape movingCircle(spiro.getPoint(2)->getRho());
     movingCircle.setOrigin(movingCircle.getRadius(), movingCircle.getRadius());
     movingCircle.setOutlineThickness(1);
     movingCircle.setFillColor(sf::Color::Transparent);
@@ -64,7 +61,7 @@ int main()
 
     //FIN TEST
 
-    /*sf::Uint8*	pixels = new sf::Uint8[winX*winY*4];
+    sf::Uint8*	pixels = new sf::Uint8[winX*winY*4];
 	sf::Texture texture;
 	texture.create(winX, winY);
 	sf::Sprite sprite(texture);
@@ -79,7 +76,7 @@ int main()
 
     //float angspeed = M_PI/200;
 
-    bool drawCircles = true;
+    bool drawDiscs = true;
 
     while(window.isOpen()){
         //on regarde les evenements
@@ -94,84 +91,64 @@ int main()
                     window.close();
                 }
                 if (ev.key.code==sf::Keyboard::Space){
-                    drawCircles = !drawCircles;
+                    drawDiscs = !drawDiscs;
                 }
                 break;
             }
         }
 
-        //mise a jour de l'environnement
-
-        window.clear(); //effacer l'ancien ecran
-        //affichage
-
-        //TEST : dessiner des cercles et les faire bouger
-
-        //updating circles
-
-        for(int i = 1; i < spiro.getNbPoints(); i++)
+        //updating
+        window.clear();
+        //updating spiro
+        for (int i=0;i<spiro.getNbDiscs();i++)
         {
-            float angSpeed = spiro.getPoint(i)->getAngSpeed();
-            float theta = spiro.getPoint(i)->getTheta() + angSpeed;
-            float rho = tabCircle[i].getRadius();
-            /*float phi = (tabCircle[i-1].getRadius()/tabCircle[i-2].getRadius())*theta;
-            if(i == spiro.getNbPoints()-1)
-                theta += phi;*/
+            cout << "r, x, y : " <<spiro.getDisc(i)->getRadius()<<", "<< spiro.getDisc(i)->getX() << ", " << spiro.getDisc(i)->getY() << endl;
+        }
+        cout<<"updating spiro"<<endl;
+        spiro.update();
 
-            /*spiro.getPoint(i)->setTheta(theta);
+        //end updating spiro
 
-            float x = tabCircle[i].getPosition().x;
-            float y = tabCircle[i].getPosition().y;
-
-            tabCircle[i].setPosition(int(x+(rho+spiro.getPoint(i)->getRho())*cos(theta)),
-                                     int(y+(rho+spiro.getPoint(i)->getRho())*sin(theta)));
-
-            if(i==2)
-                cout << "x : " << int(x) << "\n";
-        }*/
-/*
-        theta += angspeed;
-        phi=(spiro.getPoint(1)->getRho()/spiro.getPoint(2)->getRho())*theta;
-
-
-        //TEST : rayon variable pour le disque tournant
-        //R2+=sin(theta)/3;
-        //movingCircle.setRadius(R2);
+        //SKETCH : rayon variable pour le disque tournant
+        //R+=sin(theta)/3;
+        //movingCircle.setRadius(R);
         //FIN SKETCH
 
-        movingCircle.setPosition(circle.getPosition().x+(spiro.getPoint(1)->getRho()+spiro.getPoint(2)->getRho())*cos(theta),
-                                 circle.getPosition().y+(spiro.getPoint(1)->getRho()+spiro.getPoint(2)->getRho())*sin(theta));
 
-        movingCircle2.setPosition(movingCircle.getPosition().x+(spiro.getPoint(2)->getRho())*cos(theta+phi),
-                                  movingCircle.getPosition().y+(spiro.getPoint(2)->getRho())*sin(theta+phi));
-        //FIN TEST
+        //drawing
+        //debugging
+        cout<<"beginning drawing spiro"<<endl;
+        for (int i=0;i<spiro.getNbDiscs();i++){
+                //drawing discs
+                if(drawDiscs)
+                {
+                    window.draw(*(spiro.getDisc(i)->getCircle()));
+                }
+                //drawing pencil lines
+                for(int j=0;j<spiro.getDisc(i)->getNbPencils();j++){
+                    Pencil* currentPencil = spiro.getDisc(i)->getPencil(j);
 
-*/
-        /*int tempx = int(tabCircle[spiro.getNbPoints()-1].getPosition().x);
-        int tempy = int(tabCircle[spiro.getNbPoints()-1].getPosition().y);
-        int phi = spiro.getPoint(spiro.getNbPoints()-1)->getTheta();
+                    int tempx   = int(currentPencil->getX());
+                    int tempy   = int(currentPencil->getY());
+                    float diffX = tempx-spiro.getDisc(i)->getX();
+                    int phi     = acos(diffX/currentPencil->getRho());
 
-        if (4*(tempy*winX+tempx) < winX*winY*4){
-            pixels[4*(tempy*winX+tempx)] = 100-2*int(cos(phi)*50);
-            pixels[4*(tempy*winX+tempx)+1] = 100;
-            pixels[4*(tempy*winX+tempx)+2] = 100+2*int(sin(phi)*50);
+                    if (4*(tempy*winX+tempx) < winX*winY*4){
+                        pixels[4*(tempy*winX+tempx)] = 100-2*int(cos(phi)*50);
+                        pixels[4*(tempy*winX+tempx)+1] = 100;
+                        pixels[4*(tempy*winX+tempx)+2] = 100+2*int(sin(phi)*50);
+                    }
+
+                }
+
         }
 
         texture.update(pixels);
 		window.draw(sprite);
-
-        if(drawCircles)
-        {
-            for(int i = 0; i < spiro.getNbPoints(); i++)
-            {
-                window.draw(tabCircle[i]);
-            }
-        }
-
-        //fin affichage
+		//end drawing
         window.display(); //window is done drawing
     }
 
-    delete pixels; pixels = nullptr;*/
+    delete pixels; pixels = nullptr;
     return 0;
 }

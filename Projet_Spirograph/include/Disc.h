@@ -5,23 +5,28 @@
 class Disc
 {
     public :
-        Disc(sf::CircleShape* newCircle);
+        Disc(sf::CircleShape newCircle);
         Disc(float radius, float x, float y);
         ~Disc();
 
+        sf::CircleShape* getCircle();
         float getRadius();
         float getX();
         float getY();
+        float getTheta();
 
         void setPosition(float newX, float newY);
 
+        unsigned int getNbPencils();
         Pencil* getPencil(int i);
+        void setPencil(int i,Pencil* pencil);
         void addPencil(Pencil* pencil);
 
     private :
-        sf::CircleShape* circle;
+        sf::CircleShape circle;
         Pencil** listPencils;
         unsigned int nbPencils;
+        float theta;
 };
 
 

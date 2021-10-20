@@ -1,24 +1,23 @@
 #ifndef SPIROGRAPH_H
 #define SPIROGRAPH_H
-
-#include "../include/MovingPoint.h"
+#include <SFML/Window.hpp>
+#include "../include/Disc.h"
 
 class Spirograph
 {
     public:
-        Spirograph();
+        Spirograph(int dimX, int dimY);
         ~Spirograph();
-        int getNbPoints();
-        MovingPoint* getPoint(int i);
-        //getFirst();
-        //getLast();
+
+        int getNbDiscs();
+        Disc* getDisc(int i);
+
+        void update();
 
     private:
-        int nbPoints;
-        MovingPoint** mPoints;
-        MovingPoint* first;
-        MovingPoint* last;
-        //ajouter une couleur
+        int nbDiscs;
+        Disc** listDisc;
+        float speed;
 };
 
 #endif // SPIROGRAPH_H

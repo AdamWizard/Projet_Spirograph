@@ -1,65 +1,118 @@
 #include "../include/Spirograph.h"
-#include <malloc.h>
 #include <iostream>
+using namespace std;
 
-#ifndef M_PI
-#define M_PI (3.14159265358979323846)
-#endif
-
-Spirograph::Spirograph()
+Spirograph::Spirograph(int dimX, int dimY)
 {
-    int nbDisc;
+    //discs
     std::cout << "How many discs do you want ? (enter a positive integer)\n";
     do
-        std::cin >> nbDisc;
-    while(nbDisc<=0);
+        std::cin >> nbDiscs;
+    while(nbDiscs<=0);
 
-    mPoints = (MovingPoint**)malloc(sizeof(MovingPoint*)*(nbDisc+1));
+    listDisc = new Disc*[nbDiscs];
 
-    mPoints[0] = new MovingPoint(nullptr, 0,0,0); //Point central immobile
-    first = mPoints[0];
-
-    for(int i = 1; i <= nbDisc; i++)
+    for(int i = 0; i < nbDiscs; i++)
     {
-        float angSpeed = M_PI/120; float radius = 0;
-        std::cout << "What is the radius of disc number "<< i <<" ? (enter  a positive integer)\n";
+        //float angSpeed = M_PI/120;
+        float radius = 1;
+        cout << "What is the radius of disc n"<< i+1 <<" ? (enter  a positive integer)\n";
         do
-            std::cin >> radius;
+            cin >> radius;
         while(radius<=0);
+        if (i==0)
+        {
+            cout << "radius : " << radius << endl;
+            /*sf::CircleShape circle(radius);
+            cout << "radiusC : " << circle.getRadius()<< endl;
+            //circle.setRadius(radius);
+            circle.setOrigin(circle.getRadius(), circle.getRadius());
+            circle.setOutlineThickness(1);
+            circle.setFillColor(sf::Color::Transparent);
+            circle.setOutlineColor(sf::Color::White);
+            circle.setPosition(dimX/2, dimY/2);*/
 
-        /*std::cout << "What is the angular speed of disc number "<< i <<" in radians/seconds ? (enter a positive integer)\n";
-        do
-            std::cin >> angSpeed;
-        while(angSpeed<=0);*/
+            listDisc[i] = new Disc(radius, dimX/2, dimY/2);
+            cout << "radiusL : " << listDisc[i]->getRadius()<< endl;
+        }
 
-        mPoints[i] = new MovingPoint(mPoints[i-1], radius, 0, angSpeed);
+        else
+        {
+            listDisc[i] = new Disc(radius,
+                            listDisc[i-1]->getX()+radius+listDisc[i-1]->getRadius(),
+                            listDisc[i-1]->getY());
+        }
+
+        //debugging
+        cout<<"r,x,y : "<< listDisc[i]->getRadius() <<"," << listDisc[i]->getX() <<","<< listDisc[i]->getY() <<endl;
+
     }
-    nbPoints = nbDisc+1;
+    //pencils
+    int nbPencils;
+    cout<<"How many pencils do you want to put in the last disc? (enter a positive integer)\n";
+    do
+        cin>>nbPencils;
+    while(nbPencils<0);
+
+    for(int i=0;i<nbPencils;i++){
+        float distance;
+        cout<<"what's the distance between pencil n"<<i+1<<" and the center of disc n"<<nbDiscs<<" (enter a positive value)"<<endl;
+        do
+            cin>>distance;
+        while (distance<0);
+
+        Pencil* newPencil = new Pencil(sf::Color::Red,distance);
+        listDisc[nbDiscs-1]->addPencil(newPencil);
+    }
+
+    //debugging
+    cout<< "last disc contains "<< listDisc[nbDiscs-1]->getNbPencils() <<" pencils" <<endl;
+
+    speed = 1;
 }
 
 Spirograph::~Spirograph()
 {
-    while(*mPoints != nullptr)
+    for(int i = 0; i < nbDiscs; i++)
     {
-        delete *mPoints;
-        mPoints++;
+        delete listDisc[i];
     }
-    delete this->mPoints;
-
-    delete first; delete last;
-    first = nullptr, last = nullptr;
+    delete listDisc; listDisc = nullptr;
 }
 
-int Spirograph::getNbPoints()
+int Spirograph::getNbDiscs()
 {
-    return nbPoints;
+    return nbDiscs;
 }
 
-MovingPoint* Spirograph::getPoint(int i)
+Disc* Spirograph::getDisc(int i)
 {
-    if(i >= 0 && i < nbPoints)
-        return mPoints[i];
+    if(i >= 0 && i < nbDiscs)
+        return listDisc[i];
     else
         return nullptr;
 }
 
+void Spirograph::update()
+{
+    for (int i=1;i<nbDiscs;i++){
+
+        float R1 = listDisc[i-1]->getRadius();
+        float R2 = listDisc[i]->getRadius();
+        float diffX = listDisc[i]->getX()-listDisc[i-1]->getX();
+        float diffY = listDisc[i]->getY()-listDisc[i-1]->getY();
+
+        listDisc[i]->setPosition(listDisc[i-1]->getX() + (R1+R2) * ((R1+R2)/diffX),
+                                 listDisc[i-1]->getY() + (R1+R2) * (diffY/diffX));
+
+        for(int j=0;j<listDisc[i]->getNbPencils();j++){
+
+            Pencil* currentPencil = listDisc[i]->getPencil(j);
+            float rho = currentPencil->getRho();
+
+            currentPencil->setPosition(listDisc[i]->getX() + (rho) * ((rho)/diffX),
+                                       listDisc[i]->getY() + (rho) * (diffY/diffX));
+            }
+
+    }
+}

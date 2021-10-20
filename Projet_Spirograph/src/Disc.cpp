@@ -1,6 +1,6 @@
 #include "../include/Disc.h"
-
-Disc::Disc(sf::CircleShape* newCircle)
+#include <iostream>
+Disc::Disc(sf::CircleShape newCircle)
 {
     circle = newCircle;
     listPencils = nullptr;
@@ -9,12 +9,12 @@ Disc::Disc(sf::CircleShape* newCircle)
 
 Disc::Disc(float radius, float x, float y)
 {
-    circle = new sf::CircleShape(radius);
-    circle->setOrigin(circle->getRadius(), circle->getRadius());
-    circle->setOutlineThickness(1);
-    circle->setFillColor(sf::Color::Transparent);
-    circle->setOutlineColor(sf::Color::White);
-    circle->setPosition(x, y);
+    circle.setRadius(radius);
+    circle.setOrigin(circle.getRadius(), circle.getRadius());
+    circle.setOutlineThickness(1);
+    circle.setFillColor(sf::Color::Transparent);
+    circle.setOutlineColor(sf::Color::White);
+    circle.setPosition(x, y);
 
     listPencils = nullptr;
     nbPencils = 0;
@@ -29,27 +29,37 @@ Disc::~Disc()
     }
     delete listPencils; listPencils = nullptr;
 
-    delete circle; circle = nullptr;
+    //delete circle; circle = nullptr;
+}
+
+sf::CircleShape* Disc::getCircle()
+{
+    return &circle;
 }
 
 float Disc::getRadius()
 {
-    circle->getRadius();
+    circle.getRadius();
 }
 
 float Disc::getX()
 {
-    return circle->getPosition().x;
+    return circle.getPosition().x;
 }
 
 float Disc::getY()
 {
-    return circle->getPosition().y;
+    return circle.getPosition().y;
+}
+
+
+unsigned int Disc::getNbPencils(){
+    return nbPencils;
 }
 
 void Disc::setPosition(float newX, float newY)
 {
-    circle->setPosition(newX, newY);
+    circle.setPosition(newX, newY);
 }
 
 Pencil* Disc::getPencil(int i)
