@@ -9,15 +9,23 @@ class Pencil
         ~Pencil();
         float getX();
         float getY();
+        float getRho() const;
+        float getTheta() const;
+        float getAngSpeed() const;
+        sf::CircleShape* getCircle();
+
         void setPosition(float newX, float newY);
         void setColor(sf::Color newColor);
-        float getRho() const;
+        void setTheta(float newTheta);
+        void setAngSpeed(float newAngSpeed);
         //void setRho(unsigned float newRho);
 
     private :
         sf::CircleShape* circle;
         sf::Color color;
         float rho;
+        float theta;
+        float angSpeed;
 };
 
 #endif // PENCIL_H_INCLUDED

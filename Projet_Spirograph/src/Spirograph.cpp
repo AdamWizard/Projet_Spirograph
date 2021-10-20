@@ -1,5 +1,10 @@
 #include "../include/Spirograph.h"
 #include <iostream>
+
+#include <cmath>
+#ifndef M_PI
+#define M_PI (3.14159265358979323846)
+#endif
 using namespace std;
 
 Spirograph::Spirograph(int dimX, int dimY)
@@ -22,15 +27,15 @@ Spirograph::Spirograph(int dimX, int dimY)
         while(radius<=0);
         if (i==0)
         {
-            Disc discTest(radius, int(dimX/2), int(dimY/2));
-            listDisc[i] = &discTest;
+            Disc* discTest = new Disc(radius, int(dimX/2), int(dimY/2), 0);
+            listDisc[i] = discTest;
         }
 
         else
         {
-            Disc discTest(radius, listDisc[i-1]->getX()+radius+listDisc[i-1]->getRadius(),
-                                  listDisc[i-1]->getY());
-            listDisc[i] = &discTest;
+            Disc* discTest = new Disc(radius, listDisc[i-1]->getX()+radius+listDisc[i-1]->getRadius(),
+                                  listDisc[i-1]->getY(), M_PI/300);
+            listDisc[i] = discTest;
         }
 
     }
@@ -82,19 +87,27 @@ void Spirograph::update()
 
         float R1 = listDisc[i-1]->getRadius();
         float R2 = listDisc[i]->getRadius();
-        float diffX = listDisc[i]->getX()-listDisc[i-1]->getX();
-        float diffY = listDisc[i]->getY()-listDisc[i-1]->getY();
+        float theta = listDisc[i]->getTheta();
 
-        listDisc[i]->setPosition(listDisc[i-1]->getX() + (R1+R2) * ((R1+R2)/diffX),
-                                 listDisc[i-1]->getY() + (R1+R2) * (diffY/diffX));
+        theta += listDisc[i]->getAngSpeed();
+        listDisc[i]->setTheta(theta);
 
+        cout << "x : " << listDisc[i]->getX() << ", y : " << listDisc[i]->getY() << endl;
+        listDisc[i]->setPosition(listDisc[i-1]->getX() + (R1+R2) * cos(theta),
+                                 listDisc[i-1]->getY() + (R1+R2) * sin(theta));
         for(int j=0;j<listDisc[i]->getNbPencils();j++){
 
             Pencil* currentPencil = listDisc[i]->getPencil(j);
             float rho = currentPencil->getRho();
+            float phi = currentPencil->getTheta();
 
-            currentPencil->setPosition(listDisc[i]->getX() + (rho) * ((rho)/diffX),
-                                       listDisc[i]->getY() + (rho) * (diffY/diffX));
+            float penAngSpeed = R1/R2*listDisc[i]->getAngSpeed();
+
+            phi += penAngSpeed;
+            currentPencil->setTheta(phi);
+
+            currentPencil->setPosition(listDisc[i]->getX() + rho * cos(theta + phi),
+                                       listDisc[i]->getY() + rho * sin(theta + phi));
             }
     }
 }
