@@ -96,6 +96,5 @@ void Spirograph::update()
             currentPencil->setPosition(listDisc[i]->getX() + (rho) * ((rho)/diffX),
                                        listDisc[i]->getY() + (rho) * (diffY/diffX));
             }
-
     }
 }
