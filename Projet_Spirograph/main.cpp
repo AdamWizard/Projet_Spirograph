@@ -13,20 +13,7 @@ using namespace std;
 
 int main()
 {
-    //FOR WAY LATER
-    int nbDiscs = 2;
-
-    //Spirograph *spirograph = new Spirograph();
-
-    double R1,R2;
-    cout<<"Radius of the first disc"<<endl;
-    cin >> R1;
-
-    cout<<"Radius of the second disc"<<endl;
-    cin >> R2;
-    //^^^^A mettre dans le builder de spirograph (pour l'instant garder 2 disques en rotation interne/externe on se casse pas la tete)
-    MovingPoint *currentPoint = new MovingPoint();
-    float radius;
+    /*Spirograph spiro;
 
     //travail d'affichage du spirograph
 
@@ -39,17 +26,28 @@ int main()
     //game loop
     //TEST initialiser les cercles et la liste de points
 
-    /*int i = 0;
-    while(spirograph.)*/
+    sf::CircleShape tabCircle[spiro.getNbPoints()]; // +1 to add the pencil in the circles list
+    for(int i = 0; i < spiro.getNbPoints(); i++)
+    {
+        sf::CircleShape circle(1);
+        if(i < spiro.getNbPoints()-1)
+            circle.setRadius(spiro.getPoint(i+1)->getRho());
 
-    sf::CircleShape circle(R1);
-    circle.setOrigin(circle.getRadius(), circle.getRadius());
-    circle.setOutlineThickness(1);
-    circle.setFillColor(sf::Color::Transparent);
-    circle.setOutlineColor(sf::Color::White);
-    circle.setPosition(winX/2,winY/2);
+        circle.setOrigin(circle.getRadius(), circle.getRadius());
+        circle.setOutlineThickness(1);
+        circle.setFillColor(sf::Color::Transparent);
+        circle.setOutlineColor(sf::Color::White);
+        int sumX = winX/2;
+        for(int j = i; j>0; j--)
+        {
+            sumX += tabCircle[j-1].getRadius();
+        }
+        circle.setPosition(sumX, winY/2);
 
-    sf::CircleShape movingCircle(R2);
+        tabCircle[i] = circle;
+    }
+
+    /*sf::CircleShape movingCircle(spiro.getPoint(2)->getRho());
     movingCircle.setOrigin(movingCircle.getRadius(), movingCircle.getRadius());
     movingCircle.setOutlineThickness(1);
     movingCircle.setFillColor(sf::Color::Transparent);
@@ -62,12 +60,11 @@ int main()
     movingCircle2.setOutlineThickness(2);
     movingCircle2.setFillColor(sf::Color::Transparent);
     movingCircle2.setOutlineColor(sf::Color::White);
-    movingCircle2.setPosition(winX/2+movingCircle.getRadius()+movingCircle2.getRadius(),winY/2);
+    movingCircle2.setPosition(winX/2+movingCircle.getRadius()+movingCircle2.getRadius(),winY/2);*/
 
-    //float[2] *list;
     //FIN TEST
 
-    sf::Uint8*	pixels = new sf::Uint8[winX*winY*4];
+    /*sf::Uint8*	pixels = new sf::Uint8[winX*winY*4];
 	sf::Texture texture;
 	texture.create(winX, winY);
 	sf::Sprite sprite(texture);
@@ -80,10 +77,9 @@ int main()
 		pixels[i+3] = 255;
 	}
 
-    float theta=0;
-    float phi=0;
-    float R3 = movingCircle2.getRadius();
-    float angspeed = M_PI/500;
+    //float angspeed = M_PI/200;
+
+    bool drawCircles = true;
 
     while(window.isOpen()){
         //on regarde les evenements
@@ -97,6 +93,9 @@ int main()
                 if (ev.key.code==sf::Keyboard::Escape){
                     window.close();
                 }
+                if (ev.key.code==sf::Keyboard::Space){
+                    drawCircles = !drawCircles;
+                }
                 break;
             }
         }
@@ -109,39 +108,70 @@ int main()
         //TEST : dessiner des cercles et les faire bouger
 
         //updating circles
+
+        for(int i = 1; i < spiro.getNbPoints(); i++)
+        {
+            float angSpeed = spiro.getPoint(i)->getAngSpeed();
+            float theta = spiro.getPoint(i)->getTheta() + angSpeed;
+            float rho = tabCircle[i].getRadius();
+            /*float phi = (tabCircle[i-1].getRadius()/tabCircle[i-2].getRadius())*theta;
+            if(i == spiro.getNbPoints()-1)
+                theta += phi;*/
+
+            /*spiro.getPoint(i)->setTheta(theta);
+
+            float x = tabCircle[i].getPosition().x;
+            float y = tabCircle[i].getPosition().y;
+
+            tabCircle[i].setPosition(int(x+(rho+spiro.getPoint(i)->getRho())*cos(theta)),
+                                     int(y+(rho+spiro.getPoint(i)->getRho())*sin(theta)));
+
+            if(i==2)
+                cout << "x : " << int(x) << "\n";
+        }*/
+/*
         theta += angspeed;
-        phi=(R1/R2)*theta;
-        //movingCircle.move((R1+R2)*cos(theta),(R1+R2)*sin(theta));
-        movingCircle.setPosition(circle.getPosition().x+(R1+R2)*cos(theta),circle.getPosition().y+(R1+R2)*sin(theta));
-        movingCircle2.setPosition(movingCircle.getPosition().x+(R2)*cos(theta+phi),
-                                  movingCircle.getPosition().y+(R2)*sin(theta+phi));
-        //FIN TEST
+        phi=(spiro.getPoint(1)->getRho()/spiro.getPoint(2)->getRho())*theta;
+
 
         //TEST : rayon variable pour le disque tournant
-        //R2+=sin(theta)/2;
+        //R2+=sin(theta)/3;
         //movingCircle.setRadius(R2);
-        //phi=(R1/R2)*theta;
         //FIN SKETCH
 
-        int tempx = int(movingCircle2.getPosition().x);
-        int tempy = int(movingCircle2.getPosition().y);
+        movingCircle.setPosition(circle.getPosition().x+(spiro.getPoint(1)->getRho()+spiro.getPoint(2)->getRho())*cos(theta),
+                                 circle.getPosition().y+(spiro.getPoint(1)->getRho()+spiro.getPoint(2)->getRho())*sin(theta));
+
+        movingCircle2.setPosition(movingCircle.getPosition().x+(spiro.getPoint(2)->getRho())*cos(theta+phi),
+                                  movingCircle.getPosition().y+(spiro.getPoint(2)->getRho())*sin(theta+phi));
+        //FIN TEST
+
+*/
+        /*int tempx = int(tabCircle[spiro.getNbPoints()-1].getPosition().x);
+        int tempy = int(tabCircle[spiro.getNbPoints()-1].getPosition().y);
+        int phi = spiro.getPoint(spiro.getNbPoints()-1)->getTheta();
 
         if (4*(tempy*winX+tempx) < winX*winY*4){
-            pixels[4*(tempy*winX+tempx)] = 100;
-            pixels[4*(tempy*winX+tempx)+1] = 200;
-            pixels[4*(tempy*winX+tempx)+2] = 100;
+            pixels[4*(tempy*winX+tempx)] = 100-2*int(cos(phi)*50);
+            pixels[4*(tempy*winX+tempx)+1] = 100;
+            pixels[4*(tempy*winX+tempx)+2] = 100+2*int(sin(phi)*50);
         }
 
         texture.update(pixels);
 		window.draw(sprite);
 
-		window.draw(circle);
-        window.draw(movingCircle);
-        window.draw(movingCircle2);
+        if(drawCircles)
+        {
+            for(int i = 0; i < spiro.getNbPoints(); i++)
+            {
+                window.draw(tabCircle[i]);
+            }
+        }
+
         //fin affichage
         window.display(); //window is done drawing
     }
 
-
+    delete pixels; pixels = nullptr;*/
     return 0;
 }

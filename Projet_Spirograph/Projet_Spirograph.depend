@@ -876,7 +876,7 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1634634687 source:c:\users\florian\desktop\projet_spiro\projet_spirograph\projet_spirograph\main.cpp
+1634733039 source:c:\users\florian\desktop\projet_spiro\projet_spirograph\projet_spirograph\main.cpp
 	<iostream>
 	<SFML/Graphics.hpp>
 	<SFML/Window.hpp>
@@ -1293,7 +1293,7 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1634631197 c:\users\florian\desktop\projet_spiro\projet_spirograph\projet_spirograph\include\spirograph.h
+1634641054 c:\users\florian\desktop\projet_spiro\projet_spirograph\projet_spirograph\include\spirograph.h
 	"../include/MovingPoint.h"
 
 1634044189 c:\users\florian\desktop\projet_spiro\projet_spirograph\projet_spirograph\include\movingpoint.h
@@ -1301,7 +1301,7 @@
 1634465038 source:c:\users\florian\desktop\projet_spiro\projet_spirograph\projet_spirograph\src\movingpoint.cpp
 	"../include/MovingPoint.h"
 
-1634631428 source:c:\users\florian\desktop\projet_spiro\projet_spirograph\projet_spirograph\src\spirograph.cpp
+1634661095 source:c:\users\florian\desktop\projet_spiro\projet_spirograph\projet_spirograph\src\spirograph.cpp
 	"../include/Spirograph.h"
 	<malloc.h>
 	<iostream>
@@ -1316,4 +1316,10 @@
 	<cmath>
 
 1634038644 c:\users\florian\desktop\projet_spiro\projet_spirograph\projet_spirograph\include\point.h
+
+1634733090 source:c:\users\florian\desktop\projet_spiro\projet_spirograph\projet_spirograph\src\pencil.cpp
+	"../include/Pencil.h"
+
+1634733076 c:\users\florian\desktop\projet_spiro\projet_spirograph\projet_spirograph\include\pencil.h
+	"SFML/Graphics.hpp"
 
