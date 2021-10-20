@@ -100,10 +100,6 @@ int main()
         //updating
         window.clear();
         //updating spiro
-        for (int i=0;i<spiro.getNbDiscs();i++)
-        {
-            cout << "r, x, y : " <<spiro.getDisc(i)->getRadius()<<", "<< spiro.getDisc(i)->getX() << ", " << spiro.getDisc(i)->getY() << endl;
-        }
         cout<<"updating spiro"<<endl;
         spiro.update();
 

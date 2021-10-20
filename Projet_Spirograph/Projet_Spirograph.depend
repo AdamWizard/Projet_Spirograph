@@ -1327,6 +1327,7 @@
 	"SFML/Graphics.hpp"
 	"Pencil.h"
 
-1634745931 source:c:\users\florian\desktop\projet_spiro\projet_spirograph\projet_spirograph\src\disc.cpp
+1634750427 source:c:\users\florian\desktop\projet_spiro\projet_spirograph\projet_spirograph\src\disc.cpp
 	"../include/Disc.h"
+	<iostream>
 

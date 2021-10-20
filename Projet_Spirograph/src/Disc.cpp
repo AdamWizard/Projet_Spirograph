@@ -39,17 +39,17 @@ sf::CircleShape* Disc::getCircle()
 
 float Disc::getRadius()
 {
-    circle.getRadius();
+    return getCircle()->getRadius();
 }
 
 float Disc::getX()
 {
-    return circle.getPosition().x;
+    return getCircle()->getPosition().x;
 }
 
 float Disc::getY()
 {
-    return circle.getPosition().y;
+    return getCircle()->getPosition().y;
 }
 
 
@@ -59,7 +59,7 @@ unsigned int Disc::getNbPencils(){
 
 void Disc::setPosition(float newX, float newY)
 {
-    circle.setPosition(newX, newY);
+    getCircle()->setPosition(newX, newY);
 }
 
 Pencil* Disc::getPencil(int i)

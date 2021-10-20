@@ -22,29 +22,16 @@ Spirograph::Spirograph(int dimX, int dimY)
         while(radius<=0);
         if (i==0)
         {
-            cout << "radius : " << radius << endl;
-            /*sf::CircleShape circle(radius);
-            cout << "radiusC : " << circle.getRadius()<< endl;
-            //circle.setRadius(radius);
-            circle.setOrigin(circle.getRadius(), circle.getRadius());
-            circle.setOutlineThickness(1);
-            circle.setFillColor(sf::Color::Transparent);
-            circle.setOutlineColor(sf::Color::White);
-            circle.setPosition(dimX/2, dimY/2);*/
-
-            listDisc[i] = new Disc(radius, dimX/2, dimY/2);
-            cout << "radiusL : " << listDisc[i]->getRadius()<< endl;
+            Disc discTest(radius, int(dimX/2), int(dimY/2));
+            listDisc[i] = &discTest;
         }
 
         else
         {
-            listDisc[i] = new Disc(radius,
-                            listDisc[i-1]->getX()+radius+listDisc[i-1]->getRadius(),
-                            listDisc[i-1]->getY());
+            Disc discTest(radius, listDisc[i-1]->getX()+radius+listDisc[i-1]->getRadius(),
+                                  listDisc[i-1]->getY());
+            listDisc[i] = &discTest;
         }
-
-        //debugging
-        cout<<"r,x,y : "<< listDisc[i]->getRadius() <<"," << listDisc[i]->getX() <<","<< listDisc[i]->getY() <<endl;
 
     }
     //pencils
@@ -64,10 +51,6 @@ Spirograph::Spirograph(int dimX, int dimY)
         Pencil* newPencil = new Pencil(sf::Color::Red,distance);
         listDisc[nbDiscs-1]->addPencil(newPencil);
     }
-
-    //debugging
-    cout<< "last disc contains "<< listDisc[nbDiscs-1]->getNbPencils() <<" pencils" <<endl;
-
     speed = 1;
 }
 
