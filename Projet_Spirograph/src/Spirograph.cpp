@@ -118,7 +118,6 @@ void Spirograph::update()
             phi += penAngSpeed;
             currentPencil->setPhi(phi);
 
-            // Formulas explained in the README
             currentPencil->setPosition(getDisc(i)->getX() + rho * cos(theta + phi),
                                        getDisc(i)->getY() + rho * sin(theta + phi));
             }

@@ -82,7 +82,7 @@ int main()
                 int tempx = int(currentPencil->getX());
                 int tempy = int(currentPencil->getY());
                 float diffX = tempx-spiro.getDisc(i)->getX();
-                int phi = acos(diffX/currentPencil->getRho());
+                int phi = currentPencil->getPhi();
 
                 if (4*(tempy*winX+tempx) < winX*winY*4)
                 {
@@ -91,11 +91,15 @@ int main()
                     // 2nd one use the Pencil color to draw the curve, useful when you have to distinguish the curves from several pencils
                     // For each pencil of the disc, it loops between red, green and blue
 
-                    if (spiro.getDisc(i)->getNbPencils() == 1)
+                    pixels[4*(tempy*winX+tempx)] = 100+2*int(cos(phi)*50);
+                    pixels[4*(tempy*winX+tempx)+1] = 100-2*int(sin(phi)*50);
+                    pixels[4*(tempy*winX+tempx)+2] = 100;
+
+                    /*if (spiro.getDisc(i)->getNbPencils() == 1)
                     {
-                        pixels[4*(tempy*winX+tempx)] = 100-2*int(cos(phi)*50);
-                        pixels[4*(tempy*winX+tempx)+1] = 100;
-                        pixels[4*(tempy*winX+tempx)+2] = 100+2*int(sin(phi)*50);
+                        pixels[4*(tempy*winX+tempx)] = 100+2*int(cos(phi)*50);
+                        pixels[4*(tempy*winX+tempx)+1] = 100-2*int(sin(phi)*50);
+                        pixels[4*(tempy*winX+tempx)+2] = 100;
                     }
                     else
                     {
@@ -106,7 +110,7 @@ int main()
                         pixels[4*(tempy*winX+tempx)] = int(red)*255;
                         pixels[4*(tempy*winX+tempx)+1] = int(green)*255;
                         pixels[4*(tempy*winX+tempx)+2] = int(blue)*255;
-                    }
+                    }*/
                 }
                 window.draw(*(currentPencil->getCircle()));
             }
