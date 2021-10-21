@@ -1,4 +1,4 @@
-#include "../include/Pencil.h"
+#include "../headers/Pencil.h"
 #include <cmath>
 #ifndef M_PI
 #define M_PI (3.14159265358979323846)
@@ -6,10 +6,10 @@
 
 Pencil::Pencil(sf::Color newColor, float newRho)
 {
-    circle = new sf::CircleShape(1);
+    circle = new sf::CircleShape(1); // Radius of 1 to form a visible point
     color = newColor;
     rho = newRho;
-    theta = 0;
+    phi = 0;
     angSpeed = 0;
 }
 
@@ -18,24 +18,14 @@ Pencil::~Pencil()
     delete circle; circle = nullptr;
 }
 
-float Pencil::getX()
+float Pencil::getX() const
 {
     return circle->getPosition().x;
 }
 
-float Pencil::getY()
+float Pencil::getY() const
 {
     return circle->getPosition().y;
-}
-
-void Pencil::setPosition(float newX, float newY)
-{
-    circle->setPosition(newX, newY);
-}
-
-void Pencil::setColor(sf::Color newColor)
-{
-    color = newColor;
 }
 
 float Pencil::getRho() const
@@ -43,14 +33,9 @@ float Pencil::getRho() const
     return rho;
 }
 
-float Pencil::getTheta() const
+float Pencil::getPhi() const
 {
-    return theta;
-}
-
-void Pencil::setTheta(float newTheta)
-{
-    theta = newTheta;
+    return phi;
 }
 
 float Pencil::getAngSpeed() const
@@ -58,12 +43,32 @@ float Pencil::getAngSpeed() const
     return angSpeed;
 }
 
-void Pencil::setAngSpeed(float newAngSpeed)
+sf::Color Pencil::getColor() const
 {
-    angSpeed = newAngSpeed;
+    return color;
 }
 
 sf::CircleShape* Pencil::getCircle()
 {
     return circle;
+}
+
+void Pencil::setPosition(float newX, float newY)
+{
+    circle->setPosition(newX, newY);
+}
+
+void Pencil::setPhi(float newPhi)
+{
+    phi = newPhi;
+}
+
+void Pencil::setAngSpeed(float newAngSpeed)
+{
+    angSpeed = newAngSpeed;
+}
+
+void Pencil::setColor(sf::Color newColor)
+{
+    color = newColor;
 }

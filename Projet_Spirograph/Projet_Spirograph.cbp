@@ -56,14 +56,27 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/Disc.h" />
 		<Unit filename="include/MovingPoint.h" />
+		<Unit filename="include/Pencil.h" />
 		<Unit filename="include/Point.h" />
 		<Unit filename="include/Spirograph.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Disc.cpp" />
 		<Unit filename="src/MovingPoint.cpp" />
+		<Unit filename="src/Pencil.cpp" />
 		<Unit filename="src/Point.cpp" />
 		<Unit filename="src/Spirograph.cpp" />
 		<Extensions>
+			<DoxyBlocks>
+				<comment_style block="0" line="0" />
+				<doxyfile_project output_language="French" />
+				<doxyfile_build />
+				<doxyfile_warnings />
+				<doxyfile_output />
+				<doxyfile_dot />
+				<general />
+			</DoxyBlocks>
 			<lib_finder disable_auto="1" />
 		</Extensions>
 	</Project>
