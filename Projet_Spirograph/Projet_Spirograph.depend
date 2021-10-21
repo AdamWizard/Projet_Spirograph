@@ -879,12 +879,12 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1634758837 source:c:\users\florian\desktop\projet_spiro\projet_spirograph\projet_spirograph\main.cpp
+1634784594 source:c:\users\florian\desktop\projet_spiro\projet_spirograph\projet_spirograph\main.cpp
 	<iostream>
 	<SFML/Graphics.hpp>
 	<SFML/Window.hpp>
 	<SFML/Graphics/Texture.hpp>
-	"../include/Spirograph.h"
+	"headers/Spirograph.h"
 	<cmath>
 
 1525812018 c:\users\florian\desktop\projet_spiro\projet_spirograph\projet_spirograph\sfml-2.5.1\include\sfml\graphics.hpp
@@ -1305,8 +1305,8 @@
 1634465038 source:c:\users\florian\desktop\projet_spiro\projet_spirograph\projet_spirograph\src\movingpoint.cpp
 	"../include/MovingPoint.h"
 
-1634759177 source:c:\users\florian\desktop\projet_spiro\projet_spirograph\projet_spirograph\src\spirograph.cpp
-	"../include/Spirograph.h"
+1634783465 source:c:\users\florian\desktop\projet_spiro\projet_spirograph\projet_spirograph\src\spirograph.cpp
+	"../headers/Spirograph.h"
 	<iostream>
 	<cmath>
 
@@ -1321,20 +1321,19 @@
 
 1634038644 c:\users\florian\desktop\projet_spiro\projet_spirograph\projet_spirograph\include\point.h
 
-1634758767 source:c:\users\florian\desktop\projet_spiro\projet_spirograph\projet_spirograph\src\pencil.cpp
-	"../include/Pencil.h"
+1634772798 source:c:\users\florian\desktop\projet_spiro\projet_spirograph\projet_spirograph\src\pencil.cpp
+	"../headers/Pencil.h"
 	<cmath>
 
-1634758746 c:\users\florian\desktop\projet_spiro\projet_spirograph\projet_spirograph\include\pencil.h
+1634761251 c:\users\florian\desktop\projet_spiro\projet_spirograph\projet_spirograph\include\pencil.h
 	"SFML/Graphics.hpp"
 
 1634758254 c:\users\florian\desktop\projet_spiro\projet_spirograph\projet_spirograph\include\disc.h
 	"SFML/Graphics.hpp"
 	"Pencil.h"
 
-1634757946 source:c:\users\florian\desktop\projet_spiro\projet_spirograph\projet_spirograph\src\disc.cpp
-	"../include/Disc.h"
-	<iostream>
+1634777895 source:c:\users\florian\desktop\projet_spiro\projet_spirograph\projet_spirograph\src\disc.cpp
+	"../headers/Disc.h"
 	<cmath>
 
 1634759673 d:\git\projet_spirograph\projet_spirograph\include\pencil.h

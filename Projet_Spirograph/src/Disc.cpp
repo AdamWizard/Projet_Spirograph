@@ -1,5 +1,4 @@
-#include "../include/Disc.h"
-#include <iostream>
+#include "../headers/Disc.h"
 #include <cmath>
 #ifndef M_PI
 #define M_PI (3.14159265358979323846)
@@ -11,7 +10,8 @@ Disc::Disc(sf::CircleShape* newCircle)
     listPencils = nullptr;
     nbPencils = 0;
 
-    theta = 0; angSpeed = M_PI/120;
+    theta = 0;
+    angSpeed = M_PI/120; // Default framerate, must be a multiple of 60 to work efficiently
 }
 
 Disc::Disc(float radius, float x, float y, float newAngSpeed)
@@ -42,38 +42,47 @@ Disc::~Disc()
     //delete circle; circle = nullptr;
 }
 
-sf::CircleShape* Disc::getCircle()
+sf::CircleShape* Disc::getCircle() const
 {
     return circle;
 }
 
-float Disc::getRadius()
+unsigned int Disc::getNbPencils() const
+{
+    return nbPencils;
+}
+
+Pencil* Disc::getPencil(int i)
+{
+    if(i>=0 && i < nbPencils) // To avoid memory read problems
+        return listPencils[i];
+    else
+        return nullptr;
+}
+
+float Disc::getRadius() const
 {
     return getCircle()->getRadius();
 }
 
-float Disc::getX()
+float Disc::getX() const
 {
     return getCircle()->getPosition().x;
 }
 
-float Disc::getY()
+float Disc::getY() const
 {
     return getCircle()->getPosition().y;
 }
 
-float Disc::getTheta()
+float Disc::getTheta() const
 {
     return theta;
 }
 
-float Disc::getAngSpeed()
+float Disc::getAngSpeed() const
 {
     return angSpeed;
-}
-
-unsigned int Disc::getNbPencils(){
-    return nbPencils;
 }
 
 void Disc::setPosition(float newX, float newY)
@@ -91,18 +100,10 @@ void Disc::setAngSpeed(float newAngSpeed)
     angSpeed = newAngSpeed;
 }
 
-Pencil* Disc::getPencil(int i)
-{
-    if(i>=0 && i < nbPencils)
-        return listPencils[i];
-    else
-        return nullptr;
-}
-
 void Disc::addPencil(Pencil* pencil)
 {
     Pencil** newList = new Pencil*[nbPencils+1];
-    std::copy(listPencils, listPencils+nbPencils, newList);
+    std::copy(listPencils, listPencils+nbPencils, newList); // Safer than copying manually with a for loop
     newList[nbPencils] = pencil;
     nbPencils++;
     listPencils = newList;
