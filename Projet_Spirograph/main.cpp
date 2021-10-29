@@ -15,7 +15,7 @@ int main()
 {
     //============== RENDERING WINDOW INITIALIZATION ==========================
 
-    int winX = 640; int winY = 640;
+    int winX = 960; int winY = 960;
     Spirograph spiro(winX, winY);
     sf::RenderWindow window(sf::VideoMode(winX, winY), "Spirograph",sf::Style::Titlebar | sf::Style::Close);
     window.setFramerateLimit(60);
@@ -38,8 +38,11 @@ int main()
 		pixels[i+3] = 255;
 	}
 
-    bool drawDiscs = true; // This boolean is linked with a key event to hide/show the white discs
+    bool drawDiscs = false; // This boolean is linked with a key event to hide/show the white discs
 
+    float framerate = 0;
+    window.setFramerateLimit(framerate);
+    //window.setVerticalSyncEnabled(true);
     // ============================== MAIN LOOP =================================
     while(window.isOpen()){
         // Check the key events
@@ -54,6 +57,16 @@ int main()
                         window.close();
                     if (ev.key.code == sf::Keyboard::Space)
                         drawDiscs = !drawDiscs;
+                    if (ev.key.code == sf::Keyboard::Add)
+                    {
+                        framerate += 10;
+                        window.setFramerateLimit(framerate);
+                    }
+                    if (ev.key.code == sf::Keyboard::Subtract && framerate >= 10)
+                    {
+                        framerate -= 10;
+                        window.setFramerateLimit(framerate);
+                    }
                     break;
             }
         }

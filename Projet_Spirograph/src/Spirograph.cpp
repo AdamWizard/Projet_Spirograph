@@ -10,62 +10,76 @@ using namespace std;
 Spirograph::Spirograph(int dimX, int dimY)
 {
     // ======================== DISCS =============================================
-
-    std::cout << "How many discs do you want ? (enter a positive integer)\n";
+    float maxDrawableX;
     do
-        cin >> nbDiscs;
-    while(nbDiscs <= 0 );
-
-    listDisc = new Disc*[nbDiscs];
-
-    for(int i = 0; i < nbDiscs; i++)
     {
-        float radius = 1;
-        cout << "What is the radius of disc number "<< i+1 <<" ? (enter  a positive integer)\n";
+        std::cout << "How many discs do you want ? (enter a positive integer)\n";
         do
-            cin >> radius;
-        while(radius <= 0);
+            cin >> nbDiscs;
+        while(nbDiscs <= 0 );
 
-        if (i == 0) // The first disc doesn't move and thus must me initialized differently
+        listDisc = new Disc*[nbDiscs];
+
+        for(int i = 0; i < nbDiscs; i++)
         {
-            Disc* discTest = new Disc(radius, int(dimX/2), int(dimY/2), M_PI/500);
-            // The center of the Spirograph is now placed at the center of the window
+            float radius = 1;
+            cout << "What is the radius of disc number "<< i+1 <<" ? (enter  a positive integer)\n";
+            do
+                cin >> radius;
+            while(radius <= 0);
 
-            listDisc[i] = discTest;
+            if (i == 0) // The first disc doesn't move and thus must me initialized differently
+            {
+                Disc* discTest = new Disc(radius, int(dimX/2), int(dimY/2), M_PI/2000);
+                // The center of the Spirograph is now placed at the center of the window
+
+                listDisc[i] = discTest;
+            }
+            else
+            {
+                // The formula to set the coordinates of the center of each circle is
+                //      previousDiscX + previousDiscRadius + actualDiscRadius
+                // The Y stays the same so that at frame 0, each Disc is on the horizontal axis
+                // and the centers form an horizontal line
+                // Finally the formula for the angular speed is
+                // ALED
+                Disc* discTest = new Disc(radius, getDisc(i-1)->getX()+radius+getDisc(i-1)->getRadius(),
+                                      getDisc(i-1)->getY(), getDisc(i-1)->getAngSpeed()*(getDisc(i-1)->getRadius()/radius));
+                listDisc[i] = discTest;
+            }
+
         }
-        else
-        {
-            // The formula to set the coordinates of the center of each circle is
-            //      previousDiscX + previousDiscRadius + actualDiscRadius
-            // The Y stays the same so that at frame 0, each Disc is on the horizontal axis
-            // and the centers form an horizontal line
-            // Finally the formula for the angular speed is
-            // ALED
-            Disc* discTest = new Disc(radius, getDisc(i-1)->getX()+radius+getDisc(i-1)->getRadius(),
-                                  getDisc(i-1)->getY(), getDisc(i-1)->getAngSpeed()*(getDisc(i-1)->getRadius()/radius));
-            listDisc[i] = discTest;
-        }
-
-    }
-    // ======================== PENCILS ===================================================
-    int nbPencils;
-    cout<<"How many pencils do you want to put in the last disc? (enter a positive integer)\n";
-    do
-        cin >> nbPencils;
-    while(nbPencils <= 0);
-
-    for(int i = 0; i< nbPencils ; i++){
-        float distance;
-        cout << "What's the distance between pencil number " << i + 1
-             << " and the center of disc number " << nbDiscs << " (enter a positive value)" << endl;
+        // ======================== PENCILS ===================================================
+        int nbPencils;
+        cout<<"How many pencils do you want to put in the last disc? (enter a positive integer)\n";
         do
-            cin >> distance;
-        while (distance < 0);
+            cin >> nbPencils;
+        while(nbPencils <= 0);
 
-        sf::Color tabColor[3] = {sf::Color::Red, sf::Color::Green,sf::Color::Blue}; // To improve
-        Pencil* newPencil = new Pencil(tabColor[i%3],distance);
-        listDisc[nbDiscs-1]->addPencil(newPencil);
+        float maxPencilDistance = 0;
+        for(int i = 0; i< nbPencils ; i++){
+            float distance;
+            cout << "What's the distance between pencil number " << i + 1
+                 << " and the center of disc number " << nbDiscs << " (enter a positive value)" << endl;
+            do
+                cin >> distance;
+            while (distance < 0);
+            if(distance > maxPencilDistance)
+                maxPencilDistance = distance;
+            sf::Color tabColor[3] = {sf::Color::Red, sf::Color::Green,sf::Color::Blue}; // To improve
+            Pencil* newPencil = new Pencil(tabColor[i%3],distance);
+            listDisc[nbDiscs-1]->addPencil(newPencil);
+        }
+        maxDrawableX = dimX/2 + listDisc[0]->getRadius();
+        for(int i = 1; i < nbDiscs-1; i++)
+        {
+            maxDrawableX += listDisc[i]->getRadius()*2;
+        }
+        maxDrawableX += listDisc[nbDiscs-1]->getRadius() + maxPencilDistance;
+        if(maxDrawableX >= dimX)
+            cout << "Warning ! You're trying to draw out of the window, please change your data." << endl;
     }
+    while(maxDrawableX >= dimX);
     speed = 1;
 }
 
@@ -113,6 +127,8 @@ void Spirograph::update()
             float phi = currentPencil->getPhi();
 
             // Formulas explained in the README
+
+
             float penAngSpeed = R1/R2*getDisc(i)->getAngSpeed();
 
             phi += penAngSpeed;
