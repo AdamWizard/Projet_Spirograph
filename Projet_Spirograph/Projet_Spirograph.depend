@@ -10,13 +10,14 @@
 
 1634315605 d:\git\projet_spirograph\projet_spirograph\include\point.h
 
-1634314147 source:d:\git\projet_spirograph\projet_spirograph\src\spirograph.cpp
+1634759673 source:d:\git\projet_spirograph\projet_spirograph\src\spirograph.cpp
 	"../include/Spirograph.h"
-	<malloc.h>
 	<iostream>
+	<cmath>
 
-1634315394 d:\git\projet_spirograph\projet_spirograph\include\spirograph.h
-	"../include/MovingPoint.h"
+1634759673 d:\git\projet_spirograph\projet_spirograph\include\spirograph.h
+	<SFML/Window.hpp>
+	"../include/Disc.h"
 
 1632821559 source:c:\users\florian\desktop\projet\projet_spirograph\projet_spirograph\main.cpp
 	<iostream>
@@ -457,13 +458,15 @@
 	"../include/Point.h"
 	<stdlib.h>
 
-1633120433 d:\git\projet_spirograph\projet_spirograph\include\disc.h
-	"Point.h"
+1634759673 d:\git\projet_spirograph\projet_spirograph\include\disc.h
+	"SFML/Graphics.hpp"
+	"Pencil.h"
 
-1634314563 source:d:\git\projet_spirograph\projet_spirograph\main.cpp
+1634759673 source:d:\git\projet_spirograph\projet_spirograph\main.cpp
 	<iostream>
 	<SFML/Graphics.hpp>
 	<SFML/Window.hpp>
+	<SFML/Graphics/Texture.hpp>
 	"../include/Spirograph.h"
 	<cmath>
 
