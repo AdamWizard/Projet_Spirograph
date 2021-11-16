@@ -13,46 +13,57 @@ Spirograph::Spirograph(int dimX, int dimY)
     float maxDrawableX;
     do
     {
-        std::cout << "How many discs do you want ? (enter a positive integer)\n";
+        std::cout << "How many discs do you want ? (minimum 2)\n";
         do
             cin >> nbDiscs;
-        while(nbDiscs <= 0 );
+        while(nbDiscs < 2 );
 
         listDisc = new Disc*[nbDiscs];
 
         for(int i = 0; i < nbDiscs; i++)
         {
             float radius = 1;
-            cout << "What is the radius of disc number "<< i+1 <<" ? (enter  a positive integer)\n";
+            cout << "What is the radius of disc number "<< i+1 <<" ? (different from 0)\n" <<
+                    "Entering a negative radius will result in a counter-clockwise rotation\n";
             do
                 cin >> radius;
-            while(radius <= 0);
+            while(radius == 0);
 
-            if (i == 0) // The first disc doesn't move and thus must me initialized differently
-            {
-                Disc* discTest = new Disc(radius, int(dimX/2), int(dimY/2), 0);
-                // The center of the Spirograph is now placed at the center of the window
-
-                listDisc[i] = discTest;
-            }
-            else if (i==1){
-                Disc* discTest = new Disc(radius, getDisc(i-1)->getX()+radius+getDisc(i-1)->getRadius(),
-                                      getDisc(i-1)->getY(), M_PI/2000);
-                listDisc[i] = discTest;
-            }
+            Disc* discStatic = nullptr;
+            Disc* discMoving = nullptr;
+            int rotation = 0;
+            if(radius < 0)
+                rotation = -1;
             else
-            {
-                // The formula to set the coordinates of the center of each circle is
-                //      previousDiscX + previousDiscRadius + actualDiscRadius
-                // The Y stays the same so that at frame 0, each Disc is on the horizontal axis
-                // and the centers form an horizontal line, the discs are all in phase
-                // Finally the formula for the angular speed is
-                // ALED
-                Disc* discTest = new Disc(radius, getDisc(i-1)->getX()+radius+getDisc(i-1)->getRadius(),
-                                      getDisc(i-1)->getY(), getDisc(i-1)->getAngSpeed()*(getDisc(i-1)->getRadius()/radius));
-                listDisc[i] = discTest;
-            }
+                rotation = 1;
 
+            radius = abs(radius); // This way the discs will always be outside of the previous disc
+
+            switch(i) // The 1st two discs are initialized differently so we need a switch
+            {
+                case 0:
+                    discStatic = new Disc(radius, int(dimX/2), int(dimY/2), 0);
+                    // The center of the Spirograph is now placed at the center of the window
+                    listDisc[0] = discStatic;
+                    break;
+
+                case 1:
+                    discMoving = new Disc(radius, getDisc(0)->getX()+getDisc(0)->getRadius()+radius, getDisc(0)->getY(), rotation*M_PI/2000);
+                    listDisc[1] = discMoving;
+                    break;
+
+                default:
+                    // The formula to set the coordinates of the center of each circle is
+                    //      previousDiscX + previousDiscRadius + actualDiscRadius
+                    // The Y stays the same so that at frame 0, each Disc is on the horizontal axis
+                    // and the centers form an horizontal line
+                    // Finally the formula for the angular speed is
+                    //      previousDiscAngSpeed * (previousDiscRadius / actualDiscRadius)
+                    Disc* discTest = new Disc(radius, getDisc(i-1)->getX()+radius+getDisc(i-1)->getRadius(),
+                                          getDisc(i-1)->getY(), rotation*abs(getDisc(i-1)->getAngSpeed())*(getDisc(i-1)->getRadius()/radius));
+
+                    listDisc[i] = discTest;
+            }
         }
         // ======================== PENCILS ===================================================
         int nbPencils;
@@ -69,12 +80,17 @@ Spirograph::Spirograph(int dimX, int dimY)
             do
                 cin >> distance;
             while (distance < 0);
-            if(distance > maxPencilDistance)
+
+            if(distance > maxPencilDistance) // Avoir le crayon le plus éloigné pour le calcul de la somme des rayons
                 maxPencilDistance = distance;
+
+            // Choix des couleurs à implémenter
             sf::Color tabColor[3] = {sf::Color::Red, sf::Color::Green,sf::Color::Blue}; // To improve
             Pencil* newPencil = new Pencil(tabColor[i%3],distance);
+
             listDisc[nbDiscs-1]->addPencil(newPencil);
         }
+        // Vérifier si on sort pas de la fenêtre
         maxDrawableX = dimX/2 + listDisc[0]->getRadius();
         for(int i = 1; i < nbDiscs-1; i++)
         {
@@ -85,7 +101,6 @@ Spirograph::Spirograph(int dimX, int dimY)
             cout << "Warning ! You're trying to draw out of the window, please change your data." << endl;
     }
     while(maxDrawableX >= dimX);
-    speed = 1;
 }
 
 Spirograph::~Spirograph()
@@ -118,7 +133,12 @@ void Spirograph::update()
         float R2 = getDisc(i)->getRadius();
         float theta = getDisc(i)->getTheta();
 
-        theta += getDisc(i-1)->getAngSpeed()+getDisc(i)->getAngSpeed(); // Slowly update theta
+        // Slowly update theta
+        if(getDisc(i)->getAngSpeed()*getDisc(i-1)->getAngSpeed() < 0)
+            theta += getDisc(i)->getAngSpeed()-getDisc(i-1)->getAngSpeed();
+        else
+            theta += getDisc(i)->getAngSpeed()+getDisc(i-1)->getAngSpeed();
+
         getDisc(i)->setTheta(theta);
 
         // Formulas explained in the README
@@ -133,8 +153,8 @@ void Spirograph::update()
 
             // Formulas explained in the README
 
-
-            float penAngSpeed = R1/R2*getDisc(i)->getAngSpeed();
+            //float sumRadius =
+            float penAngSpeed = (R1/R2)*getDisc(i)->getAngSpeed();
 
             phi += penAngSpeed;
             currentPencil->setPhi(phi);

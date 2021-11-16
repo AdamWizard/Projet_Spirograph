@@ -119,15 +119,15 @@ class Disc
 
         /**
          * @brief Setter
+         * @param newTheta a float for the angle
          *
          * A setter for the angle of the Disc
-         * @param newTheta a float for the angle
          */
         void setTheta(float newTheta);
 
         /**
          * @brief Setter
-         * @param angSpeed a float for the angular speed
+         * @param newAngSpeed a float for the angular speed
          *
          * A setter for the angular speed of the Disc
          */

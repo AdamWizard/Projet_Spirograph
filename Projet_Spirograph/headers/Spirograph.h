@@ -58,7 +58,6 @@ class Spirograph
     private:
         int nbDiscs;
         Disc** listDisc;
-        float speed;
 };
 
 #endif // SPIROGRAPH_H
