@@ -30,9 +30,14 @@ Spirograph::Spirograph(int dimX, int dimY)
 
             if (i == 0) // The first disc doesn't move and thus must me initialized differently
             {
-                Disc* discTest = new Disc(radius, int(dimX/2), int(dimY/2), M_PI/2000);
+                Disc* discTest = new Disc(radius, int(dimX/2), int(dimY/2), 0);
                 // The center of the Spirograph is now placed at the center of the window
 
+                listDisc[i] = discTest;
+            }
+            else if (i==1){
+                Disc* discTest = new Disc(radius, getDisc(i-1)->getX()+radius+getDisc(i-1)->getRadius(),
+                                      getDisc(i-1)->getY(), M_PI/2000);
                 listDisc[i] = discTest;
             }
             else
@@ -40,7 +45,7 @@ Spirograph::Spirograph(int dimX, int dimY)
                 // The formula to set the coordinates of the center of each circle is
                 //      previousDiscX + previousDiscRadius + actualDiscRadius
                 // The Y stays the same so that at frame 0, each Disc is on the horizontal axis
-                // and the centers form an horizontal line
+                // and the centers form an horizontal line, the discs are all in phase
                 // Finally the formula for the angular speed is
                 // ALED
                 Disc* discTest = new Disc(radius, getDisc(i-1)->getX()+radius+getDisc(i-1)->getRadius(),
@@ -113,7 +118,7 @@ void Spirograph::update()
         float R2 = getDisc(i)->getRadius();
         float theta = getDisc(i)->getTheta();
 
-        theta += getDisc(i)->getAngSpeed(); // Slowly update theta
+        theta += getDisc(i-1)->getAngSpeed()+getDisc(i)->getAngSpeed(); // Slowly update theta
         getDisc(i)->setTheta(theta);
 
         // Formulas explained in the README
