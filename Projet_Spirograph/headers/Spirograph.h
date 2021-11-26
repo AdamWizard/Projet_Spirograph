@@ -1,7 +1,13 @@
 #ifndef SPIROGRAPH_H
 #define SPIROGRAPH_H
+#include <fstream>
+#include <string>
+#include <iostream>
 #include <SFML/Window.hpp>
 #include "Disc.h"
+#include "Parser.h"
+
+using namespace std;
 
 /**
  *  @class Spirograph
@@ -21,6 +27,13 @@ class Spirograph
          * @return An instantiated Spirograph
          */
         Spirograph(int dimX, int dimY);
+
+        /**
+         * @brief Constructor
+         * @param filepath a string that gives the path to a normalized text file with which we will build the Spirograph object
+         * @return An instantiated Spirograph
+         */
+        Spirograph(string filepath);
 
         /**
          * @brief Destructor
@@ -55,9 +68,19 @@ class Spirograph
          */
         void update();
 
+
     private:
         int nbDiscs;
         Disc** listDisc;
+
+        /**
+         * @brief Small method to check if the window can contain the drawing
+         * @param maxPencilDistance an int to specify the farthest pencil
+         * @param dimX an int to get the length of the window
+         *
+         * @return true/false, i.e drawable or not
+         */
+        bool checkLength(int maxPencilDistance, int dimX);
 };
 
 #endif // SPIROGRAPH_H
