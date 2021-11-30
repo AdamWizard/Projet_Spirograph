@@ -61,7 +61,7 @@ int main()
                         window.close();
                     if (ev.key.code == sf::Keyboard::Space)
                         drawDiscs = !drawDiscs;
-                    if (ev.key.code == sf::Keyboard::Left)
+                    if (ev.key.code == sf::Keyboard::Left and spiro.getSpeedFactor()>0)
                         spiro.setSpeedFactor(spiro.getSpeedFactor()-0.1);
                     if (ev.key.code == sf::Keyboard::Right)
                         spiro.setSpeedFactor(spiro.getSpeedFactor()+0.1);
@@ -84,6 +84,11 @@ int main()
             if(drawDiscs)
             {
                 window.draw(*(spiro.getDisc(i)->getCircle()));
+                for(int j = 0; j < spiro.getDisc(i)->getNbPencils(); j++)
+                {
+                    Pencil* currentPencil = spiro.getDisc(i)->getPencil(j);
+                    window.draw(*(currentPencil->getCircle()));
+                }
             }
             // =============== DRAW PENCILS/CURVES =======================
             for(int j = 0; j < spiro.getDisc(i)->getNbPencils(); j++)
@@ -123,7 +128,6 @@ int main()
                         pixels[4*(tempy*winX+tempx)+2] = int(blue)*255;
                     }*/
                 }
-                window.draw(*(currentPencil->getCircle()));
             }
         }
         // Actualize the texture (thus the sprite/canvas) with the new pixel array
