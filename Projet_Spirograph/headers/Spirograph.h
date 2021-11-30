@@ -60,6 +60,21 @@ class Spirograph
         Disc* getDisc(int i);
 
         /**
+         * @brief Setter
+         * @param newSpeedFactor a float, the value which multiplies the speed of rotation of all discs (1 is default value)
+         *
+         */
+        void setSpeedFactor(float newSpeedFactor);
+
+        /**
+         * @brief Getter
+         *
+         * A getter for the speedFactor value
+         * @return the speedFactor value of the spirograph
+         */
+        float getSpeedFactor();
+
+        /**
          * @brief Main method to change the coordinates
          *
          * This method will be called in each frame to adjust the coordinates
@@ -72,6 +87,7 @@ class Spirograph
     private:
         int nbDiscs;
         Disc** listDisc;
+        float speedFactor;
 
         /**
          * @brief Small method to check if the window can contain the drawing

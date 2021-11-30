@@ -10,6 +10,7 @@ using namespace std;
 
 Spirograph::Spirograph(int dimX, int dimY)
 {
+    speedFactor = 1.0;
     // ======================== DISCS =============================================
     float maxPencilDistance = 0;
     do
@@ -68,7 +69,7 @@ Spirograph::Spirograph(int dimX, int dimY)
         }
         // ======================== PENCILS ===================================================
         int nbPencils;
-        cout<<"How many pencils do you want to put in the last disc? (enter a positive integer)\n";
+        cout<<"How many pencils do you want to put on the last disc? (enter a positive integer)\n";
         do
             cin >> nbPencils;
         while(nbPencils <= 0);
@@ -81,16 +82,16 @@ Spirograph::Spirograph(int dimX, int dimY)
                 cin >> distance;
             while (distance < 0);
 
-            if(distance > maxPencilDistance) // Avoir le crayon le plus éloigné pour le calcul de la somme des rayons
+            if(distance > maxPencilDistance) // getting the furthest pencil from the center to calculate the summ of radiuses
                 maxPencilDistance = distance;
 
-            // Choix des couleurs à implémenter
+            // TODO: implement color choice from user
             sf::Color tabColor[3] = {sf::Color::Red, sf::Color::Green,sf::Color::Blue}; // To improve
             Pencil* newPencil = new Pencil(tabColor[i%3],distance);
 
             listDisc[nbDiscs-1]->addPencil(newPencil);
         }
-        // Vérifier si on sort pas de la fenêtre
+        // Checking if any pencil will end up outside the window
         if(!checkLength(maxPencilDistance, dimX))
             cout << "Warning ! You're trying to draw out of the window, please change your data." << endl;
     }
@@ -99,6 +100,7 @@ Spirograph::Spirograph(int dimX, int dimY)
 
 Spirograph::Spirograph(string filepath)
 {
+    speedFactor = 1.0;
     float maxPencilDistance = 0;
     int dimX; int dimY;
     ifstream myFile(filepath);
@@ -232,9 +234,19 @@ Disc* Spirograph::getDisc(int i)
         return nullptr;
 }
 
+float Spirograph::getSpeedFactor()
+{
+    return speedFactor;
+}
+
+void Spirograph::setSpeedFactor(float newSpeedFactor)
+{
+    speedFactor = newSpeedFactor;
+}
+
 void Spirograph::update()
 {
-    for (int i = 1;i < nbDiscs; i++) // Start at 1 because the first Disc doesn't move
+    for (int i = 1;i < nbDiscs; i++) // Start at 1 because the first Disc does not move
     {
         float R1 = getDisc(i-1)->getRadius();
         float R2 = getDisc(i)->getRadius();
@@ -244,7 +256,7 @@ void Spirograph::update()
         if(getDisc(i)->getAngSpeed()*getDisc(i-1)->getAngSpeed() < 0)
             theta += getDisc(i)->getAngSpeed()-getDisc(i-1)->getAngSpeed();
         else
-            theta += getDisc(i)->getAngSpeed()+getDisc(i-1)->getAngSpeed();
+            theta += speedFactor*(getDisc(i)->getAngSpeed()+getDisc(i-1)->getAngSpeed());
 
         getDisc(i)->setTheta(theta);
 
@@ -259,11 +271,9 @@ void Spirograph::update()
             float phi = currentPencil->getPhi();
 
             // Formulas explained in the README
-
-            //float sumRadius =
             float penAngSpeed = (R1/R2)*getDisc(i)->getAngSpeed();
 
-            phi += penAngSpeed;
+            phi += speedFactor*penAngSpeed;
             currentPencil->setPhi(phi);
 
             currentPencil->setPosition(getDisc(i)->getX() + rho * cos(theta + phi),
