@@ -61,10 +61,13 @@ int main()
                         window.close();
                     if (ev.key.code == sf::Keyboard::Space)
                         drawDiscs = !drawDiscs;
-                    if (ev.key.code == sf::Keyboard::Left and spiro.getSpeedFactor()>0)
-                        spiro.setSpeedFactor(spiro.getSpeedFactor()-0.1);
+                    if (ev.key.code == sf::Keyboard::Left)
+                        spiro.setSpeedFactor(spiro.getSpeedFactor()-0.10);
+                        if (spiro.getSpeedFactor()<0)
+                            spiro.setSpeedFactor(0);
                     if (ev.key.code == sf::Keyboard::Right)
-                        spiro.setSpeedFactor(spiro.getSpeedFactor()+0.1);
+                        spiro.setSpeedFactor(spiro.getSpeedFactor()+0.10);
+
                     break;
             }
         }

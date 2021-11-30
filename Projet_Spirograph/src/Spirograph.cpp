@@ -62,7 +62,7 @@ Spirograph::Spirograph(int dimX, int dimY)
                     // Finally the formula for the angular speed is
                     //      previousDiscAngSpeed * (previousDiscRadius / actualDiscRadius)
                     Disc* discTest = new Disc(radius, getDisc(i-1)->getX()+radius+getDisc(i-1)->getRadius(),
-                                          getDisc(i-1)->getY(), rotation*abs(getDisc(i-1)->getAngSpeed())*(getDisc(i-1)->getRadius()/radius));
+                                          getDisc(i-1)->getY(), getDisc(i-1)->getAngSpeed()+rotation*abs(getDisc(i-1)->getAngSpeed())*(getDisc(i-1)->getRadius()/radius));
 
                     listDisc[i] = discTest;
             }
@@ -176,7 +176,7 @@ Spirograph::Spirograph(string filepath)
                         currentDisc = new Disc(radius,
                                                getDisc(i-1)->getX()+radius+getDisc(i-1)->getRadius(),
                                                getDisc(i-1)->getY(),
-                                               rotation*abs(getDisc(i-1)->getAngSpeed())*(getDisc(i-1)->getRadius()/radius));
+                                               getDisc(i-1)->getAngSpeed()+rotation*abs(getDisc(i-1)->getAngSpeed())*(getDisc(i-1)->getRadius()/radius));
 
                         listDisc[lineNumber-2] = currentDisc;
                 }
