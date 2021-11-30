@@ -61,6 +61,10 @@ int main()
                         window.close();
                     if (ev.key.code == sf::Keyboard::Space)
                         drawDiscs = !drawDiscs;
+                    if (ev.key.code == sf::Keyboard::Left)
+                        spiro.setSpeedFactor(spiro.getSpeedFactor()-0.1);
+                    if (ev.key.code == sf::Keyboard::Right)
+                        spiro.setSpeedFactor(spiro.getSpeedFactor()+0.1);
                     break;
             }
         }
@@ -94,8 +98,8 @@ int main()
                 if (4*(tempy*winX+tempx) < winX*winY*4)
                 {
                     // There are 2 methods to color the curves :
-                    // 1st one update the color from phi (the angle) and gives a gradient of colors
-                    // 2nd one use the Pencil color to draw the curve, useful when you have to distinguish the curves from several pencils
+                    // 1st one updates the color from phi (the angle between the pencil, center of its disc and the x axis) to create a gradient of colors
+                    // 2nd one uses the Pencil color to draw the curve, useful when you have to distinguish the curves from several pencils
                     // For each pencil of the disc, it loops between red, green and blue
 
                     pixels[4*(tempy*winX+tempx)] = 200+2*int(cos(phi)*50);

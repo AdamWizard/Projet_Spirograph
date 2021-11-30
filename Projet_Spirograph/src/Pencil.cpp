@@ -6,7 +6,8 @@
 
 Pencil::Pencil(sf::Color newColor, float newRho)
 {
-    circle = new sf::CircleShape(1); // Radius of 1 to form a visible point
+    circle = new sf::CircleShape(3); // Radius of 1 to form a visible point
+    circle->setOrigin(circle->getRadius(), circle->getRadius());
     color = newColor;
     rho = newRho;
     phi = 0;
