@@ -22,7 +22,7 @@ int main()
     Spirograph spiro(filepath);
 
     sf::RenderWindow window(sf::VideoMode(winX, winY), "Spirograph",sf::Style::Titlebar | sf::Style::Close);
-    window.setFramerateLimit(60);
+    window.setFramerateLimit(0);
     sf::Event ev;
 
     // We create a pseudo 3D array to store the RGB components of each pixel of the window

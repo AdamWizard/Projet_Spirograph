@@ -10,9 +10,10 @@
 
 1634315605 d:\git\projet_spirograph\projet_spirograph\include\point.h
 
-1637082979 source:d:\git\projet_spirograph\projet_spirograph\src\spirograph.cpp
+1638297550 source:d:\git\projet_spirograph\projet_spirograph\src\spirograph.cpp
 	"../headers/Spirograph.h"
-	<iostream>
+	<assert.h>
+	<vector>
 	<cmath>
 
 1634759673 d:\git\projet_spirograph\projet_spirograph\include\spirograph.h
@@ -453,7 +454,7 @@
 	"../include/Point.h"
 	<cmath>
 
-1634822397 source:d:\git\projet_spirograph\projet_spirograph\src\disc.cpp
+1638296895 source:d:\git\projet_spirograph\projet_spirograph\src\disc.cpp
 	"../headers/Disc.h"
 	<cmath>
 
@@ -461,7 +462,7 @@
 	"SFML/Graphics.hpp"
 	"Pencil.h"
 
-1637080323 source:d:\git\projet_spirograph\projet_spirograph\main.cpp
+1638297839 source:d:\git\projet_spirograph\projet_spirograph\main.cpp
 	<iostream>
 	<SFML/Graphics.hpp>
 	<SFML/Window.hpp>
@@ -1346,18 +1347,22 @@
 1634778533 c:\users\florian\desktop\projet_spiro\projet_spirograph\projet_spirograph\headers\pencil.h
 	"SFML/Graphics.hpp"
 
-1634822397 d:\git\projet_spirograph\projet_spirograph\headers\spirograph.h
+1638297010 d:\git\projet_spirograph\projet_spirograph\headers\spirograph.h
+	<fstream>
+	<string>
+	<iostream>
 	<SFML/Window.hpp>
 	"Disc.h"
+	"Parser.h"
 
-1634822397 d:\git\projet_spirograph\projet_spirograph\headers\disc.h
+1638296895 d:\git\projet_spirograph\projet_spirograph\headers\disc.h
 	"SFML/Graphics.hpp"
 	"Pencil.h"
 
-1634822397 d:\git\projet_spirograph\projet_spirograph\headers\pencil.h
+1638296895 d:\git\projet_spirograph\projet_spirograph\headers\pencil.h
 	"SFML/Graphics.hpp"
 
-1634822397 source:d:\git\projet_spirograph\projet_spirograph\src\pencil.cpp
+1638296895 source:d:\git\projet_spirograph\projet_spirograph\src\pencil.cpp
 	"../headers/Pencil.h"
 	<cmath>
 
@@ -1815,5 +1820,15 @@
 	<utility>
 
 1637958855 source:c:\users\florian\desktop\projet_spirograph\projet_spirograph\src\parser.cpp
+	"../headers/Parser.h"
+
+1638297700 d:\git\projet_spirograph\projet_spirograph\headers\parser.h
+	<string>
+	<iostream>
+	<vector>
+	<sstream>
+	<utility>
+
+1638296895 source:d:\git\projet_spirograph\projet_spirograph\src\parser.cpp
 	"../headers/Parser.h"
 
