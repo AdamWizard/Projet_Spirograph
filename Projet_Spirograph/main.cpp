@@ -101,6 +101,7 @@ int main()
                     int r =currentPencil->getColor().r;
                     int g =currentPencil->getColor().g;
                     int b =currentPencil->getColor().b;
+                    //cout<<"r:"<<r<<" g:"<<g<<" b:"<<b<<endl;
 
                     pixels[4*(tempy*winX+tempx)] = r;
                     pixels[4*(tempy*winX+tempx)+1] = g;
