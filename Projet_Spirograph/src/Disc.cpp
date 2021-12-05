@@ -1,20 +1,7 @@
 #include "../headers/Disc.h"
 #include <cmath>
-#ifndef M_PI
-#define M_PI (3.14159265358979323846)
-#endif
 
-Disc::Disc(sf::CircleShape* newCircle)
-{
-    circle = newCircle;
-    listPencils = nullptr;
-    nbPencils = 0;
-
-    theta = 0;
-    angSpeed = M_PI/120; // Default framerate, must be a multiple of 60 to work efficiently
-}
-
-Disc::Disc(float radius, float x, float y, float newAngSpeed)
+Disc::Disc(float radius, float x, float y, float newAngSpeed, int newRotation)
 {
     circle = new sf::CircleShape();
     circle->setRadius(radius);
@@ -27,7 +14,7 @@ Disc::Disc(float radius, float x, float y, float newAngSpeed)
     listPencils = nullptr;
     nbPencils = 0;
 
-    theta = 0; angSpeed = newAngSpeed;
+    theta = 0; angSpeed = newAngSpeed; rotation = newRotation;
 }
 
 Disc::~Disc()
@@ -85,6 +72,16 @@ float Disc::getAngSpeed() const
     return angSpeed;
 }
 
+int Disc::getRotation() const
+{
+    return rotation;
+}
+
+int Disc::getDirection() const
+{
+    return direction;
+}
+
 void Disc::setPosition(float newX, float newY)
 {
     getCircle()->setPosition(newX, newY);
@@ -98,6 +95,16 @@ void Disc::setTheta(float newTheta)
 void Disc::setAngSpeed(float newAngSpeed)
 {
     angSpeed = newAngSpeed;
+}
+
+void Disc::setRotation(int newRotation)
+{
+    rotation = newRotation;
+}
+
+void Disc::setDirection(int newDirection)
+{
+    direction = newDirection;
 }
 
 void Disc::addPencil(Pencil* pencil)

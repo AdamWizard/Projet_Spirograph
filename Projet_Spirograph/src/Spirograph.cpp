@@ -8,95 +8,6 @@
 
 using namespace std;
 
-Spirograph::Spirograph(int dimX, int dimY)
-{
-    // ======================== DISCS =============================================
-    float maxPencilDistance = 0;
-    do
-    {
-        std::cout << "How many discs do you want ? (minimum 2)\n";
-        do
-            cin >> nbDiscs;
-        while(nbDiscs < 2 );
-
-        listDisc = new Disc*[nbDiscs];
-
-        for(int i = 0; i < nbDiscs; i++)
-        {
-            float radius = 1;
-            cout << "What is the radius of disc number "<< i+1 <<" ? (different from 0)\n" <<
-                    "Entering a negative radius will result in a counter-clockwise rotation\n";
-            do
-                cin >> radius;
-            while(radius == 0);
-
-            Disc* discStatic = nullptr;
-            Disc* discMoving = nullptr;
-            int rotation = 0;
-            if(radius < 0)
-                rotation = -1;
-            else
-                rotation = 1;
-
-            radius = abs(radius); // This way the discs will always be outside of the previous disc
-
-            switch(i) // The 1st two discs are initialized differently so we need a switch
-            {
-                case 0:
-                    discStatic = new Disc(radius, int(dimX/2), int(dimY/2), 0);
-                    // The center of the Spirograph is now placed at the center of the window
-                    listDisc[0] = discStatic;
-                    break;
-
-                case 1:
-                    discMoving = new Disc(radius, getDisc(0)->getX()+getDisc(0)->getRadius()+radius, getDisc(0)->getY(), rotation*M_PI/2000);
-                    listDisc[1] = discMoving;
-                    break;
-
-                default:
-                    // The formula to set the coordinates of the center of each circle is
-                    //      previousDiscX + previousDiscRadius + actualDiscRadius
-                    // The Y stays the same so that at frame 0, each Disc is on the horizontal axis
-                    // and the centers form an horizontal line
-                    // Finally the formula for the angular speed is
-                    //      previousDiscAngSpeed * (previousDiscRadius / actualDiscRadius)
-                    Disc* discTest = new Disc(radius, getDisc(i-1)->getX()+radius+getDisc(i-1)->getRadius(),
-                                          getDisc(i-1)->getY(), rotation*abs(getDisc(i-1)->getAngSpeed())*(getDisc(i-1)->getRadius()/radius));
-
-                    listDisc[i] = discTest;
-            }
-        }
-        // ======================== PENCILS ===================================================
-        int nbPencils;
-        cout<<"How many pencils do you want to put in the last disc? (enter a positive integer)\n";
-        do
-            cin >> nbPencils;
-        while(nbPencils <= 0);
-
-        for(int i = 0; i< nbPencils ; i++){
-            float distance;
-            cout << "What's the distance between pencil number " << i + 1
-                 << " and the center of disc number " << nbDiscs << " (enter a positive value)" << endl;
-            do
-                cin >> distance;
-            while (distance < 0);
-
-            if(distance > maxPencilDistance) // Avoir le crayon le plus éloigné pour le calcul de la somme des rayons
-                maxPencilDistance = distance;
-
-            // Choix des couleurs à implémenter
-            sf::Color tabColor[3] = {sf::Color::Red, sf::Color::Green,sf::Color::Blue}; // To improve
-            Pencil* newPencil = new Pencil(tabColor[i%3],distance);
-
-            listDisc[nbDiscs-1]->addPencil(newPencil);
-        }
-        // Vérifier si on sort pas de la fenêtre
-        if(!checkLength(maxPencilDistance, dimX))
-            cout << "Warning ! You're trying to draw out of the window, please change your data." << endl;
-    }
-    while(!checkLength(maxPencilDistance, dimX));
-}
-
 Spirograph::Spirograph(string filepath)
 {
     float maxPencilDistance = 0;
@@ -136,31 +47,34 @@ Spirograph::Spirograph(string filepath)
             if (lineNumber >= 2 && lineNumber <= nbDiscs+1) // Discs radius
             {
                 Parser::M_Assert(result[0] == "Disc", "Text file corrupted on line " + std::to_string(lineNumber+1) + ", should start by Disc");
-                int res = stoi(result[1]);
-                Parser::M_Assert(res != 0, "Radius should not be null");
+                float res = stof(result[1]);
+                Parser::M_Assert(res > 0, "Radius should be strictly positive");
                 float radius = res;
-
+                Parser::M_Assert(result[2][0] == 'e'|| result[2][0] == 'i', "You should write e or i (external or internal rotation)");
+                char rotaChar = result[2][0];
+                Parser::M_Assert((result[3][0]== 'c'||result[3][0] == 't'), "You should write c or t (clockwise or trigonometric rotation");
+                char sensChar = result[3][0];
                 Disc* currentDisc;
 
-                int rotation;
-                if(radius < 0)
-                    rotation = -1;
-                else
-                    rotation = 1;
+                int rotation = (rotaChar=='e' ? 1 : -1);
 
-                radius = abs(radius); // This way the discs will always be outside of the previous disc
+                int direction = (sensChar=='c' ? 1 : -1);
 
                 int i = lineNumber - 2;
-                switch(lineNumber) // The 1st two discs are initialized differently so we need a switch
+                switch(i) // The 1st two discs are initialized differently so we need a switch
                 {
-                    case 2:
-                        currentDisc = new Disc(radius, int(dimX/2), int(dimY/2), 0);
+                    case 0:
+                        currentDisc = new Disc(radius, float(dimX/2), float(dimY/2), 0, 1);
                         // The center of the Spirograph is now placed at the center of the window
                         listDisc[0] = currentDisc;
                         break;
 
-                    case 3:
-                        currentDisc = new Disc(radius, getDisc(0)->getX()+getDisc(0)->getRadius()+radius, getDisc(0)->getY(), rotation*M_PI/2000);
+                    case 1:
+                        currentDisc = new Disc(radius,
+                                               getDisc(0)->getX()+getDisc(0)->getRadius()+rotation*radius,
+                                               getDisc(0)->getY(),
+                                               direction*M_PI/2000,
+                                               rotation);
                         listDisc[1] = currentDisc;
                         break;
 
@@ -172,11 +86,12 @@ Spirograph::Spirograph(string filepath)
                         // Finally the formula for the angular speed is
                         //      previousDiscAngSpeed * (previousDiscRadius / actualDiscRadius)
                         currentDisc = new Disc(radius,
-                                               getDisc(i-1)->getX()+radius+getDisc(i-1)->getRadius(),
+                                               getDisc(i-1)->getX()+rotation*radius+getDisc(i-1)->getRadius(),
                                                getDisc(i-1)->getY(),
-                                               rotation*abs(getDisc(i-1)->getAngSpeed())*(getDisc(i-1)->getRadius()/radius));
+                                               direction*abs(getDisc(i-1)->getAngSpeed())*(getDisc(i-1)->getRadius()/radius),
+                                               rotation);
 
-                        listDisc[lineNumber-2] = currentDisc;
+                        listDisc[i] = currentDisc;
                 }
             }
             if (lineNumber == nbDiscs+2) // Number of pencils
@@ -239,7 +154,6 @@ void Spirograph::update()
         float R1 = getDisc(i-1)->getRadius();
         float R2 = getDisc(i)->getRadius();
         float theta = getDisc(i)->getTheta();
-
         // Slowly update theta
         if(getDisc(i)->getAngSpeed()*getDisc(i-1)->getAngSpeed() < 0)
             theta += getDisc(i)->getAngSpeed()-getDisc(i-1)->getAngSpeed();
@@ -247,10 +161,9 @@ void Spirograph::update()
             theta += getDisc(i)->getAngSpeed()+getDisc(i-1)->getAngSpeed();
 
         getDisc(i)->setTheta(theta);
-
         // Formulas explained in the README
-        getDisc(i)->setPosition(getDisc(i-1)->getX() + (R1+R2) * cos(theta),
-                                 getDisc(i-1)->getY() + (R1+R2) * sin(theta));
+        getDisc(i)->setPosition(getDisc(i-1)->getX() + (R1+getDisc(i)->getRotation()*R2) * cos(theta),
+                                 getDisc(i-1)->getY() + (R1+getDisc(i)->getRotation()*R2) * sin(theta));
 
         for(int j = 0; j < getDisc(i)->getNbPencils(); j++)
         {
@@ -260,7 +173,6 @@ void Spirograph::update()
 
             // Formulas explained in the README
 
-            //float sumRadius =
             float penAngSpeed = (R1/R2)*getDisc(i)->getAngSpeed();
 
             phi += penAngSpeed;
@@ -277,7 +189,8 @@ bool Spirograph::checkLength(int maxPencilDistance, int dimX)
     int maxDrawableX = dimX/2 + listDisc[0]->getRadius();
     for(int i = 1; i < nbDiscs-1; i++)
     {
-        maxDrawableX += listDisc[i]->getRadius()*2;
+        if(listDisc[i]->getRotation()==1)
+            maxDrawableX += listDisc[i]->getRadius()*2;
     }
     maxDrawableX += listDisc[nbDiscs-1]->getRadius() + maxPencilDistance;
 

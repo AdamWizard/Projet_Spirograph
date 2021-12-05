@@ -1,13 +1,11 @@
 #include <iostream>
+#include <ctime>
+#include <cmath>
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/Graphics/Texture.hpp>
 #include "headers/Spirograph.h"
-
-#include <cmath>
-#ifndef M_PI
-#define M_PI (3.14159265358979323846)
-#endif
+#include "headers/Parser.h"
 
 using namespace std;
 
@@ -18,12 +16,16 @@ int main()
     int winX = 960; int winY = 960;
 
     string filepath = "resources/init.txt";
-    //Spirograph spiro(winX, winY);
     Spirograph spiro(filepath);
 
     sf::RenderWindow window(sf::VideoMode(winX, winY), "Spirograph",sf::Style::Titlebar | sf::Style::Close);
     window.setFramerateLimit(60);
     sf::Event ev;
+
+    cout << "List of commands  : " << endl;
+    cout << "   - Space : Turn on/off the circles" << endl;
+    cout << "   - P : Take a screenshot" << endl;
+    cout << "   - S : Save the Spirograph presets" << endl;
 
     // We create a pseudo 3D array to store the RGB components of each pixel of the window
     // winX*winY pixels with each 4 components : red, green, blue and alpha (opacity)
@@ -36,9 +38,9 @@ int main()
 
 	//Initialize all pixels to black
 	for (int i = 0; i < winX*winY*4; i+=4){
-		pixels[i] = 0;
-		pixels[i+1] = 0;
-		pixels[i+2] = 0;
+		pixels[i] = 255;
+		pixels[i+1] = 255;
+		pixels[i+2] = 255;
 		pixels[i+3] = 255;
 	}
 
@@ -61,6 +63,26 @@ int main()
                         window.close();
                     if (ev.key.code == sf::Keyboard::Space)
                         drawDiscs = !drawDiscs;
+                    if (ev.key.code == sf::Keyboard::P)
+                    {
+                        time_t ttime = time(0);
+                        tm *local_time = localtime(&ttime);
+
+                        string day = to_string(local_time->tm_mday); string mon = to_string(1+local_time->tm_mon);
+                        string year = to_string(1900+local_time->tm_year); string hour = to_string(local_time->tm_hour);
+                        string minute = to_string(1+local_time->tm_min); string sec = to_string(1+local_time->tm_sec);
+
+                        string screenshotName = "screenshots/" + day + "-" + mon + "-" + year + "_" +
+                                                    hour + "-" + minute + "-" + sec + ".jpg";
+
+                        sf::Texture screenTexture;
+                        screenTexture.create(winX, winY);
+                        screenTexture.update(window);
+                        if (screenTexture.copyToImage().saveToFile(screenshotName))
+                        {
+                            cout << "Screenshot saved to " << screenshotName << endl;
+                        }
+                    }
                     break;
             }
         }
@@ -88,21 +110,16 @@ int main()
 
                 int tempx = int(currentPencil->getX());
                 int tempy = int(currentPencil->getY());
-                float diffX = tempx-spiro.getDisc(i)->getX();
                 int phi = currentPencil->getPhi();
-
-                if (4*(tempy*winX+tempx) < winX*winY*4)
+                Parser::M_Assert(4*(tempy*winX+tempx) < winX*winY*4, "Drawing out of range");
+                if (tempy*winX+tempx < winX*winY)
                 {
                     // There are 2 methods to color the curves :
                     // 1st one update the color from phi (the angle) and gives a gradient of colors
                     // 2nd one use the Pencil color to draw the curve, useful when you have to distinguish the curves from several pencils
                     // For each pencil of the disc, it loops between red, green and blue
 
-                    pixels[4*(tempy*winX+tempx)] = 200+2*int(cos(phi)*50);
-                    pixels[4*(tempy*winX+tempx)+1] = 100+int(sin(phi)*50);
-                    pixels[4*(tempy*winX+tempx)+2] = 50;
-
-                    /*if (spiro.getDisc(i)->getNbPencils() == 1)
+                    if (spiro.getDisc(i)->getNbPencils() == 1)
                     {
                         pixels[4*(tempy*winX+tempx)] = 100+2*int(cos(phi)*50);
                         pixels[4*(tempy*winX+tempx)+1] = 100-2*int(sin(phi)*50);
@@ -117,7 +134,7 @@ int main()
                         pixels[4*(tempy*winX+tempx)] = int(red)*255;
                         pixels[4*(tempy*winX+tempx)+1] = int(green)*255;
                         pixels[4*(tempy*winX+tempx)+2] = int(blue)*255;
-                    }*/
+                    }
                 }
                 window.draw(*(currentPencil->getCircle()));
             }

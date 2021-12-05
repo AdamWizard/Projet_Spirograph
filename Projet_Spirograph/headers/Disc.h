@@ -17,24 +17,17 @@ class Disc
     public :
         /**
          * @brief Constructor
-         * @param newCircle a pointer on a sf::CircleShape to copy its parameters in the circle member
-         * @param newAngSpeed a float to set the initial angular speed
-         * @return An instantiated Disc
-         */
-        Disc(sf::CircleShape* newCircle);
-
-        /**
-         * @brief Constructor
          * @param radius a float,
          * @param x a float,
          * @param y and another float to initialize the sf::CircleShape circle
          * @param newAngSpeed a last float to set the initial angular speed
+         * @param newRotation an int to set the internal/external rotation
          *
          * No need to set the number of pencils, it'll be done later and
          * dynamically by the Spirograph
          * @return An instantiated Disc
          */
-        Disc(float radius, float x, float y, float newAngSpeed);
+        Disc(float radius, float x, float y, float newAngSpeed, int newRotation);
 
         /**
          * @brief Destructor
@@ -109,6 +102,22 @@ class Disc
         float getAngSpeed() const;
 
         /**
+         * @brief Getter
+         *
+         * A getter for the rotation of the Disc
+         * @return the rotation
+         */
+        int getRotation() const;
+
+        /**
+         * @brief Getter
+         *
+         * A getter for the direction of the Disc
+         * @return the direction
+         */
+        int getDirection() const;
+
+        /**
          * @brief Setter
          * @param newX a float for the X coordinate
          * @param newY a float for the Y coordinate
@@ -135,6 +144,22 @@ class Disc
 
         /**
          * @brief Setter
+         * @param newRotation an int for the rotation
+         *
+         * A setter for the rotation (internal or external) of the Disc
+         */
+        void setRotation(int newRotation);
+
+        /**
+         * @brief Setter
+         * @param newDirection an int for the direction
+         *
+         * A setter for the direction (clockwise or trigonometric) of the Disc
+         */
+        void setDirection(int newDirection);
+
+        /**
+         * @brief Setter
          * @param pencil a pointer to a Pencil
          *
          * A setter which add dynamically a Pencil pointer to listPencils
@@ -147,6 +172,8 @@ class Disc
         unsigned int nbPencils;
         float theta;
         float angSpeed;
+        int rotation; // (1 or -1)
+        int direction; // (1 or -1)
 };
 
 

@@ -57,10 +57,12 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="headers/Disc.h" />
+		<Unit filename="headers/Parser.h" />
 		<Unit filename="headers/Pencil.h" />
 		<Unit filename="headers/Spirograph.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Disc.cpp" />
+		<Unit filename="src/Parser.cpp" />
 		<Unit filename="src/Pencil.cpp" />
 		<Unit filename="src/Spirograph.cpp" />
 		<Extensions>
