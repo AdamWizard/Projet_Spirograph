@@ -17,17 +17,17 @@ class Disc
     public :
         /**
          * @brief Constructor
-         * @param radius a float,
-         * @param x a float,
-         * @param y and another float to initialize the sf::CircleShape circle
-         * @param newAngSpeed a last float to set the initial angular speed
+         * @param radius a double,
+         * @param x a double,
+         * @param y and another double to initialize the sf::CircleShape circle
+         * @param newAngSpeed a last double to set the initial angular speed
          * @param newRotation an int to set the internal/external rotation
          *
          * No need to set the number of pencils, it'll be done later and
          * dynamically by the Spirograph
          * @return An instantiated Disc
          */
-        Disc(float radius, float x, float y, float newAngSpeed, int newRotation);
+        Disc(double radius, double x, double y, double newAngSpeed, int newRotation);
 
         /**
          * @brief Destructor
@@ -67,7 +67,7 @@ class Disc
          * A getter for the radius of the Disc
          * @return the radius
          */
-        float getRadius() const;
+        double getRadius() const;
 
         /**
          * @brief Getter
@@ -75,7 +75,7 @@ class Disc
          * A getter for the X coordinate of the Disc, located in circle->getPosition()
          * @return the X coordinate
          */
-        float getX() const;
+        double getX() const;
 
         /**
          * @brief Getter
@@ -83,7 +83,7 @@ class Disc
          * A getter for the Y coordinate of the Disc, located in circle->getPosition()
          * @return the Y coordinate
          */
-        float getY() const;
+        double getY() const;
 
         /**
          * @brief Getter
@@ -91,7 +91,7 @@ class Disc
          * A getter for the angle of the Disc between its center and the horizontal axis
          * @return the angle
          */
-        float getTheta() const;
+        double getTheta() const;
 
         /**
          * @brief Getter
@@ -99,7 +99,7 @@ class Disc
          * A getter for the angular speed of the Disc
          * @return the angular speed
          */
-        float getAngSpeed() const;
+        double getAngSpeed() const;
 
         /**
          * @brief Getter
@@ -119,28 +119,28 @@ class Disc
 
         /**
          * @brief Setter
-         * @param newX a float for the X coordinate
-         * @param newY a float for the Y coordinate
+         * @param newX a double for the X coordinate
+         * @param newY a double for the Y coordinate
          *
          * A setter for the position of the Disc
          */
-        void setPosition(float newX, float newY);
+        void setPosition(double newX, double newY);
 
         /**
          * @brief Setter
-         * @param newTheta a float for the angle
+         * @param newTheta a double for the angle
          *
          * A setter for the angle of the Disc
          */
-        void setTheta(float newTheta);
+        void setTheta(double newTheta);
 
         /**
          * @brief Setter
-         * @param newAngSpeed a float for the angular speed
+         * @param newAngSpeed a double for the angular speed
          *
          * A setter for the angular speed of the Disc
          */
-        void setAngSpeed(float newAngSpeed);
+        void setAngSpeed(double newAngSpeed);
 
         /**
          * @brief Setter
@@ -170,8 +170,8 @@ class Disc
         sf::CircleShape* circle;
         Pencil** listPencils;
         unsigned int nbPencils;
-        float theta;
-        float angSpeed;
+        double theta;
+        double angSpeed;
         int rotation; // (1 or -1)
         int direction; // (1 or -1)
 };

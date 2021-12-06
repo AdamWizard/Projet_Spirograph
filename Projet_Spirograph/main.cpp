@@ -23,6 +23,7 @@ int main()
     sf::Event ev;
 
     cout << "List of commands  : " << endl;
+    cout << "   - ESC : Close the window" << endl,
     cout << "   - Space : Turn on/off the circles" << endl;
     cout << "   - P : Take a screenshot" << endl;
     cout << "   - S : Save the Spirograph presets" << endl;
@@ -38,9 +39,9 @@ int main()
 
 	//Initialize all pixels to black
 	for (int i = 0; i < winX*winY*4; i+=4){
-		pixels[i] = 255;
-		pixels[i+1] = 255;
-		pixels[i+2] = 255;
+		pixels[i] = 0;
+		pixels[i+1] = 0;
+		pixels[i+2] = 0;
 		pixels[i+3] = 255;
 	}
 

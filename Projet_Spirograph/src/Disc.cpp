@@ -1,7 +1,7 @@
 #include "../headers/Disc.h"
 #include <cmath>
 
-Disc::Disc(float radius, float x, float y, float newAngSpeed, int newRotation)
+Disc::Disc(double radius, double x, double y, double newAngSpeed, int newRotation)
 {
     circle = new sf::CircleShape();
     circle->setRadius(radius);
@@ -47,27 +47,27 @@ Pencil* Disc::getPencil(int i)
         return nullptr;
 }
 
-float Disc::getRadius() const
+double Disc::getRadius() const
 {
     return getCircle()->getRadius();
 }
 
-float Disc::getX() const
+double Disc::getX() const
 {
     return getCircle()->getPosition().x;
 }
 
-float Disc::getY() const
+double Disc::getY() const
 {
     return getCircle()->getPosition().y;
 }
 
-float Disc::getTheta() const
+double Disc::getTheta() const
 {
     return theta;
 }
 
-float Disc::getAngSpeed() const
+double Disc::getAngSpeed() const
 {
     return angSpeed;
 }
@@ -82,17 +82,17 @@ int Disc::getDirection() const
     return direction;
 }
 
-void Disc::setPosition(float newX, float newY)
+void Disc::setPosition(double newX, double newY)
 {
     getCircle()->setPosition(newX, newY);
 }
 
-void Disc::setTheta(float newTheta)
+void Disc::setTheta(double newTheta)
 {
     theta = newTheta;
 }
 
-void Disc::setAngSpeed(float newAngSpeed)
+void Disc::setAngSpeed(double newAngSpeed)
 {
     angSpeed = newAngSpeed;
 }

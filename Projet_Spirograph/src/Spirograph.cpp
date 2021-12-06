@@ -10,7 +10,7 @@ using namespace std;
 
 Spirograph::Spirograph(string filepath)
 {
-    float maxPencilDistance = 0;
+    double maxPencilDistance = 0;
     int dimX; int dimY;
     ifstream myFile(filepath);
     string line;
@@ -47,9 +47,9 @@ Spirograph::Spirograph(string filepath)
             if (lineNumber >= 2 && lineNumber <= nbDiscs+1) // Discs radius
             {
                 Parser::M_Assert(result[0] == "Disc", "Text file corrupted on line " + std::to_string(lineNumber+1) + ", should start by Disc");
-                float res = stof(result[1]);
+                double res = stof(result[1]);
                 Parser::M_Assert(res > 0, "Radius should be strictly positive");
-                float radius = res;
+                double radius = res;
                 Parser::M_Assert(result[2][0] == 'e'|| result[2][0] == 'i', "You should write e or i (external or internal rotation)");
                 char rotaChar = result[2][0];
                 Parser::M_Assert((result[3][0]== 'c'||result[3][0] == 't'), "You should write c or t (clockwise or trigonometric rotation");
@@ -64,7 +64,7 @@ Spirograph::Spirograph(string filepath)
                 switch(i) // The 1st two discs are initialized differently so we need a switch
                 {
                     case 0:
-                        currentDisc = new Disc(radius, float(dimX/2), float(dimY/2), 0, 1);
+                        currentDisc = new Disc(radius, double(dimX/2), double(dimY/2), 0, 1);
                         // The center of the Spirograph is now placed at the center of the window
                         listDisc[0] = currentDisc;
                         break;
@@ -105,9 +105,9 @@ Spirograph::Spirograph(string filepath)
             if (lineNumber >= nbDiscs+3)
             {
                 Parser::M_Assert(result[0] == "Pencil", "Text file corrupted on line " + to_string(lineNumber+1) + ", should start by Pencil");
-                float res = stof(result[1]);
+                double res = stof(result[1]);
                 Parser::M_Assert(res >= 0, "Distance between pencil and disc should be positive");
-                float distance = res;
+                double distance = res;
 
                 if (distance > maxPencilDistance)
                     maxPencilDistance = distance;
@@ -149,18 +149,21 @@ Disc* Spirograph::getDisc(int i)
 
 void Spirograph::update()
 {
+    bool reset = false;
     for (int i = 1;i < nbDiscs; i++) // Start at 1 because the first Disc doesn't move
     {
-        float R1 = getDisc(i-1)->getRadius();
-        float R2 = getDisc(i)->getRadius();
-        float theta = getDisc(i)->getTheta();
+        double R1 = getDisc(i-1)->getRadius();
+        double R2 = getDisc(i)->getRadius();
+        double theta = getDisc(i)->getTheta();
         // Slowly update theta
         if(getDisc(i)->getAngSpeed()*getDisc(i-1)->getAngSpeed() < 0)
             theta += getDisc(i)->getAngSpeed()-getDisc(i-1)->getAngSpeed();
         else
             theta += getDisc(i)->getAngSpeed()+getDisc(i-1)->getAngSpeed();
 
-        getDisc(i)->setTheta(theta);
+        if(!checkReset())
+            getDisc(i)->setTheta(theta);
+
         // Formulas explained in the README
         getDisc(i)->setPosition(getDisc(i-1)->getX() + (R1+getDisc(i)->getRotation()*R2) * cos(theta),
                                  getDisc(i-1)->getY() + (R1+getDisc(i)->getRotation()*R2) * sin(theta));
@@ -168,12 +171,12 @@ void Spirograph::update()
         for(int j = 0; j < getDisc(i)->getNbPencils(); j++)
         {
             Pencil* currentPencil = getDisc(i)->getPencil(j);
-            float rho = currentPencil->getRho();
-            float phi = currentPencil->getPhi();
+            double rho = currentPencil->getRho();
+            double phi = currentPencil->getPhi();
 
             // Formulas explained in the README
 
-            float penAngSpeed = (R1/R2)*getDisc(i)->getAngSpeed();
+            double penAngSpeed = getDisc(i)->getRotation()*(R1/R2)*getDisc(i)->getAngSpeed();
 
             phi += penAngSpeed;
             currentPencil->setPhi(phi);
@@ -195,4 +198,38 @@ bool Spirograph::checkLength(int maxPencilDistance, int dimX)
     maxDrawableX += listDisc[nbDiscs-1]->getRadius() + maxPencilDistance;
 
     return (maxDrawableX <= dimX);
+}
+
+bool Spirograph::checkReset()
+{
+    bool reset = true; double m = 1; int n = 0;
+    for (int i = 1;i < nbDiscs; i++)
+    {
+        while (m != 0) // Compute the numbers of rotations required to make the full pattern
+        {
+            n++;
+            m = fmod(n*getDisc(i-1)->getRadius(), getDisc(i)->getRadius()); // Modulo between each radius
+        }
+        if (abs(getDisc(i)->getTheta()) < 2*M_PI*n) // If a certain has not completed his full rotation, we don't reset
+            reset = false;
+        for(int j = 0; j < getDisc(i)->getNbPencils(); j++) // Same for Pencil
+        {
+            if(abs(getDisc(i)->getPencil(j)->getPhi()) < 2*M_PI*n)
+                reset = false;
+        }
+    }
+
+    if (reset)
+    {
+        for (int i = 1;i < nbDiscs; i++)
+        {
+            getDisc(i)->setTheta(0);
+            for(int j = 0; j < getDisc(i)->getNbPencils(); j++)
+                getDisc(i)->getPencil(j)->setPhi(0);
+        }
+        // No need to specify the other ones, since their position is computed from the 1st moving disc
+        getDisc(1)->setPosition(getDisc(0)->getX()+getDisc(0)->getRadius()+getDisc(1)->getRotation()*getDisc(1)->getRadius(),
+                                getDisc(0)->getY());
+    }
+    return reset;
 }
