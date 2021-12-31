@@ -139,7 +139,7 @@ Spirograph::Spirograph(string filepath)
             {
                 Parser::M_Assert(result[0] == "Disc", "Text file corrupted on line " + std::to_string(lineNumber+1) + ", should start by Disc");
                 int res = stoi(result[1]);
-                Parser::M_Assert(res != 0, "Radius should not be null");
+                //Parser::M_Assert(res != 0, "Radius should not be null");
                 float radius = res;
 
                 Disc* currentDisc;
