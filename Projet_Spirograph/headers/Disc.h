@@ -1,7 +1,7 @@
 #ifndef DISC_H_INCLUDED
 #define DISC_H_INCLUDED
 #include "Shape.h"
-#include "SFML/Graphics.hpp"
+#include "Rectangle.h"
 #include "Pencil.h"
 
 /**
@@ -13,7 +13,7 @@
     a list of Pencil objects to create several curves simultaneously
     with some offset between them
  */
-class Disc
+class Disc : public Shape
 {
     public :
         /**
@@ -83,7 +83,7 @@ class Disc
          * A getter for the X coordinate of the Disc, located in circle->getPosition()
          * @return the X coordinate
          */
-        float getX() const;
+        virtual float getX() const;
 
         /**
          * @brief Getter
@@ -91,7 +91,7 @@ class Disc
          * A getter for the Y coordinate of the Disc, located in circle->getPosition()
          * @return the Y coordinate
          */
-        float getY() const;
+        virtual float getY() const;
 
         /**
          * @brief Getter
@@ -142,8 +142,13 @@ class Disc
          */
         void addPencil(Pencil* pencil);
 
-        void rollAround(Shape* shape);
         void rollAround(Disc* disc, float speedFactor);
+
+        void rollAround(Rectangle* rectangle, float speedFactor);
+
+        //void rollAround(RoundedBar* roundBar);
+
+        virtual void draw(sf::RenderTarget& target,sf::RenderStates states) const;
 
     private :
         sf::CircleShape* circle;

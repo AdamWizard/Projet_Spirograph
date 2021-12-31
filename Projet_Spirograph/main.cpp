@@ -114,11 +114,13 @@ int main()
                     // 2nd one uses the Pencil color to draw the curve, useful when you have to distinguish the curves from several pencils
                     // For each pencil of the disc, it loops between red, green and blue
 
+                    /*
                     pixels[4*(tempy*winX+tempx)] = 200+2*int(cos(phi)*50);
                     pixels[4*(tempy*winX+tempx)+1] = 100+int(sin(phi)*50);
                     pixels[4*(tempy*winX+tempx)+2] = 50;
+                    */
 
-                    /*if (spiro.getDisc(i)->getNbPencils() == 1)
+                    if (spiro.getDisc(i)->getNbPencils() == 1)
                     {
                         pixels[4*(tempy*winX+tempx)] = 100+2*int(cos(phi)*50);
                         pixels[4*(tempy*winX+tempx)+1] = 100-2*int(sin(phi)*50);
@@ -133,7 +135,7 @@ int main()
                         pixels[4*(tempy*winX+tempx)] = int(red)*255;
                         pixels[4*(tempy*winX+tempx)+1] = int(green)*255;
                         pixels[4*(tempy*winX+tempx)+2] = int(blue)*255;
-                    }*/
+                    }
                 }
             }
         }

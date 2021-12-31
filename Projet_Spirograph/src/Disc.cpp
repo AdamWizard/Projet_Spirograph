@@ -144,4 +144,18 @@ float R1 = disc->getRadius();
         }
 }
 
+void Disc::rollAround(Rectangle* rectangle, float speedFactor)
+{
+    float R2 = this->getRadius();
+
+    //If the Disc is on a side of the rectangle, it just goes straight along the side
+
+    //if the Disc is touching a corner
+    //rotating around it is basically rotating around a single point i.e a Disc with radius=0
+    //this->setPosition(newX, newY);
+}
+
+void Disc::draw(sf::RenderTarget& target,sf::RenderStates states) const{
+    target.draw(circle,states);
+}
 

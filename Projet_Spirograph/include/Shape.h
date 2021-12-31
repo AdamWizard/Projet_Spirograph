@@ -1,12 +1,14 @@
 #ifndef SHAPE_H
 #define SHAPE_H
 
+#include "SFML/Graphics.hpp"
 
-class Shape
+
+class Shape : public sf::Drawable
 {
     public:
-        virtual float getArea() = 0;
-        virtual float getPerimeter() = 0;
+        virtual float getX() const ;
+        virtual float getY() const ;
 };
 
 #endif // SHAPE_H
