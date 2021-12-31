@@ -155,7 +155,8 @@ void Disc::rollAround(Rectangle* rectangle, float speedFactor)
     //this->setPosition(newX, newY);
 }
 
-void Disc::draw(sf::RenderTarget& target,sf::RenderStates states) const{
-    target.draw(circle,states);
+void Disc::draw(sf::RenderTarget& target,sf::RenderStates states) const
+{
+    target.draw(*circle,states);
 }
 
