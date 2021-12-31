@@ -5,6 +5,8 @@
 #include <iostream>
 #include <SFML/Window.hpp>
 #include "Disc.h"
+#include "Rectangle.h"
+#include "Segment.h"
 #include "Parser.h"
 
 using namespace std;
@@ -13,7 +15,7 @@ using namespace std;
  *  @class Spirograph
     @brief Main class that will keep track of every object position
 
-    A Spirograph object is an "embedded" list of Disc with a user-given size that
+    A Spirograph object is an "embedded" list of Disc objects with a user-given size that
     will simulate the curves created by these discs, even if the construction
     isn't achievable in real life.
  */
