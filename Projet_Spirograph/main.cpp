@@ -17,10 +17,14 @@ int main()
 
     int winX = 960; int winY = 960;
 
+    /*
     string filepath = "resources/init.txt";
-    //Spirograph spiro(winX, winY);
     Spirograph spiro(filepath);
+    */
 
+    Spirograph spiro(winX, winY);
+
+    //instantiating window
     sf::RenderWindow window(sf::VideoMode(winX, winY), "Spirograph",sf::Style::Titlebar | sf::Style::Close);
     window.setFramerateLimit(60);
     sf::Event ev;

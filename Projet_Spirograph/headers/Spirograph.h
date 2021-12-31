@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 #include <SFML/Window.hpp>
+#include "Shape.h"
 #include "Disc.h"
 #include "Rectangle.h"
 #include "Segment.h"
@@ -22,6 +23,17 @@ using namespace std;
 class Spirograph
 {
     public:
+
+        /**
+         * @brief Constructor using a central shape and a single disc
+         * @param dimX an int, the width of the window the Spirogrpah will be built in
+         * @param dimY an int, the height of the window the Spirogrpah will be built in
+         * @param centralShape a Shape pointer, the shape around which the disc will roll
+         * @param disc a Disc, the disc that will roll around the central shape
+         * @return An instantiated Spirograph
+         */
+        Spirograph(int dimX, int dimY, Shape* centralShape, Disc disc);
+
         /**
          * @brief Constructor
          * @param dimX an int, the width of the window the Spirogrpah will be built in

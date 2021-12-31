@@ -108,3 +108,40 @@ void Disc::addPencil(Pencil* pencil)
     nbPencils++;
     listPencils = newList;
 }
+
+void Disc::rollAround(Disc* disc, float speedFactor)
+{
+float R1 = disc->getRadius();
+        float R2 = this->getRadius();
+        float theta = this->getTheta();
+
+        // Slowly update theta
+        if(this->getAngSpeed()*disc->getAngSpeed() < 0)
+            theta += this->getAngSpeed()-disc->getAngSpeed();
+        else
+            theta += speedFactor*(this->getAngSpeed()+disc->getAngSpeed());
+
+        this->setTheta(theta);
+
+        // Formulas explained in the README
+        this->setPosition(disc->getX() + (R1+R2) * cos(theta),
+                                 disc->getY() + (R1+R2) * sin(theta));
+
+        for(int j = 0; j < this->getNbPencils(); j++)
+        {
+            Pencil* currentPencil = this->getPencil(j);
+            float rho = currentPencil->getRho();
+            float phi = currentPencil->getPhi();
+
+            // Formulas explained in the README
+            float penAngSpeed = (R1/R2)*this->getAngSpeed();
+
+            phi += speedFactor*penAngSpeed;
+            currentPencil->setPhi(phi);
+
+            currentPencil->setPosition(this->getX() + rho * cos(theta + phi),
+                                       this->getY() + rho * sin(theta + phi));
+        }
+}
+
+

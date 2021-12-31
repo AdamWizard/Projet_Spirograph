@@ -1,5 +1,6 @@
 #ifndef DISC_H_INCLUDED
 #define DISC_H_INCLUDED
+#include "Shape.h"
 #include "SFML/Graphics.hpp"
 #include "Pencil.h"
 
@@ -140,6 +141,9 @@ class Disc
          * A setter which add dynamically a Pencil pointer to listPencils
          */
         void addPencil(Pencil* pencil);
+
+        void rollAround(Shape* shape);
+        void rollAround(Disc* disc, float speedFactor);
 
     private :
         sf::CircleShape* circle;

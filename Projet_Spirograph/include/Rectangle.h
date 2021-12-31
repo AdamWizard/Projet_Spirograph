@@ -1,22 +1,21 @@
 #ifndef RECTANGLE_H
 #define RECTANGLE_H
+#include "Shape.h"
 
-
-class Rectangle
+class Rectangle : public Shape
 {
     public:
-        Rectangle(int aX,int aY,int bX,int bY,int cX,int cY,int dX,int dY);
+        Rectangle(int aX,int aY,int cX,int cY);
         virtual ~Rectangle();
+        float getArea();
+        float getPerimeter();
 
     private:
         int aX;
         int aY;
+
         int bX;
         int bY;
-        int cX;
-        int cY;
-        int dX;
-        int dY;
 };
 
 #endif // RECTANGLE_H

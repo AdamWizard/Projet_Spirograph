@@ -1,6 +1,5 @@
 #ifndef SEGMENT_H
 #define SEGMENT_H
-#include "Point.h"
 
 
 class Segment
