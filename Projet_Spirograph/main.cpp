@@ -95,16 +95,9 @@ int main()
 
         for (int i = 0; i < spiro.getNbDiscs(); i++)
         {
-            // Check the boolean and then draw the spirograph structure
+            // Check the boolean and then draw the spirograph structure (discs and pencil heads)
             if(drawDiscs)
             {
-                /*
-                window.draw(*(spiro.getDisc(i)->getCircle()));
-                for(int j = 0; j < spiro.getDisc(i)->getNbPencils(); j++)
-                {
-                    Pencil* currentPencil = spiro.getDisc(i)->getPencil(j);
-                    window.draw(*(currentPencil->getCircle()));
-                }*/
                 window.draw(spiro);
             }
             // =============== DRAW PENCILS/CURVES =======================

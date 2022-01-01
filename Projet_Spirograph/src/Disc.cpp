@@ -158,5 +158,8 @@ void Disc::rollAround(Rectangle* rectangle, float speedFactor)
 void Disc::draw(sf::RenderTarget& target,sf::RenderStates states) const
 {
     target.draw(*circle,states);
+        for(int j =0;j<nbPencils;j++){
+            target.draw(*listPencils[j],states);
+        }
 }
 

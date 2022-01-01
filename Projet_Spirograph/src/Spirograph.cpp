@@ -359,7 +359,6 @@ bool Spirograph::checkLength(int maxPencilDistance, int dimX)
 
 void Spirograph::draw(sf::RenderTarget& target,sf::RenderStates states) const
 {
-    target.draw(*centralShape,states);
     for(int i=0;i<nbDiscs;i++){
         target.draw(*listDisc[i],states);
     }
