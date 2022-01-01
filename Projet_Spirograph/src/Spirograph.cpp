@@ -8,7 +8,7 @@
 
 using namespace std;
 
-Spirograph::Spirograph(int dimX, int dimY, Shape* centralShape, Disc disc)
+Spirograph::Spirograph(int dimX, int dimY, Shape* centralShape, Disc* rollingDisc)
 {
     speedFactor = 1.0;
     // ======================== DISCS =============================================
@@ -344,6 +344,7 @@ void Spirograph::update()
 
 bool Spirograph::checkLength(int maxPencilDistance, int dimX)
 {
+
     int maxDrawableX = dimX/2 + listDisc[0]->getRadius();
     for(int i = 1; i < nbDiscs-1; i++)
     {
@@ -352,4 +353,15 @@ bool Spirograph::checkLength(int maxPencilDistance, int dimX)
     maxDrawableX += listDisc[nbDiscs-1]->getRadius() + maxPencilDistance;
 
     return (maxDrawableX <= dimX);
+
 }
+
+
+void Spirograph::draw(sf::RenderTarget& target,sf::RenderStates states) const
+{
+    target.draw(*centralShape,states);
+    for(int i=0;i<nbDiscs;i++){
+        target.draw(*listDisc[i],states);
+    }
+}
+

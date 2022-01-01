@@ -17,13 +17,21 @@ int main()
 
     int winX = 960; int winY = 960;
 
+    //creating a spirograph from a text file
     /*
     string filepath = "resources/init.txt";
     Spirograph spiro(filepath);
     */
 
+    //creating a spirograph from user input
+
     Spirograph spiro(winX, winY);
 
+
+    //creating spirograph from central Disc an Disc
+    /*
+    Spirograph spiro();
+    */
     //instantiating window
     sf::RenderWindow window(sf::VideoMode(winX, winY), "Spirograph",sf::Style::Titlebar | sf::Style::Close);
     window.setFramerateLimit(60);
@@ -46,7 +54,7 @@ int main()
 		pixels[i+3] = 255;
 	}
 
-    bool drawDiscs = false; // This boolean is linked with a key event to hide/show the white discs
+    bool drawDiscs = false; // This boolean is linked with a key event to hide/show the white Discs
 
     float framerate = 0;
     window.setFramerateLimit(framerate);
@@ -79,23 +87,25 @@ int main()
         // Updating window
         window.clear();
 
-        // Updating Spirograph i.e calculate the next position of the discs and pencils
+        // Updating Spirograph i.e calculate the next position of the Discs and pencils
         spiro.update();
 
-        // Draw the curve before the white discs, because the sprite "wipes" the screen
+        // Draw the curve before the white Discs, because the sprite "wipes" the screen
         window.draw(sprite);
 
         for (int i = 0; i < spiro.getNbDiscs(); i++)
         {
-            // Check the boolean and then draw the discs
+            // Check the boolean and then draw the spirograph structure
             if(drawDiscs)
             {
+                /*
                 window.draw(*(spiro.getDisc(i)->getCircle()));
                 for(int j = 0; j < spiro.getDisc(i)->getNbPencils(); j++)
                 {
                     Pencil* currentPencil = spiro.getDisc(i)->getPencil(j);
                     window.draw(*(currentPencil->getCircle()));
-                }
+                }*/
+                window.draw(spiro);
             }
             // =============== DRAW PENCILS/CURVES =======================
             for(int j = 0; j < spiro.getDisc(i)->getNbPencils(); j++)
@@ -110,9 +120,9 @@ int main()
                 if (4*(tempy*winX+tempx) < winX*winY*4)
                 {
                     // There are 2 methods to color the curves :
-                    // 1st one updates the color from phi (the angle between the pencil, center of its disc and the x axis) to create a gradient of colors
+                    // 1st one updates the color from phi (the angle between the pencil, center of its Disc and the x axis) to create a gradient of colors
                     // 2nd one uses the Pencil color to draw the curve, useful when you have to distinguish the curves from several pencils
-                    // For each pencil of the disc, it loops between red, green and blue
+                    // For each pencil of the Disc, it loops between red, green and blue
 
                     /*
                     pixels[4*(tempy*winX+tempx)] = 200+2*int(cos(phi)*50);

@@ -58,7 +58,7 @@ class Disc : public Shape
          * A getter for the total number of pencils in listPencils
          * @return the number of pencils
          */
-        unsigned int getNbPencils() const;
+        virtual unsigned int getNbPencils() const;
 
         /**
          * @brief Getter
@@ -67,7 +67,7 @@ class Disc : public Shape
          * A getter for the pencils in listPencils
          * @return the Pencil located at listPencils(i), or null if i is out of range
          */
-        Pencil* getPencil(int i);
+        virtual Pencil* getPencil(int i);
 
         /**
          * @brief Getter
