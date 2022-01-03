@@ -11,7 +11,7 @@ using namespace std;
 Spirograph::Spirograph(string filepath)
 {
     double maxPencilDistance = 0;
-    int dimX; int dimY;
+    int dimX = 960; int dimY = 960;
     ifstream myFile(filepath);
     string line;
     int lineNumber = 0;
@@ -20,21 +20,7 @@ Spirograph::Spirograph(string filepath)
         while(getline(myFile, line))
         {
             vector<string> result = Parser::explode(line, ' ');
-            if (lineNumber == 0) // Window size
-            {
-                Parser::M_Assert(result[0] == "Window_size", "Text file corrupted on line 1, should start by Window_size");
-
-                // Check window length
-                int res = stoi(result[1]);
-                Parser::M_Assert(res > 0, "Window length should not be null");
-                dimX = res;
-
-                // Check window height
-                res = stoi(result[2]);
-                Parser::M_Assert(res > 0, "Window height should not be null");
-                dimY = res;
-            }
-            if (lineNumber == 1) // Number of discs
+            if (lineNumber == 0) // Number of discs
             {
                 Parser::M_Assert(result[0] == "Number_of_discs", "Text file corrupted on line 2, should start by Number_of_discs");
 
@@ -44,7 +30,7 @@ Spirograph::Spirograph(string filepath)
                 listDisc = new Disc*[nbDiscs];
             }
 
-            if (lineNumber >= 2 && lineNumber <= nbDiscs+1) // Discs radius
+            if (lineNumber >= 1 && lineNumber <= nbDiscs) // Discs radius
             {
                 Parser::M_Assert(result[0] == "Disc", "Text file corrupted on line " + std::to_string(lineNumber+1) + ", should start by Disc");
                 double res = stof(result[1]);
@@ -60,7 +46,7 @@ Spirograph::Spirograph(string filepath)
 
                 int direction = (sensChar=='c' ? 1 : -1);
 
-                int i = lineNumber - 2;
+                int i = lineNumber - 1;
                 switch(i) // The 1st two discs are initialized differently so we need a switch
                 {
                     case 0:
@@ -94,7 +80,7 @@ Spirograph::Spirograph(string filepath)
                         listDisc[i] = currentDisc;
                 }
             }
-            if (lineNumber == nbDiscs+2) // Number of pencils
+            if (lineNumber == nbDiscs+1) // Number of pencils
             {
                 Parser::M_Assert(result[0] == "Number_of_pencils", "Text file corrupted on line " + to_string(lineNumber+1) + ", should start by Number_of_pencils");
 
@@ -102,7 +88,7 @@ Spirograph::Spirograph(string filepath)
                 Parser::M_Assert(res >= 1, "Number of pencils should be >= 1");
                 int nbPencils = res;
             }
-            if (lineNumber >= nbDiscs+3)
+            if (lineNumber >= nbDiscs+2)
             {
                 Parser::M_Assert(result[0] == "Pencil", "Text file corrupted on line " + to_string(lineNumber+1) + ", should start by Pencil");
                 double res = stof(result[1]);
@@ -149,7 +135,6 @@ Disc* Spirograph::getDisc(int i)
 
 void Spirograph::update()
 {
-    bool reset = false;
     for (int i = 1;i < nbDiscs; i++) // Start at 1 because the first Disc doesn't move
     {
         double R1 = getDisc(i-1)->getRadius();
@@ -202,16 +187,20 @@ bool Spirograph::checkLength(int maxPencilDistance, int dimX)
 
 bool Spirograph::checkReset()
 {
-    bool reset = true; double m = 1; int n = 0;
+    bool reset = true;
     for (int i = 1;i < nbDiscs; i++)
     {
+        int n = 0; int m = 1;
         while (m != 0) // Compute the numbers of rotations required to make the full pattern
         {
             n++;
             m = fmod(n*getDisc(i-1)->getRadius(), getDisc(i)->getRadius()); // Modulo between each radius
         }
         if (abs(getDisc(i)->getTheta()) < 2*M_PI*n) // If a certain has not completed his full rotation, we don't reset
+        {
             reset = false;
+        }
+
         for(int j = 0; j < getDisc(i)->getNbPencils(); j++) // Same for Pencil
         {
             if(abs(getDisc(i)->getPencil(j)->getPhi()) < 2*M_PI*n)

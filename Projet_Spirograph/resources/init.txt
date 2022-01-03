@@ -1,8 +1,9 @@
-Window_size 960 960
-Number_of_discs 2
-Disc 150 i c
-Disc 105 i t
-Number_of_pencils 3
-Pencil 1
-Pencil 9
-Pencil 15
+Number_of_discs 6
+Disc 75 i c
+Disc 50 i t
+Disc 75 e c
+Disc 50 i t
+Disc 75 e c
+Disc 50 i t
+Number_of_pencils 1
+Pencil 50

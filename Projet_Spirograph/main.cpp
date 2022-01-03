@@ -1,152 +1,93 @@
 #include <iostream>
-#include <ctime>
-#include <cmath>
-#include <SFML/Graphics.hpp>
-#include <SFML/Window.hpp>
-#include <SFML/Graphics/Texture.hpp>
-#include "headers/Spirograph.h"
-#include "headers/Parser.h"
-
-using namespace std;
+#include "headers/DrawWindow.h"
+#include "SFML/Graphics.hpp"
+#include "headers/Menu.h"
 
 int main()
 {
-    //============== RENDERING WINDOW INITIALIZATION ==========================
+	sf::RenderWindow window(sf::VideoMode(600, 600), "Welcome to the fabulous world of Spirographs");
+	Menu menu(window.getSize().x, window.getSize().y);
+    DrawWindow draw;
 
-    int winX = 960; int winY = 960;
+	while (window.isOpen())
+	{
+		sf::Event event;
 
-    string filepath = "resources/init.txt";
-    Spirograph spiro(filepath);
+		while (window.pollEvent(event))
+		{
+			switch (event.type)
+			{
+			case sf::Event::KeyReleased:
+				switch (event.key.code)
+				{
+				case sf::Keyboard::Up:
+					menu.MoveUp();
+					break;
 
-    sf::RenderWindow window(sf::VideoMode(winX, winY), "Spirograph",sf::Style::Titlebar | sf::Style::Close);
-    window.setFramerateLimit(60);
-    sf::Event ev;
+				case sf::Keyboard::Down:
+					menu.MoveDown();
+					break;
 
-    cout << "List of commands  : " << endl;
-    cout << "   - ESC : Close the window" << endl,
-    cout << "   - Space : Turn on/off the circles" << endl;
-    cout << "   - P : Take a screenshot" << endl;
-    cout << "   - S : Save the Spirograph presets" << endl;
+				case sf::Keyboard::Return:
+					switch (menu.GetPressedItem())
+					{
+					case 0:
+						draw.mainWindow();
+						break;
+					case 1:
+						std::cout << "Option button has been pressed" << std::endl;
+						break;
+					case 2:
+						window.close();
+						break;
+					}
+					break;
+				}
+				break;
+			case sf::Event::Closed:
+				window.close();
+				break;
+			}
+		}
 
-    // We create a pseudo 3D array to store the RGB components of each pixel of the window
-    // winX*winY pixels with each 4 components : red, green, blue and alpha (opacity)
-    // This pixel array will be used to create a textured sprite that will be our canvas for the curves
-    sf::Uint8*	pixels = new sf::Uint8[winX*winY*4];
+		window.clear();
 
-	sf::Texture texture;
-	texture.create(winX, winY);
-	sf::Sprite sprite(texture);
-
-	//Initialize all pixels to black
-	for (int i = 0; i < winX*winY*4; i+=4){
-		pixels[i] = 0;
-		pixels[i+1] = 0;
-		pixels[i+2] = 0;
-		pixels[i+3] = 255;
+		menu.draw(window);
+		window.display();
 	}
-
-    bool drawDiscs = false; // This boolean is linked with a key event to hide/show the white discs
-
-    float framerate = 0;
-    window.setFramerateLimit(framerate);
-    //window.setVerticalSyncEnabled(true);
-    // ============================== MAIN LOOP =================================
-    while(window.isOpen()){
-        // Check the key events
-        while(window.pollEvent(ev)){
-            switch(ev.type)
-            {
-                case sf::Event::Closed:
-                    window.close();
-                    break;
-                case sf::Event::KeyPressed:
-                    if (ev.key.code == sf::Keyboard::Escape)
-                        window.close();
-                    if (ev.key.code == sf::Keyboard::Space)
-                        drawDiscs = !drawDiscs;
-                    if (ev.key.code == sf::Keyboard::P)
-                    {
-                        time_t ttime = time(0);
-                        tm *local_time = localtime(&ttime);
-
-                        string day = to_string(local_time->tm_mday); string mon = to_string(1+local_time->tm_mon);
-                        string year = to_string(1900+local_time->tm_year); string hour = to_string(local_time->tm_hour);
-                        string minute = to_string(1+local_time->tm_min); string sec = to_string(1+local_time->tm_sec);
-
-                        string screenshotName = "screenshots/" + day + "-" + mon + "-" + year + "_" +
-                                                    hour + "-" + minute + "-" + sec + ".jpg";
-
-                        sf::Texture screenTexture;
-                        screenTexture.create(winX, winY);
-                        screenTexture.update(window);
-                        if (screenTexture.copyToImage().saveToFile(screenshotName))
-                        {
-                            cout << "Screenshot saved to " << screenshotName << endl;
-                        }
-                    }
-                    break;
-            }
-        }
-
-        // Updating window
-        window.clear();
-
-        // Updating Spirograph i.e calculate the next position of the discs and pencils
-        spiro.update();
-
-        // Draw the curve before the white discs, because the sprite "wipes" the screen
-        window.draw(sprite);
-
-        for (int i = 0; i < spiro.getNbDiscs(); i++)
-        {
-            // Check the boolean and then draw the discs
-            if(drawDiscs)
-            {
-                window.draw(*(spiro.getDisc(i)->getCircle()));
-            }
-            // =============== DRAW PENCILS/CURVES =======================
-            for(int j = 0; j < spiro.getDisc(i)->getNbPencils(); j++)
-                {
-                Pencil* currentPencil = spiro.getDisc(i)->getPencil(j);
-
-                int tempx = int(currentPencil->getX());
-                int tempy = int(currentPencil->getY());
-                int phi = currentPencil->getPhi();
-                Parser::M_Assert(4*(tempy*winX+tempx) < winX*winY*4, "Drawing out of range");
-                if (tempy*winX+tempx < winX*winY)
-                {
-                    // There are 2 methods to color the curves :
-                    // 1st one update the color from phi (the angle) and gives a gradient of colors
-                    // 2nd one use the Pencil color to draw the curve, useful when you have to distinguish the curves from several pencils
-                    // For each pencil of the disc, it loops between red, green and blue
-
-                    if (spiro.getDisc(i)->getNbPencils() == 1)
-                    {
-                        pixels[4*(tempy*winX+tempx)] = 100+2*int(cos(phi)*50);
-                        pixels[4*(tempy*winX+tempx)+1] = 100-2*int(sin(phi)*50);
-                        pixels[4*(tempy*winX+tempx)+2] = 100;
-                    }
-                    else
-                    {
-                        bool red = currentPencil->getColor() == sf::Color::Red;
-                        bool green = currentPencil->getColor() == sf::Color::Green;
-                        bool blue = currentPencil->getColor() == sf::Color::Blue;
-
-                        pixels[4*(tempy*winX+tempx)] = int(red)*255;
-                        pixels[4*(tempy*winX+tempx)+1] = int(green)*255;
-                        pixels[4*(tempy*winX+tempx)+2] = int(blue)*255;
-                    }
-                }
-                window.draw(*(currentPencil->getCircle()));
-            }
-        }
-        // Actualize the texture (thus the sprite/canvas) with the new pixel array
-        texture.update(pixels);
-
-		//end drawing
-        window.display(); // The window is done drawing, we can now display it
-    }
-
-    delete pixels; pixels = nullptr;
-    return 0;
 }
+
+/*#include <SFML/Graphics.hpp>
+
+int main(){
+    sf::RenderWindow window(sf::VideoMode(800,600),"Window",
+    sf::Style::Titlebar | sf::Style::Close);
+    sf::Font arial;
+    arial.loadFromFile("resources/arial.ttf");
+    sf::Text t;
+    t.setFillColor(sf::Color::White);
+    t.setFont(arial);
+    std::string s = "This is text that you type: ";
+    t.setString(s);
+
+    while(window.isOpen()){
+        sf::Event event;
+
+        while(window.pollEvent(event)){
+            if(event.type == sf::Event::Closed){
+                window.close();
+            }
+            if (event.type == sf::Event::TextEntered){
+                if (event.text.unicode < 128){
+                    s += static_cast<char>(event.text.unicode);
+                } else {
+                    // Time to consider sf::String or some other unicode-capable string
+            }
+}
+        }
+        t.setString(s);
+        window.clear(sf::Color::Black);
+        window.draw(t);
+        window.display();
+    }
+}*/
