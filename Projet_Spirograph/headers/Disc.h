@@ -1,6 +1,7 @@
 #ifndef DISC_H_INCLUDED
 #define DISC_H_INCLUDED
-#include "SFML/Graphics.hpp"
+#include "Shape.h"
+#include "Rectangle.h"
 #include "Pencil.h"
 
 /**
@@ -12,7 +13,7 @@
     a list of Pencil objects to create several curves simultaneously
     with some offset between them
  */
-class Disc
+class Disc : public Shape
 {
     public :
         /**
@@ -57,7 +58,7 @@ class Disc
          * A getter for the total number of pencils in listPencils
          * @return the number of pencils
          */
-        unsigned int getNbPencils() const;
+        virtual unsigned int getNbPencils() const;
 
         /**
          * @brief Getter
@@ -66,7 +67,7 @@ class Disc
          * A getter for the pencils in listPencils
          * @return the Pencil located at listPencils(i), or null if i is out of range
          */
-        Pencil* getPencil(int i);
+        virtual Pencil* getPencil(int i);
 
         /**
          * @brief Getter
@@ -82,7 +83,7 @@ class Disc
          * A getter for the X coordinate of the Disc, located in circle->getPosition()
          * @return the X coordinate
          */
-        float getX() const;
+        virtual float getX() const;
 
         /**
          * @brief Getter
@@ -90,7 +91,7 @@ class Disc
          * A getter for the Y coordinate of the Disc, located in circle->getPosition()
          * @return the Y coordinate
          */
-        float getY() const;
+        virtual float getY() const;
 
         /**
          * @brief Getter
@@ -140,6 +141,14 @@ class Disc
          * A setter which add dynamically a Pencil pointer to listPencils
          */
         void addPencil(Pencil* pencil);
+
+        void rollAround(Disc* disc, float speedFactor);
+
+        void rollAround(Rectangle* rectangle, float speedFactor);
+
+        //void rollAround(RoundedBar* roundBar);
+
+        virtual void draw(sf::RenderTarget& target,sf::RenderStates states) const;
 
     private :
         sf::CircleShape* circle;

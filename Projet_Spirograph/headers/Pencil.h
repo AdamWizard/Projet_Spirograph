@@ -8,7 +8,7 @@
  *  Basically, a Pencil object is a sf::CircleShape with a color
  *  and an angular speed that will update its position every frame
  */
-class Pencil
+class Pencil : public sf::Drawable
 {
     public :
         /**
@@ -115,6 +115,8 @@ class Pencil
          * @param newColor an sf::Color for the color
          */
         void setColor(sf::Color newColor);
+
+        virtual void draw(sf::RenderTarget& target,sf::RenderStates states) const;
 
     private :
         sf::CircleShape* circle;

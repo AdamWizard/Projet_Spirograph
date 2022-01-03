@@ -73,3 +73,8 @@ void Pencil::setColor(sf::Color newColor)
 {
     color = newColor;
 }
+
+void Pencil::draw(sf::RenderTarget& target,sf::RenderStates states) const
+{
+    target.draw(*circle,states);
+}
