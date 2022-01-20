@@ -187,38 +187,44 @@ bool Spirograph::checkLength(int maxPencilDistance, int dimX)
 
 bool Spirograph::checkReset()
 {
-    bool reset = true;
-    for (int i = 1;i < nbDiscs; i++)
+    if (nbDiscs >= 3)
+        return true;
+    else
     {
-        int n = 0; int m = 1;
-        while (m != 0) // Compute the numbers of rotations required to make the full pattern
-        {
-            n++;
-            m = fmod(n*getDisc(i-1)->getRadius(), getDisc(i)->getRadius()); // Modulo between each radius
-        }
-        if (abs(getDisc(i)->getTheta()) < 2*M_PI*n) // If a certain has not completed his full rotation, we don't reset
-        {
-            reset = false;
-        }
-
-        for(int j = 0; j < getDisc(i)->getNbPencils(); j++) // Same for Pencil
-        {
-            if(abs(getDisc(i)->getPencil(j)->getPhi()) < 2*M_PI*n)
-                reset = false;
-        }
-    }
-
-    if (reset)
-    {
+        bool reset = true;
         for (int i = 1;i < nbDiscs; i++)
         {
-            getDisc(i)->setTheta(0);
-            for(int j = 0; j < getDisc(i)->getNbPencils(); j++)
-                getDisc(i)->getPencil(j)->setPhi(0);
+            int n = 0; int m = 1;
+            while (m != 0) // Compute the numbers of rotations required to make the full pattern
+            {
+                n++;
+                m = fmod(n*getDisc(i-1)->getRadius(), getDisc(i)->getRadius()); // Modulo between each radius
+            }
+            if (abs(getDisc(i)->getTheta()) < 2*M_PI*n) // If a certain has not completed his full rotation, we don't reset
+            {
+                reset = false;
+            }
+
+            for(int j = 0; j < getDisc(i)->getNbPencils(); j++) // Same for Pencil
+            {
+                if(abs(getDisc(i)->getPencil(j)->getPhi()) < 2*M_PI*n)
+                    reset = false;
+            }
         }
-        // No need to specify the other ones, since their position is computed from the 1st moving disc
-        getDisc(1)->setPosition(getDisc(0)->getX()+getDisc(0)->getRadius()+getDisc(1)->getRotation()*getDisc(1)->getRadius(),
-                                getDisc(0)->getY());
+
+        if (reset)
+        {
+            for (int i = 1;i < nbDiscs; i++)
+            {
+                getDisc(i)->setTheta(0);
+                for(int j = 0; j < getDisc(i)->getNbPencils(); j++)
+                    getDisc(i)->getPencil(j)->setPhi(0);
+            }
+            // No need to specify the other ones, since their position is computed from the 1st moving disc
+            getDisc(1)->setPosition(getDisc(0)->getX()+getDisc(0)->getRadius()+getDisc(1)->getRotation()*getDisc(1)->getRadius(),
+                                    getDisc(0)->getY());
+        }
+        return reset;
     }
-    return reset;
+
 }
