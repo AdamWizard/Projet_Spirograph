@@ -6,7 +6,6 @@
 #include <SFML/Window.hpp>
 #include "Shape.h"
 #include "Disc.h"
-#include "Rectangle.h"
 #include "Parser.h"
 
 using namespace std;

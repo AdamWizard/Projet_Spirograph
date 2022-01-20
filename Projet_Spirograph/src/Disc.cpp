@@ -11,7 +11,7 @@ Disc::Disc(sf::CircleShape* newCircle)
     nbPencils = 0;
 
     theta = 0;
-    angSpeed = M_PI/120; // Default framerate, must be a multiple of 60 to work efficiently
+    angSpeed = M_PI/120; //120 is our default framerate value here
 }
 
 Disc::Disc(float radius, float x, float y, float newAngSpeed)
@@ -144,15 +144,39 @@ float R1 = disc->getRadius();
         }
 }
 
-void Disc::rollAround(Rectangle* rectangle, float speedFactor)
+void Disc::rollInside(Disc* disc, float speedFactor)
 {
-    float R2 = this->getRadius();
+float R1 = disc->getRadius();
+        float R2 = this->getRadius();
+        float theta = this->getTheta();
 
-    //If the Disc is on a side of the rectangle, it just goes straight along the side
+        // Slowly update theta
+        if(this->getAngSpeed()*disc->getAngSpeed() < 0)
+            theta += this->getAngSpeed()-disc->getAngSpeed();
+        else
+            theta += speedFactor*(this->getAngSpeed()+disc->getAngSpeed());
 
-    //if the Disc is touching a corner
-    //rotating around it is basically rotating around a single point i.e a Disc with radius=0
-    //this->setPosition(newX, newY);
+        this->setTheta(theta);
+
+        // Formulas explained in the README
+        this->setPosition(disc->getX() + (R1-R2) * cos(theta),
+                                 disc->getY() - (R1-R2) * sin(theta));
+
+        for(int j = 0; j < this->getNbPencils(); j++)
+        {
+            Pencil* currentPencil = this->getPencil(j);
+            float rho = currentPencil->getRho();
+            float phi = currentPencil->getPhi();
+
+            // Formulas explained in the README
+            float penAngSpeed = (R1/R2)*this->getAngSpeed();
+
+            phi += speedFactor*penAngSpeed;
+            currentPencil->setPhi(phi);
+
+            currentPencil->setPosition(this->getX() + rho * cos(theta + phi),
+                                       this->getY() + rho * sin(theta + phi));
+        }
 }
 
 void Disc::draw(sf::RenderTarget& target,sf::RenderStates states) const

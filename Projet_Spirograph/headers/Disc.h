@@ -1,7 +1,6 @@
 #ifndef DISC_H_INCLUDED
 #define DISC_H_INCLUDED
 #include "Shape.h"
-#include "Rectangle.h"
 #include "Pencil.h"
 
 /**
@@ -144,9 +143,7 @@ class Disc : public Shape
 
         void rollAround(Disc* disc, float speedFactor);
 
-        void rollAround(Rectangle* rectangle, float speedFactor);
-
-        //void rollAround(RoundedBar* roundBar);
+        void rollInside(Disc* disc,float speedFactor);
 
         virtual void draw(sf::RenderTarget& target,sf::RenderStates states) const;
 

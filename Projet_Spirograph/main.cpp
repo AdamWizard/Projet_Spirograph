@@ -18,20 +18,11 @@ int main()
     int winX = 960; int winY = 960;
 
     //creating a spirograph from a text file
-    /*
+
     string filepath = "resources/init.txt";
     Spirograph spiro(filepath);
-    */
-
-    //creating a spirograph from user input
-
-    Spirograph spiro(winX, winY);
 
 
-    //creating spirograph from central Disc an Disc
-    /*
-    Spirograph spiro();
-    */
     //instantiating window
     sf::RenderWindow window(sf::VideoMode(winX, winY), "Spirograph",sf::Style::Titlebar | sf::Style::Close);
     window.setFramerateLimit(60);
