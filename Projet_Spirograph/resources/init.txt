@@ -1,6 +1,6 @@
 Number_of_discs 2
-Disc 40 e c
-Disc 20 i t
+Disc 80 e c
+Disc 40 i c
 Number_of_pencils 1
-Pencil 20
+Pencil 40
 
