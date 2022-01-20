@@ -17,24 +17,17 @@ class Disc : public Shape
     public :
         /**
          * @brief Constructor
-         * @param newCircle a pointer on a sf::CircleShape to copy its parameters in the circle member
-         * @param newAngSpeed a float to set the initial angular speed
-         * @return An instantiated Disc
-         */
-        Disc(sf::CircleShape* newCircle);
-
-        /**
-         * @brief Constructor
-         * @param radius a float,
-         * @param x a float,
-         * @param y another float to initialize the sf::CircleShape circle
-         * @param newAngSpeed a last float to set the initial angular speed
+         * @param radius a double,
+         * @param x a double,
+         * @param y and another double to initialize the sf::CircleShape circle
+         * @param newAngSpeed a last double to set the initial angular speed
+         * @param newRotation an int to set the internal/external rotation
          *
          * No need to set the number of pencils, it'll be done later and
          * dynamically by the Spirograph
          * @return An instantiated Disc
          */
-        Disc(float radius, float x, float y, float newAngSpeed);
+        Disc(double radius, double x, double y, double newAngSpeed, int newRotation);
 
         /**
          * @brief Destructor
@@ -74,7 +67,7 @@ class Disc : public Shape
          * A getter for the radius of the Disc
          * @return the radius
          */
-        float getRadius() const;
+        double getRadius() const;
 
         /**
          * @brief Getter
@@ -83,6 +76,7 @@ class Disc : public Shape
          * @return the X coordinate
          */
         virtual float getX() const;
+
 
         /**
          * @brief Getter
@@ -109,29 +103,61 @@ class Disc : public Shape
         float getAngSpeed() const;
 
         /**
+         * @brief Getter
+         *
+         * A getter for the rotation of the Disc
+         * @return the rotation
+         */
+        int getRotation() const;
+
+        /**
+         * @brief Getter
+         *
+         * A getter for the direction of the Disc
+         * @return the direction
+         */
+        int getDirection() const;
+
+        /**
          * @brief Setter
-         * @param newX a float for the X coordinate
-         * @param newY a float for the Y coordinate
+         * @param newX a double for the X coordinate
+         * @param newY a double for the Y coordinate
          *
          * A setter for the position of the Disc
          */
-        void setPosition(float newX, float newY);
+        void setPosition(double newX, double newY);
 
         /**
          * @brief Setter
-         * @param newTheta a float for the angle
+         * @param newTheta a double for the angle
          *
          * A setter for the angle of the Disc
          */
-        void setTheta(float newTheta);
+        void setTheta(double newTheta);
 
         /**
          * @brief Setter
-         * @param newAngSpeed a float for the angular speed
+         * @param newAngSpeed a double for the angular speed
          *
          * A setter for the angular speed of the Disc
          */
-        void setAngSpeed(float newAngSpeed);
+        void setAngSpeed(double newAngSpeed);
+
+        /**
+         * @brief Setter
+         * @param newRotation an int for the rotation
+         *
+         * A setter for the rotation (internal or external) of the Disc
+         */
+        void setRotation(int newRotation);
+
+        /**
+         * @brief Setter
+         * @param newDirection an int for the direction
+         *
+         * A setter for the direction (clockwise or trigonometric) of the Disc
+         */
+        void setDirection(int newDirection);
 
         /**
          * @brief Setter
@@ -143,7 +169,7 @@ class Disc : public Shape
 
         void rollAround(Disc* disc, float speedFactor);
 
-        void rollInside(Disc* disc,float speedFactor);
+        void rollInside(Disc* disc, float speedFactor);
 
         virtual void draw(sf::RenderTarget& target,sf::RenderStates states) const;
 
@@ -151,8 +177,10 @@ class Disc : public Shape
         sf::CircleShape* circle;
         Pencil** listPencils;
         unsigned int nbPencils;
-        float theta;
-        float angSpeed;
+        double theta;
+        double angSpeed;
+        int rotation; // (1 or -1)
+        int direction; // (1 or -1)
 };
 
 

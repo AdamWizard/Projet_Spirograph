@@ -57,6 +57,7 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="headers/Disc.h" />
+		<Unit filename="headers/Parser.h" />
 		<Unit filename="headers/Pencil.h" />
 		<Unit filename="headers/Spirograph.h" />
 		<Unit filename="main.cpp" />
