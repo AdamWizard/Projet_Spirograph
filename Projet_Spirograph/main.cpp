@@ -24,9 +24,8 @@ int main()
 		pixels[i+2] = 0;
 		pixels[i+3] = 255;
 	}
-    //window.setVerticalSyncEnabled(true);
 
-	while (window.isOpen())
+	while(window.isOpen())
 	{
 		sf::Event ev;
 
@@ -105,8 +104,9 @@ int main()
                     }
                 }
             }
+
+        }
         texture.update(pixels);
 		window.display();
-        }
     }
 }
