@@ -27,7 +27,7 @@ class Disc : public Shape
          * @brief Constructor
          * @param radius a float,
          * @param x a float,
-         * @param y and another float to initialize the sf::CircleShape circle
+         * @param y another float to initialize the sf::CircleShape circle
          * @param newAngSpeed a last float to set the initial angular speed
          *
          * No need to set the number of pencils, it'll be done later and

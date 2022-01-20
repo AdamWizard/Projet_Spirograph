@@ -116,9 +116,9 @@ int main()
 
                     if (spiro.getDisc(i)->getNbPencils() == 1)
                     {
-                        pixels[4*(tempy*winX+tempx)] = 100+2*int(cos(phi)*50);
-                        pixels[4*(tempy*winX+tempx)+1] = 100-2*int(sin(phi)*50);
-                        pixels[4*(tempy*winX+tempx)+2] = 100;
+                        pixels[4*(tempy*winX+tempx)] = 100+100*cos(phi);
+                        pixels[4*(tempy*winX+tempx)+1] = 100-100*cos(phi);
+                        pixels[4*(tempy*winX+tempx)+2] = 150;
                     }
                     else
                     {
