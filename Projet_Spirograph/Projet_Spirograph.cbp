@@ -57,19 +57,13 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="headers/Disc.h" />
+		<Unit filename="headers/Parser.h" />
 		<Unit filename="headers/Pencil.h" />
 		<Unit filename="headers/Spirograph.h" />
-		<Unit filename="include/Parser.h" />
-		<Unit filename="include/Rectangle.h" />
-		<Unit filename="include/Segment.h" />
-		<Unit filename="include/Shape.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Disc.cpp" />
 		<Unit filename="src/Parser.cpp" />
 		<Unit filename="src/Pencil.cpp" />
-		<Unit filename="src/Rectangle.cpp" />
-		<Unit filename="src/Segment.cpp" />
-		<Unit filename="src/Shape.cpp" />
 		<Unit filename="src/Spirograph.cpp" />
 		<Extensions>
 			<DoxyBlocks>

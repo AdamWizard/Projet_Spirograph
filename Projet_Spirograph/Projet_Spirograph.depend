@@ -1369,13 +1369,10 @@
 	"../headers/Pencil.h"
 	<cmath>
 
-1637960440 source:c:\users\florian\desktop\projet_spirograph\projet_spirograph\main.cpp
+1642714426 source:c:\users\florian\desktop\projet_spirograph\projet_spirograph\main.cpp
 	<iostream>
-	<SFML/Graphics.hpp>
-	<SFML/Window.hpp>
-	<SFML/Graphics/Texture.hpp>
+	"SFML/Graphics.hpp"
 	"headers/Spirograph.h"
-	<cmath>
 
 1637099310 c:\users\florian\desktop\projet_spirograph\projet_spirograph\sfml-2.5.1\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -1786,7 +1783,7 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1637957661 c:\users\florian\desktop\projet_spirograph\projet_spirograph\headers\spirograph.h
+1642696220 c:\users\florian\desktop\projet_spirograph\projet_spirograph\headers\spirograph.h
 	<fstream>
 	<string>
 	<iostream>
@@ -1794,24 +1791,26 @@
 	"Disc.h"
 	"Parser.h"
 
-1637093506 c:\users\florian\desktop\projet_spirograph\projet_spirograph\headers\disc.h
-	"SFML/Graphics.hpp"
+1642695225 c:\users\florian\desktop\projet_spirograph\projet_spirograph\headers\disc.h
+	"Shape.h"
 	"Pencil.h"
 
-1634774933 c:\users\florian\desktop\projet_spirograph\projet_spirograph\headers\pencil.h
+1642691414 c:\users\florian\desktop\projet_spirograph\projet_spirograph\headers\pencil.h
 	"SFML/Graphics.hpp"
 
-1637093481 source:c:\users\florian\desktop\projet_spirograph\projet_spirograph\src\disc.cpp
+1642714700 source:c:\users\florian\desktop\projet_spirograph\projet_spirograph\src\disc.cpp
 	"../headers/Disc.h"
 	<cmath>
 
-1637098501 source:c:\users\florian\desktop\projet_spirograph\projet_spirograph\src\pencil.cpp
+1642691414 source:c:\users\florian\desktop\projet_spirograph\projet_spirograph\src\pencil.cpp
 	"../headers/Pencil.h"
 	<cmath>
 
-1637960216 source:c:\users\florian\desktop\projet_spirograph\projet_spirograph\src\spirograph.cpp
+1642714050 source:c:\users\florian\desktop\projet_spirograph\projet_spirograph\src\spirograph.cpp
 	"../headers/Spirograph.h"
 	<assert.h>
+	<iostream>
+	<string>
 	<vector>
 	<cmath>
 
@@ -1824,6 +1823,8 @@
 
 1637958855 source:c:\users\florian\desktop\projet_spirograph\projet_spirograph\src\parser.cpp
 	"../headers/Parser.h"
+
+1637958855 D
 
 1640953021 source:d:\git\projet_spirograph\projet_spirograph\src\parser.cpp
 	"../headers/Parser.h"
@@ -1854,4 +1855,74 @@
 1640959020 source:d:\git\projet_spirograph\projet_spirograph\src\segment.cpp
 	"Segment.h"
 	"SFML/Graphics.hpp"
+
+1640959020 hics.hpp"
+
+1642691425 c:\users\florian\desktop\projet_spirograph\projet_spirograph\headers\menu.h
+	"SFML/Graphics.hpp"
+
+1642691425 source:c:\users\florian\desktop\projet_spirograph\projet_spirograph\src\menu.cpp
+	"../headers/Menu.h"
+
+1639987940 c:\users\florian\desktop\projet_spirograph\projet_spirograph\headers\draw.h
+	"SFML/Graphics.hpp"
+	"Spirograph.h"
+
+1639987930 source:c:\users\florian\desktop\projet_spirograph\projet_spirograph\src\draw.cpp
+	<iostream>
+	<ctime>
+	<cmath>
+	<SFML/Graphics.hpp>
+	<SFML/Window.hpp>
+	<SFML/Graphics/Texture.hpp>
+	"../headers/Spirograph.h"
+	"../headers/Parser.h"
+	"../headers/Draw.h"
+
+1642691217 source:c:\users\florian\desktop\projet_spirograph\projet_spirograph\src\drawwindow.cpp
+	<iostream>
+	<ctime>
+	<cmath>
+	<SFML/Graphics.hpp>
+	<SFML/Window.hpp>
+	<SFML/Graphics/Texture.hpp>
+	"../headers/Spirograph.h"
+	"../headers/Parser.h"
+	"../headers/DrawWindow.h"
+
+1642691217 c:\users\florian\desktop\projet_spirograph\projet_spirograph\headers\drawwindow.h
+	"SFML/Graphics.hpp"
+	"Spirograph.h"
+
+1642691425 source:c:\users\florian\desktop\projet_spirograph\projet_spirograph\src\initwindow.cpp
+	"../headers/InitWindow.h"
+
+1642691425 c:\users\florian\desktop\projet_spirograph\projet_spirograph\headers\initwindow.h
+
+1642691217 ser
+
+1642691414 source:c:\users\florian\desktop\projet_spirograph\projet_spirograph\src\rectangle.cpp
+	"Rectangle.h"
+
+1642691414 c:\users\florian\desktop\projet_spirograph\projet_spirograph\include\rectangle.h
+	"Shape.h"
+
+1642691414 c:\users\florian\desktop\projet_spirograph\projet_spirograph\include\shape.h
+	"../headers/pencil.h"
+	"SFML/Graphics.hpp"
+	"SFML/Graphics/Drawable.hpp"
+
+1642691414 source:c:\users\florian\desktop\projet_spirograph\projet_spirograph\src\segment.cpp
+	"Segment.h"
+	"SFML/Graphics.hpp"
+
+1642691414 c:\users\florian\desktop\projet_spirograph\projet_spirograph\include\segment.h
+
+1642691414 source:c:\users\florian\desktop\projet_spirograph\projet_spirograph\src\shape.cpp
+	"Shape.h"
+
+1642691414 c:\users\florian\desktop\projet_spirograph\projet_spirograph\headers\shape.h
+	"../headers/pencil.h"
+	"SFML/Graphics.hpp"
+	"SFML/Graphics/Drawable.hpp"
 

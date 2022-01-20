@@ -4,9 +4,7 @@
 #include <string>
 #include <iostream>
 #include <SFML/Window.hpp>
-#include "Shape.h"
 #include "Disc.h"
-#include "Rectangle.h"
 #include "Parser.h"
 
 using namespace std;
@@ -100,7 +98,6 @@ class Spirograph : public sf::Drawable
 
     private:
         int nbDiscs;
-        Shape* centralShape;
         Disc** listDisc;
         float speedFactor;
 
@@ -112,6 +109,14 @@ class Spirograph : public sf::Drawable
          * @return true/false, i.e drawable or not
          */
         bool checkLength(int maxPencilDistance, int dimX);
+
+        /**
+         * @brief Check if the Spirograph has done a full rotation
+         *
+         * This is done by checking if theta of every Disc is >= 2*Pi
+         * @return true/false, the reset happened or not
+         */
+        bool checkReset();
 };
 
 #endif // SPIROGRAPH_H

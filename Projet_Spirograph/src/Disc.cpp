@@ -1,20 +1,7 @@
 #include "../headers/Disc.h"
 #include <cmath>
-#ifndef M_PI
-#define M_PI (3.14159265358979323846)
-#endif
 
-Disc::Disc(sf::CircleShape* newCircle)
-{
-    circle = newCircle;
-    listPencils = nullptr;
-    nbPencils = 0;
-
-    theta = 0;
-    angSpeed = M_PI/120; // Default framerate, must be a multiple of 60 to work efficiently
-}
-
-Disc::Disc(float radius, float x, float y, float newAngSpeed)
+Disc::Disc(double radius, double x, double y, double newAngSpeed, int newRotation)
 {
     circle = new sf::CircleShape();
     circle->setRadius(radius);
@@ -27,7 +14,7 @@ Disc::Disc(float radius, float x, float y, float newAngSpeed)
     listPencils = nullptr;
     nbPencils = 0;
 
-    theta = 0; angSpeed = newAngSpeed;
+    theta = 0; angSpeed = newAngSpeed; rotation = newRotation;
 }
 
 Disc::~Disc()
@@ -60,7 +47,7 @@ Pencil* Disc::getPencil(int i)
         return nullptr;
 }
 
-float Disc::getRadius() const
+double Disc::getRadius() const
 {
     return getCircle()->getRadius();
 }
@@ -85,19 +72,39 @@ float Disc::getAngSpeed() const
     return angSpeed;
 }
 
-void Disc::setPosition(float newX, float newY)
+int Disc::getRotation() const
+{
+    return rotation;
+}
+
+int Disc::getDirection() const
+{
+    return direction;
+}
+
+void Disc::setPosition(double newX, double newY)
 {
     getCircle()->setPosition(newX, newY);
 }
 
-void Disc::setTheta(float newTheta)
+void Disc::setTheta(double newTheta)
 {
     theta = newTheta;
 }
 
-void Disc::setAngSpeed(float newAngSpeed)
+void Disc::setAngSpeed(double newAngSpeed)
 {
     angSpeed = newAngSpeed;
+}
+
+void Disc::setRotation(int newRotation)
+{
+    rotation = newRotation;
+}
+
+void Disc::setDirection(int newDirection)
+{
+    direction = newDirection;
 }
 
 void Disc::addPencil(Pencil* pencil)
@@ -111,7 +118,7 @@ void Disc::addPencil(Pencil* pencil)
 
 void Disc::rollAround(Disc* disc, float speedFactor)
 {
-float R1 = disc->getRadius();
+        float R1 = disc->getRadius();
         float R2 = this->getRadius();
         float theta = this->getTheta();
 
@@ -144,22 +151,46 @@ float R1 = disc->getRadius();
         }
 }
 
-void Disc::rollAround(Rectangle* rectangle, float speedFactor)
+void Disc::rollInside(Disc* disc, float speedFactor)
 {
-    float R2 = this->getRadius();
+        float R1 = disc->getRadius();
+        float R2 = this->getRadius();
+        float theta = this->getTheta();
 
-    //If the Disc is on a side of the rectangle, it just goes straight along the side
+        // Slowly update theta
+        if(this->getAngSpeed()*disc->getAngSpeed() < 0)
+            theta += this->getAngSpeed()-disc->getAngSpeed();
+        else
+            theta += speedFactor*(this->getAngSpeed()+disc->getAngSpeed());
 
-    //if the Disc is touching a corner
-    //rotating around it is basically rotating around a single point i.e a Disc with radius=0
-    //this->setPosition(newX, newY);
+        this->setTheta(theta);
+
+        // Formulas explained in the README
+        this->setPosition(disc->getX() + (R1-R2) * cos(theta),
+                                 disc->getY() + (R1-R2) * sin(theta));
+
+        for(int j = 0; j < this->getNbPencils(); j++)
+        {
+            Pencil* currentPencil = this->getPencil(j);
+            float rho = currentPencil->getRho();
+            float phi = currentPencil->getPhi();
+
+            // Formulas explained in the README
+            float penAngSpeed = (R1/R2)*this->getAngSpeed();
+
+            phi += speedFactor*penAngSpeed;
+            currentPencil->setPhi(phi);
+
+            currentPencil->setPosition(this->getX() + rho * cos(theta + phi),
+                                       this->getY() + rho * sin(theta + phi));
+        }
 }
 
 void Disc::draw(sf::RenderTarget& target,sf::RenderStates states) const
 {
     target.draw(*circle,states);
-        for(int j =0;j<nbPencils;j++){
-            target.draw(*listPencils[j],states);
-        }
+    for(int j =0;j<nbPencils;j++){
+        target.draw(*listPencils[j],states);
+    }
 }
 
