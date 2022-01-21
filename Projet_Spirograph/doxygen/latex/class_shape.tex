@@ -1,0 +1,114 @@
+\doxysection{Shape Class Reference}
+\label{class_shape}\index{Shape@{Shape}}
+
+
+Virtual class that represents a 2D shape.  
+
+
+
+
+{\ttfamily \#include $<$Shape.\+h$>$}
+
+
+
+Inheritance diagram for Shape\+:
+% FIG 0
+
+
+Collaboration diagram for Shape\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual float \textbf{ getX} () const =0
+\begin{DoxyCompactList}\small\item\em Getter. \end{DoxyCompactList}\item 
+virtual float \textbf{ getY} () const =0
+\begin{DoxyCompactList}\small\item\em Getter. \end{DoxyCompactList}\item 
+virtual unsigned int \textbf{ get\+Nb\+Pencils} () const =0
+\begin{DoxyCompactList}\small\item\em Getter. \end{DoxyCompactList}\item 
+virtual \textbf{ Pencil} $\ast$ \textbf{ get\+Pencil} (int i)=0
+\begin{DoxyCompactList}\small\item\em Getter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Virtual class that represents a 2D shape. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_shape_a87e8ca2b6c7f10e33868d22457e4e656}} 
+\index{Shape@{Shape}!getNbPencils@{getNbPencils}}
+\index{getNbPencils@{getNbPencils}!Shape@{Shape}}
+\doxysubsubsection{getNbPencils()}
+{\footnotesize\ttfamily virtual unsigned int Shape\+::get\+Nb\+Pencils (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Getter. 
+
+\begin{DoxyReturn}{Returns}
+Nb\+Pencils an int, the amount of \doxyref{Pencil}{p.}{class_pencil} objects contained in the \doxyref{Shape}{p.}{class_shape} 
+\end{DoxyReturn}
+
+
+Implemented in \textbf{ Disc} \doxyref{}{p.}{class_disc_a83d509fd3f88c9b443fb4bfe50cb2e42}.
+
+\mbox{\label{class_shape_ac66269ade77cf14bd6f1fa7006ba14a6}} 
+\index{Shape@{Shape}!getPencil@{getPencil}}
+\index{getPencil@{getPencil}!Shape@{Shape}}
+\doxysubsubsection{getPencil()}
+{\footnotesize\ttfamily virtual \textbf{ Pencil}$\ast$ Shape\+::get\+Pencil (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Getter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & an int, the index of the \doxyref{Pencil}{p.}{class_pencil} you want to get \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the ieth \doxyref{Pencil}{p.}{class_pencil} of the \doxyref{Shape}{p.}{class_shape} 
+\end{DoxyReturn}
+
+
+Implemented in \textbf{ Disc} \doxyref{}{p.}{class_disc_abd4ed813cd6f6c0ef194912eccb44762}.
+
+\mbox{\label{class_shape_a7005881bfcfd556be64a7d5eac5f1a8a}} 
+\index{Shape@{Shape}!getX@{getX}}
+\index{getX@{getX}!Shape@{Shape}}
+\doxysubsubsection{getX()}
+{\footnotesize\ttfamily virtual float Shape\+::getX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Getter. 
+
+\begin{DoxyReturn}{Returns}
+the X coordinate of the \doxyref{Shape}{p.}{class_shape} 
+\end{DoxyReturn}
+
+
+Implemented in \textbf{ Disc} \doxyref{}{p.}{class_disc_a9fe58181fe38b92c2a09fafee048edba}.
+
+\mbox{\label{class_shape_a097f34c3273a75b06184bb09af756c07}} 
+\index{Shape@{Shape}!getY@{getY}}
+\index{getY@{getY}!Shape@{Shape}}
+\doxysubsubsection{getY()}
+{\footnotesize\ttfamily virtual float Shape\+::getY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Getter. 
+
+\begin{DoxyReturn}{Returns}
+the Y coordinate of the \doxyref{Shape}{p.}{class_shape} 
+\end{DoxyReturn}
+
+
+Implemented in \textbf{ Disc} \doxyref{}{p.}{class_disc_a1e75a8dd50ec7bec7662d7caa61ccc25}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git/\+Projet\+\_\+\+Spirograph/\+Projet\+\_\+\+Spirograph/headers/\textbf{ Shape.\+h}\end{DoxyCompactItemize}

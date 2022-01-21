@@ -1,0 +1,267 @@
+\doxysection{Pencil Class Reference}
+\label{class_pencil}\index{Pencil@{Pencil}}
+
+
+Class for the points generating the curve.  
+
+
+
+
+{\ttfamily \#include $<$Pencil.\+h$>$}
+
+
+
+Inheritance diagram for Pencil\+:
+% FIG 0
+
+
+Collaboration diagram for Pencil\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Pencil} (sf\+::\+Color new\+Color, float new\+Rho)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\textbf{ $\sim$\+Pencil} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+float \textbf{ getX} () const
+\begin{DoxyCompactList}\small\item\em Getter. \end{DoxyCompactList}\item 
+float \textbf{ getY} () const
+\begin{DoxyCompactList}\small\item\em Getter. \end{DoxyCompactList}\item 
+float \textbf{ get\+Rho} () const
+\begin{DoxyCompactList}\small\item\em Getter. \end{DoxyCompactList}\item 
+float \textbf{ get\+Phi} () const
+\begin{DoxyCompactList}\small\item\em Getter. \end{DoxyCompactList}\item 
+float \textbf{ get\+Ang\+Speed} () const
+\begin{DoxyCompactList}\small\item\em Getter. \end{DoxyCompactList}\item 
+sf\+::\+Color \textbf{ get\+Color} () const
+\begin{DoxyCompactList}\small\item\em Getter. \end{DoxyCompactList}\item 
+sf\+::\+Circle\+Shape $\ast$ \textbf{ get\+Circle} ()
+\begin{DoxyCompactList}\small\item\em Getter. \end{DoxyCompactList}\item 
+void \textbf{ set\+Position} (float newX, float newY)
+\begin{DoxyCompactList}\small\item\em Setter. \end{DoxyCompactList}\item 
+void \textbf{ set\+Phi} (float new\+Phi)
+\begin{DoxyCompactList}\small\item\em Setter. \end{DoxyCompactList}\item 
+void \textbf{ set\+Ang\+Speed} (float new\+Ang\+Speed)
+\begin{DoxyCompactList}\small\item\em Setter. \end{DoxyCompactList}\item 
+void \textbf{ set\+Color} (sf\+::\+Color new\+Color)
+\begin{DoxyCompactList}\small\item\em Setter. \end{DoxyCompactList}\item 
+virtual void \textbf{ draw} (sf\+::\+Render\+Target \&target, sf\+::\+Render\+States states) const
+\begin{DoxyCompactList}\small\item\em Method to draw the moving structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for the points generating the curve. 
+
+A \doxyref{Pencil}{p.}{class_pencil} object is a sf\+::\+Circle\+Shape with a color and an angular speed that will adjust its position every frame 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{class_pencil_a073273f10085fa880341425e46c01b5c}} 
+\index{Pencil@{Pencil}!Pencil@{Pencil}}
+\index{Pencil@{Pencil}!Pencil@{Pencil}}
+\doxysubsubsection{Pencil()}
+{\footnotesize\ttfamily Pencil\+::\+Pencil (\begin{DoxyParamCaption}\item[{sf\+::\+Color}]{new\+Color,  }\item[{float}]{new\+Rho }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Color} & an sf\+::\+Color. \\
+\hline
+{\em new\+Rho} & a float, the distance between the pencil and the center of the disc it\textquotesingle{}s attached to. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An instantiated \doxyref{Pencil}{p.}{class_pencil} 
+\end{DoxyReturn}
+\mbox{\label{class_pencil_acb035596d44b2d603b1480caa7a2ef0d}} 
+\index{Pencil@{Pencil}!````~Pencil@{$\sim$Pencil}}
+\index{````~Pencil@{$\sim$Pencil}!Pencil@{Pencil}}
+\doxysubsubsection{$\sim$Pencil()}
+{\footnotesize\ttfamily Pencil\+::$\sim$\+Pencil (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor. 
+
+Free the memory allocated by the \doxyref{Pencil}{p.}{class_pencil} object 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_pencil_a9d4b46e3caf03506cb408f338e647ded}} 
+\index{Pencil@{Pencil}!draw@{draw}}
+\index{draw@{draw}!Pencil@{Pencil}}
+\doxysubsubsection{draw()}
+{\footnotesize\ttfamily void Pencil\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Target \&}]{target,  }\item[{sf\+::\+Render\+States}]{states }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Method to draw the moving structure. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & an sf\+::\+Render\+Target object in which the disc will be drawn (i.\+e the window) \\
+\hline
+{\em states} & an sf\+::\+Render\+States object used by SFML to draw\\
+\hline
+\end{DoxyParams}
+This method is used to draw the \doxyref{Spirograph}{p.}{class_spirograph} structure (Discs and Pencils white circles) \mbox{\label{class_pencil_a92c87ae7d39510fa3b23ab226de6a35e}} 
+\index{Pencil@{Pencil}!getAngSpeed@{getAngSpeed}}
+\index{getAngSpeed@{getAngSpeed}!Pencil@{Pencil}}
+\doxysubsubsection{getAngSpeed()}
+{\footnotesize\ttfamily float Pencil\+::get\+Ang\+Speed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter. 
+
+A getter for the angular speed of the \doxyref{Pencil}{p.}{class_pencil} \begin{DoxyReturn}{Returns}
+the angular speed 
+\end{DoxyReturn}
+\mbox{\label{class_pencil_a81b159d3bcac62735928d8e223b0d47f}} 
+\index{Pencil@{Pencil}!getCircle@{getCircle}}
+\index{getCircle@{getCircle}!Pencil@{Pencil}}
+\doxysubsubsection{getCircle()}
+{\footnotesize\ttfamily sf\+::\+Circle\+Shape $\ast$ Pencil\+::get\+Circle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter. 
+
+A getter for the circle associated with the \doxyref{Pencil}{p.}{class_pencil} \begin{DoxyReturn}{Returns}
+a pointer on the \doxyref{Pencil}{p.}{class_pencil} circle 
+\end{DoxyReturn}
+\mbox{\label{class_pencil_a772f15a320ef57167838c06ad77b3233}} 
+\index{Pencil@{Pencil}!getColor@{getColor}}
+\index{getColor@{getColor}!Pencil@{Pencil}}
+\doxysubsubsection{getColor()}
+{\footnotesize\ttfamily sf\+::\+Color Pencil\+::get\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter. 
+
+A getter for the color of the \doxyref{Pencil}{p.}{class_pencil} \begin{DoxyReturn}{Returns}
+the color 
+\end{DoxyReturn}
+\mbox{\label{class_pencil_a94d321ed1da0f27e33d03168eca656ee}} 
+\index{Pencil@{Pencil}!getPhi@{getPhi}}
+\index{getPhi@{getPhi}!Pencil@{Pencil}}
+\doxysubsubsection{getPhi()}
+{\footnotesize\ttfamily float Pencil\+::get\+Phi (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter. 
+
+A getter for the angle of the \doxyref{Pencil}{p.}{class_pencil} between it and the horizontal axis \begin{DoxyReturn}{Returns}
+the angle 
+\end{DoxyReturn}
+\mbox{\label{class_pencil_a563ca1872ed31d0aff7137693c897657}} 
+\index{Pencil@{Pencil}!getRho@{getRho}}
+\index{getRho@{getRho}!Pencil@{Pencil}}
+\doxysubsubsection{getRho()}
+{\footnotesize\ttfamily float Pencil\+::get\+Rho (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter. 
+
+A getter for the radius of the \doxyref{Pencil}{p.}{class_pencil} (distance between it and the center of the \doxyref{Disc}{p.}{class_disc} it\textquotesingle{}s attached to) \begin{DoxyReturn}{Returns}
+the radius 
+\end{DoxyReturn}
+\mbox{\label{class_pencil_abefbf4c6afe608af5d8f1b3aef128c9f}} 
+\index{Pencil@{Pencil}!getX@{getX}}
+\index{getX@{getX}!Pencil@{Pencil}}
+\doxysubsubsection{getX()}
+{\footnotesize\ttfamily float Pencil\+::getX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter. 
+
+A getter for the X coordinate of the \doxyref{Pencil}{p.}{class_pencil}, located in circle-\/$>$get\+Position() \begin{DoxyReturn}{Returns}
+the X coordinate 
+\end{DoxyReturn}
+\mbox{\label{class_pencil_a8451dd308ed3cfa8ea78db65b25bac18}} 
+\index{Pencil@{Pencil}!getY@{getY}}
+\index{getY@{getY}!Pencil@{Pencil}}
+\doxysubsubsection{getY()}
+{\footnotesize\ttfamily float Pencil\+::getY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter. 
+
+A getter for the Y coordinate of the \doxyref{Pencil}{p.}{class_pencil}, located in circle-\/$>$get\+Position() \begin{DoxyReturn}{Returns}
+the Y coordinate 
+\end{DoxyReturn}
+\mbox{\label{class_pencil_a4405a94c63fcd844db1466c33c981600}} 
+\index{Pencil@{Pencil}!setAngSpeed@{setAngSpeed}}
+\index{setAngSpeed@{setAngSpeed}!Pencil@{Pencil}}
+\doxysubsubsection{setAngSpeed()}
+{\footnotesize\ttfamily void Pencil\+::set\+Ang\+Speed (\begin{DoxyParamCaption}\item[{float}]{new\+Ang\+Speed }\end{DoxyParamCaption})}
+
+
+
+Setter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ang\+Speed} & a float for the angular speed\\
+\hline
+\end{DoxyParams}
+A setter for the angular speed of the \doxyref{Pencil}{p.}{class_pencil} \mbox{\label{class_pencil_a5d38c2072f6d5092dff0f492d7514981}} 
+\index{Pencil@{Pencil}!setColor@{setColor}}
+\index{setColor@{setColor}!Pencil@{Pencil}}
+\doxysubsubsection{setColor()}
+{\footnotesize\ttfamily void Pencil\+::set\+Color (\begin{DoxyParamCaption}\item[{sf\+::\+Color}]{new\+Color }\end{DoxyParamCaption})}
+
+
+
+Setter. 
+
+A setter for the color of the \doxyref{Pencil}{p.}{class_pencil} 
+\begin{DoxyParams}{Parameters}
+{\em new\+Color} & an sf\+::\+Color for the color \\
+\hline
+\end{DoxyParams}
+\mbox{\label{class_pencil_a388148b0a11eb1d721d1b0a4b4e2f24e}} 
+\index{Pencil@{Pencil}!setPhi@{setPhi}}
+\index{setPhi@{setPhi}!Pencil@{Pencil}}
+\doxysubsubsection{setPhi()}
+{\footnotesize\ttfamily void Pencil\+::set\+Phi (\begin{DoxyParamCaption}\item[{float}]{new\+Phi }\end{DoxyParamCaption})}
+
+
+
+Setter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Phi} & a float for the angle\\
+\hline
+\end{DoxyParams}
+A setter for the angle of the \doxyref{Pencil}{p.}{class_pencil} \mbox{\label{class_pencil_a09ac11e211a900dc4cc8b7bc0012b156}} 
+\index{Pencil@{Pencil}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!Pencil@{Pencil}}
+\doxysubsubsection{setPosition()}
+{\footnotesize\ttfamily void Pencil\+::set\+Position (\begin{DoxyParamCaption}\item[{float}]{newX,  }\item[{float}]{newY }\end{DoxyParamCaption})}
+
+
+
+Setter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em newX} & a float for the X coordinate \\
+\hline
+{\em newY} & a float for the Y coordinate\\
+\hline
+\end{DoxyParams}
+A setter for the position of the \doxyref{Pencil}{p.}{class_pencil} 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git/\+Projet\+\_\+\+Spirograph/\+Projet\+\_\+\+Spirograph/headers/\textbf{ Pencil.\+h}\item 
+D\+:/git/\+Projet\+\_\+\+Spirograph/\+Projet\+\_\+\+Spirograph/src/\textbf{ Pencil.\+cpp}\end{DoxyCompactItemize}

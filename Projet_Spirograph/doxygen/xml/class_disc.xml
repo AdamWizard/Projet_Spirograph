@@ -1,0 +1,754 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="class_disc" kind="class" language="C++" prot="public">
+    <compoundname>Disc</compoundname>
+    <basecompoundref refid="class_shape" prot="public" virt="non-virtual">Shape</basecompoundref>
+    <includes refid="_disc_8h" local="no">Disc.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_disc_1a878a2862182d0096210ec4cc3d512a83" prot="private" static="no" mutable="no">
+        <type>sf::CircleShape *</type>
+        <definition>sf::CircleShape* Disc::circle</definition>
+        <argsstring></argsstring>
+        <name>circle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Disc.h" line="198" column="25" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Disc.h" bodystart="198" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_disc_1a5d89a8e2fc3be30ecab7d9ea19da541a" prot="private" static="no" mutable="no">
+        <type><ref refid="class_pencil" kindref="compound">Pencil</ref> **</type>
+        <definition>Pencil** Disc::listPencils</definition>
+        <argsstring></argsstring>
+        <name>listPencils</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Disc.h" line="199" column="16" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Disc.h" bodystart="199" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_disc_1a0487d70bc574715ab77b1e18d7571d09" prot="private" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Disc::nbPencils</definition>
+        <argsstring></argsstring>
+        <name>nbPencils</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Disc.h" line="200" column="22" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Disc.h" bodystart="200" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_disc_1aa4e0b9a33f7dc4ff7c6a14ab8a6d7dac" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Disc::theta</definition>
+        <argsstring></argsstring>
+        <name>theta</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Disc.h" line="201" column="16" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Disc.h" bodystart="201" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_disc_1a93a586c4a840ae31d7e098ffc0836b92" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Disc::angSpeed</definition>
+        <argsstring></argsstring>
+        <name>angSpeed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Disc.h" line="202" column="16" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Disc.h" bodystart="202" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_disc_1ae28b74033e442d17e8f4fa63e88cc8ea" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Disc::rotation</definition>
+        <argsstring></argsstring>
+        <name>rotation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Disc.h" line="203" column="13" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Disc.h" bodystart="203" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_disc_1a6fcb44a8196a4796267e918b6c3465fa" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Disc::direction</definition>
+        <argsstring></argsstring>
+        <name>direction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Disc.h" line="204" column="13" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Disc.h" bodystart="204" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_disc_1a0ee4776bad980cb361733874fb4fd9b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Disc::Disc</definition>
+        <argsstring>(double radius, double x, double y, double newAngSpeed, int newRotation)</argsstring>
+        <name>Disc</name>
+        <param>
+          <type>double</type>
+          <declname>radius</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>newAngSpeed</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>newRotation</declname>
+        </param>
+        <briefdescription>
+<para>Constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>radius</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a double, </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a double, </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>and another double to initialize the sf::CircleShape circle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>newAngSpeed</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a last double to set the initial angular speed </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>newRotation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an int to set the internal/external rotation</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+No need to set the number of pencils, it&apos;ll be done later and dynamically by the <ref refid="class_spirograph" kindref="compound">Spirograph</ref> <simplesect kind="return"><para>An instantiated <ref refid="class_disc" kindref="compound">Disc</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Disc.h" line="30" column="9" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/src/Disc.cpp" bodystart="7" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="class_disc_1ad329219b54a2a89be3d8c7c6665e9004" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Disc::~Disc</definition>
+        <argsstring>()</argsstring>
+        <name>~Disc</name>
+        <briefdescription>
+<para>Destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Free the memory allocated by the <ref refid="class_disc" kindref="compound">Disc</ref> object </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Disc.h" line="37" column="9" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/src/Disc.cpp" bodystart="23" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="class_disc_1a8727efdd8ad5955c1753db9ffe274ac2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>sf::CircleShape *</type>
+        <definition>sf::CircleShape * Disc::getCircle</definition>
+        <argsstring>() const</argsstring>
+        <name>getCircle</name>
+        <briefdescription>
+<para>Getter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>A getter for the circle associated with the <ref refid="class_disc" kindref="compound">Disc</ref> <simplesect kind="return"><para>a pointer on the <ref refid="class_disc" kindref="compound">Disc</ref> circle </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Disc.h" line="45" column="25" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/src/Disc.cpp" bodystart="35" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="class_disc_1a83d509fd3f88c9b443fb4bfe50cb2e42" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int Disc::getNbPencils</definition>
+        <argsstring>() const</argsstring>
+        <name>getNbPencils</name>
+        <reimplements refid="class_shape_1a87e8ca2b6c7f10e33868d22457e4e656">getNbPencils</reimplements>
+        <briefdescription>
+<para>Getter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>A getter for the total number of pencils in listPencils <simplesect kind="return"><para>the number of pencils </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Disc.h" line="53" column="30" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/src/Disc.cpp" bodystart="40" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="class_disc_1abd4ed813cd6f6c0ef194912eccb44762" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="class_pencil" kindref="compound">Pencil</ref> *</type>
+        <definition>Pencil * Disc::getPencil</definition>
+        <argsstring>(int i)</argsstring>
+        <name>getPencil</name>
+        <reimplements refid="class_shape_1ac66269ade77cf14bd6f1fa7006ba14a6">getPencil</reimplements>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+<para>Getter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>i</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an int to get the ith <ref refid="class_pencil" kindref="compound">Pencil</ref> of the list</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+A getter for the pencils in listPencils <simplesect kind="return"><para>the <ref refid="class_pencil" kindref="compound">Pencil</ref> located at listPencils(i), or null if i is out of range </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Disc.h" line="62" column="24" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/src/Disc.cpp" bodystart="45" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="class_disc_1a47bb0a3911ee1f8d97e7bbe609325679" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double Disc::getRadius</definition>
+        <argsstring>() const</argsstring>
+        <name>getRadius</name>
+        <briefdescription>
+<para>Getter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>A getter for the radius of the <ref refid="class_disc" kindref="compound">Disc</ref> <simplesect kind="return"><para>the radius </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Disc.h" line="70" column="16" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/src/Disc.cpp" bodystart="53" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="class_disc_1a9fe58181fe38b92c2a09fafee048edba" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>float</type>
+        <definition>float Disc::getX</definition>
+        <argsstring>() const</argsstring>
+        <name>getX</name>
+        <reimplements refid="class_shape_1a7005881bfcfd556be64a7d5eac5f1a8a">getX</reimplements>
+        <briefdescription>
+<para>Getter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>A getter for the X coordinate of the <ref refid="class_disc" kindref="compound">Disc</ref>, located in circle-&gt;getPosition() <simplesect kind="return"><para>the X coordinate </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Disc.h" line="78" column="23" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/src/Disc.cpp" bodystart="58" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="class_disc_1a1e75a8dd50ec7bec7662d7caa61ccc25" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>float</type>
+        <definition>float Disc::getY</definition>
+        <argsstring>() const</argsstring>
+        <name>getY</name>
+        <reimplements refid="class_shape_1a097f34c3273a75b06184bb09af756c07">getY</reimplements>
+        <briefdescription>
+<para>Getter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>A getter for the Y coordinate of the <ref refid="class_disc" kindref="compound">Disc</ref>, located in circle-&gt;getPosition() <simplesect kind="return"><para>the Y coordinate </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Disc.h" line="87" column="23" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/src/Disc.cpp" bodystart="63" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="class_disc_1a33cff2be5ecb630fd4b4899bb19e42d3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float Disc::getTheta</definition>
+        <argsstring>() const</argsstring>
+        <name>getTheta</name>
+        <briefdescription>
+<para>Getter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>A getter for the angle of the &quot;theta&quot; polar coordinate of the <ref refid="class_disc" kindref="compound">Disc</ref> <simplesect kind="return"><para>the angle </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Disc.h" line="95" column="15" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/src/Disc.cpp" bodystart="68" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="class_disc_1a11ef810f300a1b22d3720f6196f72322" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float Disc::getAngSpeed</definition>
+        <argsstring>() const</argsstring>
+        <name>getAngSpeed</name>
+        <briefdescription>
+<para>Getter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>A getter for the angular speed of the <ref refid="class_disc" kindref="compound">Disc</ref> <simplesect kind="return"><para>the angular speed </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Disc.h" line="103" column="15" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/src/Disc.cpp" bodystart="73" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="class_disc_1a4539686b36a75c54b1161ab2e1b9dd0e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Disc::getRotation</definition>
+        <argsstring>() const</argsstring>
+        <name>getRotation</name>
+        <briefdescription>
+<para>Getter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>A getter for the rotation of the <ref refid="class_disc" kindref="compound">Disc</ref> <simplesect kind="return"><para>the rotation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Disc.h" line="111" column="13" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/src/Disc.cpp" bodystart="78" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="class_disc_1a21ff01eed211e8152840742cd7678e9e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Disc::getDirection</definition>
+        <argsstring>() const</argsstring>
+        <name>getDirection</name>
+        <briefdescription>
+<para>Getter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>A getter for the direction of the <ref refid="class_disc" kindref="compound">Disc</ref> <simplesect kind="return"><para>the direction </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Disc.h" line="119" column="13" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/src/Disc.cpp" bodystart="83" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="class_disc_1a56fdfdd10c1cb0886fd0b854c5aae8a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Disc::setPosition</definition>
+        <argsstring>(double newX, double newY)</argsstring>
+        <name>setPosition</name>
+        <param>
+          <type>double</type>
+          <declname>newX</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>newY</declname>
+        </param>
+        <briefdescription>
+<para>Setter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newX</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a double for the X coordinate </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>newY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a double for the Y coordinate</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+A setter for the position of the <ref refid="class_disc" kindref="compound">Disc</ref> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Disc.h" line="128" column="14" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/src/Disc.cpp" bodystart="88" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="class_disc_1ae8059105c2a24d3780d9ce4628ca1c2d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Disc::setTheta</definition>
+        <argsstring>(double newTheta)</argsstring>
+        <name>setTheta</name>
+        <param>
+          <type>double</type>
+          <declname>newTheta</declname>
+        </param>
+        <briefdescription>
+<para>Setter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newTheta</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a double for the angle</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+A setter for the angle of the <ref refid="class_disc" kindref="compound">Disc</ref> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Disc.h" line="136" column="14" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/src/Disc.cpp" bodystart="93" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="class_disc_1a371079068a2ab2dcb6ce7639ab22f227" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Disc::setAngSpeed</definition>
+        <argsstring>(double newAngSpeed)</argsstring>
+        <name>setAngSpeed</name>
+        <param>
+          <type>double</type>
+          <declname>newAngSpeed</declname>
+        </param>
+        <briefdescription>
+<para>Setter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newAngSpeed</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a double for the angular speed</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+A setter for the angular speed of the <ref refid="class_disc" kindref="compound">Disc</ref> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Disc.h" line="144" column="14" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/src/Disc.cpp" bodystart="98" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="class_disc_1aeacb208f8ef2d031d19a5302eb5c905a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Disc::setRotation</definition>
+        <argsstring>(int newRotation)</argsstring>
+        <name>setRotation</name>
+        <param>
+          <type>int</type>
+          <declname>newRotation</declname>
+        </param>
+        <briefdescription>
+<para>Setter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newRotation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an int for the rotation</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+A setter for the rotation (internal or external) of the <ref refid="class_disc" kindref="compound">Disc</ref> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Disc.h" line="152" column="14" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/src/Disc.cpp" bodystart="103" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="class_disc_1ac46f941a1a44deb99e7803f9d149ef35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Disc::setDirection</definition>
+        <argsstring>(int newDirection)</argsstring>
+        <name>setDirection</name>
+        <param>
+          <type>int</type>
+          <declname>newDirection</declname>
+        </param>
+        <briefdescription>
+<para>Setter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newDirection</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an int for the direction</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+A setter for the direction (clockwise or trigonometric) of the <ref refid="class_disc" kindref="compound">Disc</ref> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Disc.h" line="160" column="14" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/src/Disc.cpp" bodystart="108" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="class_disc_1ada4d25ec9d0ab0ebe28ca80d699bdc4f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Disc::addPencil</definition>
+        <argsstring>(Pencil *pencil)</argsstring>
+        <name>addPencil</name>
+        <param>
+          <type><ref refid="class_pencil" kindref="compound">Pencil</ref> *</type>
+          <declname>pencil</declname>
+        </param>
+        <briefdescription>
+<para>Setter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pencil</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a pointer to a <ref refid="class_pencil" kindref="compound">Pencil</ref></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+A setter which add dynamically a <ref refid="class_pencil" kindref="compound">Pencil</ref> pointer to listPencils </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Disc.h" line="168" column="14" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/src/Disc.cpp" bodystart="113" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="function" id="class_disc_1a9a3fe015d07ad3642ebbf1cfdc42a510" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Disc::rollAround</definition>
+        <argsstring>(Disc *disc, float speedFactor)</argsstring>
+        <name>rollAround</name>
+        <param>
+          <type><ref refid="class_disc" kindref="compound">Disc</ref> *</type>
+          <declname>disc</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>speedFactor</declname>
+        </param>
+        <briefdescription>
+<para>Method to update the coordinates. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>disc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a pointer on the <ref refid="class_disc" kindref="compound">Disc</ref> it rolls around </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>speedFactor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a float to determine the disc velocity</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+This is the main method to simulate the <ref refid="class_spirograph" kindref="compound">Spirograph</ref> movement by updating the <ref refid="class_disc" kindref="compound">Disc</ref> members, along with rollInside </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Disc.h" line="177" column="14" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/src/Disc.cpp" bodystart="122" bodyend="155"/>
+      </memberdef>
+      <memberdef kind="function" id="class_disc_1a3fc58828a5462eaefc4fa1904b222170" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Disc::rollInside</definition>
+        <argsstring>(Disc *disc, float speedFactor)</argsstring>
+        <name>rollInside</name>
+        <param>
+          <type><ref refid="class_disc" kindref="compound">Disc</ref> *</type>
+          <declname>disc</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>speedFactor</declname>
+        </param>
+        <briefdescription>
+<para>Method to update the coordinates. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>disc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a pointer on the <ref refid="class_disc" kindref="compound">Disc</ref> it rolls inside </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>speedFactor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a float to determine the disc velocity</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+This is the main method to simulate the <ref refid="class_spirograph" kindref="compound">Spirograph</ref> movement by updating the <ref refid="class_disc" kindref="compound">Disc</ref> members, along with rollAround </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Disc.h" line="186" column="14" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/src/Disc.cpp" bodystart="157" bodyend="190"/>
+      </memberdef>
+      <memberdef kind="function" id="class_disc_1a989640d588fa4285576a96e70fdc8f59" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Disc::draw</definition>
+        <argsstring>(sf::RenderTarget &amp;target, sf::RenderStates states) const</argsstring>
+        <name>draw</name>
+        <param>
+          <type>sf::RenderTarget &amp;</type>
+          <declname>target</declname>
+        </param>
+        <param>
+          <type>sf::RenderStates</type>
+          <declname>states</declname>
+        </param>
+        <briefdescription>
+<para>Method to draw the moving structure. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>target</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an sf::RenderTarget object in which the disc will be drawn (i.e the window) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>states</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an sf::RenderStates object used by SFML to draw</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+This method is used to draw the <ref refid="class_spirograph" kindref="compound">Spirograph</ref> structure (Discs and Pencils white circles) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Disc.h" line="195" column="22" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/src/Disc.cpp" bodystart="192" bodyend="198"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class for the discs that will build our <ref refid="class_spirograph" kindref="compound">Spirograph</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>A <ref refid="class_disc" kindref="compound">Disc</ref> object contains a sf::CircleShape, an angular speed (to adjust its position every frame), and a list of <ref refid="class_pencil" kindref="compound">Pencil</ref> objects to create multiple curves simultaneously. <ref refid="class_disc" kindref="compound">Disc</ref> inherits from Virtual class <ref refid="class_shape" kindref="compound">Shape</ref> </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>sf::Drawable</label>
+      </node>
+      <node id="1">
+        <label>Disc</label>
+        <link refid="class_disc"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Shape</label>
+        <link refid="class_shape"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>sf::Drawable</label>
+      </node>
+      <node id="1">
+        <label>Disc</label>
+        <link refid="class_disc"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Shape</label>
+        <link refid="class_shape"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Disc.h" line="15" column="1" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Disc.h" bodystart="16" bodyend="205"/>
+    <listofallmembers>
+      <member refid="class_disc_1ada4d25ec9d0ab0ebe28ca80d699bdc4f" prot="public" virt="non-virtual"><scope>Disc</scope><name>addPencil</name></member>
+      <member refid="class_disc_1a93a586c4a840ae31d7e098ffc0836b92" prot="private" virt="non-virtual"><scope>Disc</scope><name>angSpeed</name></member>
+      <member refid="class_disc_1a878a2862182d0096210ec4cc3d512a83" prot="private" virt="non-virtual"><scope>Disc</scope><name>circle</name></member>
+      <member refid="class_disc_1a6fcb44a8196a4796267e918b6c3465fa" prot="private" virt="non-virtual"><scope>Disc</scope><name>direction</name></member>
+      <member refid="class_disc_1a0ee4776bad980cb361733874fb4fd9b8" prot="public" virt="non-virtual"><scope>Disc</scope><name>Disc</name></member>
+      <member refid="class_disc_1a989640d588fa4285576a96e70fdc8f59" prot="public" virt="virtual"><scope>Disc</scope><name>draw</name></member>
+      <member refid="class_disc_1a11ef810f300a1b22d3720f6196f72322" prot="public" virt="non-virtual"><scope>Disc</scope><name>getAngSpeed</name></member>
+      <member refid="class_disc_1a8727efdd8ad5955c1753db9ffe274ac2" prot="public" virt="non-virtual"><scope>Disc</scope><name>getCircle</name></member>
+      <member refid="class_disc_1a21ff01eed211e8152840742cd7678e9e" prot="public" virt="non-virtual"><scope>Disc</scope><name>getDirection</name></member>
+      <member refid="class_disc_1a83d509fd3f88c9b443fb4bfe50cb2e42" prot="public" virt="virtual"><scope>Disc</scope><name>getNbPencils</name></member>
+      <member refid="class_disc_1abd4ed813cd6f6c0ef194912eccb44762" prot="public" virt="virtual"><scope>Disc</scope><name>getPencil</name></member>
+      <member refid="class_disc_1a47bb0a3911ee1f8d97e7bbe609325679" prot="public" virt="non-virtual"><scope>Disc</scope><name>getRadius</name></member>
+      <member refid="class_disc_1a4539686b36a75c54b1161ab2e1b9dd0e" prot="public" virt="non-virtual"><scope>Disc</scope><name>getRotation</name></member>
+      <member refid="class_disc_1a33cff2be5ecb630fd4b4899bb19e42d3" prot="public" virt="non-virtual"><scope>Disc</scope><name>getTheta</name></member>
+      <member refid="class_disc_1a9fe58181fe38b92c2a09fafee048edba" prot="public" virt="virtual"><scope>Disc</scope><name>getX</name></member>
+      <member refid="class_disc_1a1e75a8dd50ec7bec7662d7caa61ccc25" prot="public" virt="virtual"><scope>Disc</scope><name>getY</name></member>
+      <member refid="class_disc_1a5d89a8e2fc3be30ecab7d9ea19da541a" prot="private" virt="non-virtual"><scope>Disc</scope><name>listPencils</name></member>
+      <member refid="class_disc_1a0487d70bc574715ab77b1e18d7571d09" prot="private" virt="non-virtual"><scope>Disc</scope><name>nbPencils</name></member>
+      <member refid="class_disc_1a9a3fe015d07ad3642ebbf1cfdc42a510" prot="public" virt="non-virtual"><scope>Disc</scope><name>rollAround</name></member>
+      <member refid="class_disc_1a3fc58828a5462eaefc4fa1904b222170" prot="public" virt="non-virtual"><scope>Disc</scope><name>rollInside</name></member>
+      <member refid="class_disc_1ae28b74033e442d17e8f4fa63e88cc8ea" prot="private" virt="non-virtual"><scope>Disc</scope><name>rotation</name></member>
+      <member refid="class_disc_1a371079068a2ab2dcb6ce7639ab22f227" prot="public" virt="non-virtual"><scope>Disc</scope><name>setAngSpeed</name></member>
+      <member refid="class_disc_1ac46f941a1a44deb99e7803f9d149ef35" prot="public" virt="non-virtual"><scope>Disc</scope><name>setDirection</name></member>
+      <member refid="class_disc_1a56fdfdd10c1cb0886fd0b854c5aae8a0" prot="public" virt="non-virtual"><scope>Disc</scope><name>setPosition</name></member>
+      <member refid="class_disc_1aeacb208f8ef2d031d19a5302eb5c905a" prot="public" virt="non-virtual"><scope>Disc</scope><name>setRotation</name></member>
+      <member refid="class_disc_1ae8059105c2a24d3780d9ce4628ca1c2d" prot="public" virt="non-virtual"><scope>Disc</scope><name>setTheta</name></member>
+      <member refid="class_disc_1aa4e0b9a33f7dc4ff7c6a14ab8a6d7dac" prot="private" virt="non-virtual"><scope>Disc</scope><name>theta</name></member>
+      <member refid="class_disc_1ad329219b54a2a89be3d8c7c6665e9004" prot="public" virt="non-virtual"><scope>Disc</scope><name>~Disc</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,269 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="_disc_8cpp" kind="file" language="C++">
+    <compoundname>Disc.cpp</compoundname>
+    <includes refid="_disc_8h" local="yes">../headers/Disc.h</includes>
+    <includes local="no">cmath</includes>
+    <includes local="no">string</includes>
+    <includes local="no">iostream</includes>
+    <incdepgraph>
+      <node id="5">
+        <label>SFML/Graphics.hpp</label>
+      </node>
+      <node id="7">
+        <label>cmath</label>
+      </node>
+      <node id="8">
+        <label>string</label>
+      </node>
+      <node id="6">
+        <label>SFML/Graphics/Drawable.hpp</label>
+      </node>
+      <node id="2">
+        <label>../headers/Disc.h</label>
+        <link refid="_disc_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>D:/git/Projet_Spirograph/Projet_Spirograph/src/Disc.cpp</label>
+        <link refid="_disc_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>iostream</label>
+      </node>
+      <node id="4">
+        <label>../headers/pencil.h</label>
+        <link refid="_pencil_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Shape.h</label>
+        <link refid="_shape_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;../headers/Disc.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cmath&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><ref refid="class_disc_1a0ee4776bad980cb361733874fb4fd9b8" kindref="member">Disc::Disc</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>radius,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>newAngSpeed,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newRotation)</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>circle<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>sf::CircleShape();</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>circle-&gt;setRadius(radius);</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>circle-&gt;setOrigin(circle-&gt;getRadius(),<sp/>circle-&gt;getRadius());</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>circle-&gt;setOutlineThickness(1);</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>circle-&gt;setFillColor(sf::Color::Transparent);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>circle-&gt;setOutlineColor(sf::Color::White);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>circle-&gt;setPosition(x,<sp/>y);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>listPencils<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>nbPencils<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>theta<sp/>=<sp/>0;<sp/>angSpeed<sp/>=<sp/>newAngSpeed;<sp/>rotation<sp/>=<sp/>newRotation;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><ref refid="class_disc_1ad329219b54a2a89be3d8c7c6665e9004" kindref="member">Disc::~Disc</ref>()</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>nbPencils;<sp/>i++)</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>listPencils[i];</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>listPencils[i]<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>listPencils;<sp/>listPencils<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//delete<sp/>circle;<sp/>circle<sp/>=<sp/>nullptr;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal">sf::CircleShape*<sp/><ref refid="class_disc_1a8727efdd8ad5955c1753db9ffe274ac2" kindref="member">Disc::getCircle</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="36"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>circle;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_disc_1a83d509fd3f88c9b443fb4bfe50cb2e42" kindref="member">Disc::getNbPencils</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="41"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>nbPencils;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><ref refid="class_pencil" kindref="compound">Pencil</ref>*<sp/><ref refid="class_disc_1abd4ed813cd6f6c0ef194912eccb44762" kindref="member">Disc::getPencil</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i)</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(i&gt;=0<sp/>&amp;&amp;<sp/>i<sp/>&lt;<sp/>nbPencils)<sp/></highlight><highlight class="comment">//<sp/>To<sp/>avoid<sp/>memory<sp/>read<sp/>problems</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>listPencils[i];</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_disc_1a47bb0a3911ee1f8d97e7bbe609325679" kindref="member">Disc::getRadius</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="54"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_disc_1a8727efdd8ad5955c1753db9ffe274ac2" kindref="member">getCircle</ref>()-&gt;getRadius();</highlight></codeline>
+<codeline lineno="56"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_disc_1a9fe58181fe38b92c2a09fafee048edba" kindref="member">Disc::getX</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="59"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_disc_1a8727efdd8ad5955c1753db9ffe274ac2" kindref="member">getCircle</ref>()-&gt;getPosition().x;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_disc_1a1e75a8dd50ec7bec7662d7caa61ccc25" kindref="member">Disc::getY</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="64"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_disc_1a8727efdd8ad5955c1753db9ffe274ac2" kindref="member">getCircle</ref>()-&gt;getPosition().y;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_disc_1a33cff2be5ecb630fd4b4899bb19e42d3" kindref="member">Disc::getTheta</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="69"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>theta;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_disc_1a11ef810f300a1b22d3720f6196f72322" kindref="member">Disc::getAngSpeed</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="74"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>angSpeed;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_disc_1a4539686b36a75c54b1161ab2e1b9dd0e" kindref="member">Disc::getRotation</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="79"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>rotation;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_disc_1a21ff01eed211e8152840742cd7678e9e" kindref="member">Disc::getDirection</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="84"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>direction;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_disc_1a56fdfdd10c1cb0886fd0b854c5aae8a0" kindref="member">Disc::setPosition</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>newX,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>newY)</highlight></codeline>
+<codeline lineno="89"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_disc_1a8727efdd8ad5955c1753db9ffe274ac2" kindref="member">getCircle</ref>()-&gt;setPosition(newX,<sp/>newY);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_disc_1ae8059105c2a24d3780d9ce4628ca1c2d" kindref="member">Disc::setTheta</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>newTheta)</highlight></codeline>
+<codeline lineno="94"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>theta<sp/>=<sp/>newTheta;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_disc_1a371079068a2ab2dcb6ce7639ab22f227" kindref="member">Disc::setAngSpeed</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>newAngSpeed)</highlight></codeline>
+<codeline lineno="99"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>angSpeed<sp/>=<sp/>newAngSpeed;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_disc_1aeacb208f8ef2d031d19a5302eb5c905a" kindref="member">Disc::setRotation</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newRotation)</highlight></codeline>
+<codeline lineno="104"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>rotation<sp/>=<sp/>newRotation;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_disc_1ac46f941a1a44deb99e7803f9d149ef35" kindref="member">Disc::setDirection</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newDirection)</highlight></codeline>
+<codeline lineno="109"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>direction<sp/>=<sp/>newDirection;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_disc_1ada4d25ec9d0ab0ebe28ca80d699bdc4f" kindref="member">Disc::addPencil</ref>(<ref refid="class_pencil" kindref="compound">Pencil</ref>*<sp/>pencil)</highlight></codeline>
+<codeline lineno="114"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_pencil" kindref="compound">Pencil</ref>**<sp/>newList<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_pencil" kindref="compound">Pencil</ref>*[nbPencils+1];</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>std::copy(listPencils,<sp/>listPencils+nbPencils,<sp/>newList);<sp/></highlight><highlight class="comment">//<sp/>Safer<sp/>than<sp/>copying<sp/>manually<sp/>with<sp/>a<sp/>for<sp/>loop</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>newList[nbPencils]<sp/>=<sp/>pencil;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>nbPencils++;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>listPencils<sp/>=<sp/>newList;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_disc_1a9a3fe015d07ad3642ebbf1cfdc42a510" kindref="member">Disc::rollAround</ref>(<ref refid="class_disc" kindref="compound">Disc</ref>*<sp/>disc,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>speedFactor)</highlight></codeline>
+<codeline lineno="123"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>R1<sp/>=<sp/>disc-&gt;<ref refid="class_disc_1a47bb0a3911ee1f8d97e7bbe609325679" kindref="member">getRadius</ref>();</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>R2<sp/>=<sp/>this-&gt;<ref refid="class_disc_1a47bb0a3911ee1f8d97e7bbe609325679" kindref="member">getRadius</ref>();</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>theta<sp/>=<sp/>this-&gt;<ref refid="class_disc_1a33cff2be5ecb630fd4b4899bb19e42d3" kindref="member">getTheta</ref>();</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Slowly<sp/>update<sp/>theta</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(this-&gt;<ref refid="class_disc_1a11ef810f300a1b22d3720f6196f72322" kindref="member">getAngSpeed</ref>()*disc-&gt;<ref refid="class_disc_1a11ef810f300a1b22d3720f6196f72322" kindref="member">getAngSpeed</ref>()<sp/>&lt;<sp/>0)</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>theta<sp/>+=<sp/>speedFactor*(this-&gt;<ref refid="class_disc_1a11ef810f300a1b22d3720f6196f72322" kindref="member">getAngSpeed</ref>()-disc-&gt;<ref refid="class_disc_1a11ef810f300a1b22d3720f6196f72322" kindref="member">getAngSpeed</ref>());</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>theta<sp/>+=<sp/>speedFactor*(this-&gt;<ref refid="class_disc_1a11ef810f300a1b22d3720f6196f72322" kindref="member">getAngSpeed</ref>()+disc-&gt;<ref refid="class_disc_1a11ef810f300a1b22d3720f6196f72322" kindref="member">getAngSpeed</ref>());</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="class_disc_1ae8059105c2a24d3780d9ce4628ca1c2d" kindref="member">setTheta</ref>(theta);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Formulas<sp/>explained<sp/>in<sp/>the<sp/>README</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="class_disc_1a56fdfdd10c1cb0886fd0b854c5aae8a0" kindref="member">setPosition</ref>(disc-&gt;<ref refid="class_disc_1a9fe58181fe38b92c2a09fafee048edba" kindref="member">getX</ref>()<sp/>+<sp/>(R1+R2)<sp/>*<sp/>cos(theta),</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>disc-&gt;<ref refid="class_disc_1a1e75a8dd50ec7bec7662d7caa61ccc25" kindref="member">getY</ref>()<sp/>+<sp/>(R1+R2)<sp/>*<sp/>sin(theta));</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/>this-&gt;<ref refid="class_disc_1a83d509fd3f88c9b443fb4bfe50cb2e42" kindref="member">getNbPencils</ref>();<sp/>j++)</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_pencil" kindref="compound">Pencil</ref>*<sp/>currentPencil<sp/>=<sp/>this-&gt;<ref refid="class_disc_1abd4ed813cd6f6c0ef194912eccb44762" kindref="member">getPencil</ref>(j);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>rho<sp/>=<sp/>currentPencil-&gt;<ref refid="class_pencil_1a563ca1872ed31d0aff7137693c897657" kindref="member">getRho</ref>();</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>phi<sp/>=<sp/>currentPencil-&gt;<ref refid="class_pencil_1a94d321ed1da0f27e33d03168eca656ee" kindref="member">getPhi</ref>();</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Formulas<sp/>explained<sp/>in<sp/>the<sp/>README</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>penAngSpeed<sp/>=<sp/>(R1/R2)*this-&gt;<ref refid="class_disc_1a11ef810f300a1b22d3720f6196f72322" kindref="member">getAngSpeed</ref>();</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>phi<sp/>+=<sp/>speedFactor*penAngSpeed;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>currentPencil-&gt;<ref refid="class_pencil_1a388148b0a11eb1d721d1b0a4b4e2f24e" kindref="member">setPhi</ref>(phi);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>currentPencil-&gt;<ref refid="class_pencil_1a09ac11e211a900dc4cc8b7bc0012b156" kindref="member">setPosition</ref>(this-&gt;<ref refid="class_disc_1a9fe58181fe38b92c2a09fafee048edba" kindref="member">getX</ref>()<sp/>+<sp/>rho<sp/>*<sp/>cos(theta<sp/>+<sp/>phi),</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="class_disc_1a1e75a8dd50ec7bec7662d7caa61ccc25" kindref="member">getY</ref>()<sp/>+<sp/>rho<sp/>*<sp/>sin(theta<sp/>+<sp/>phi));</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="155"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_disc_1a3fc58828a5462eaefc4fa1904b222170" kindref="member">Disc::rollInside</ref>(<ref refid="class_disc" kindref="compound">Disc</ref>*<sp/>disc,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>speedFactor)</highlight></codeline>
+<codeline lineno="158"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>R1<sp/>=<sp/>disc-&gt;<ref refid="class_disc_1a47bb0a3911ee1f8d97e7bbe609325679" kindref="member">getRadius</ref>();</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>R2<sp/>=<sp/>this-&gt;<ref refid="class_disc_1a47bb0a3911ee1f8d97e7bbe609325679" kindref="member">getRadius</ref>();</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>theta<sp/>=<sp/>this-&gt;<ref refid="class_disc_1a33cff2be5ecb630fd4b4899bb19e42d3" kindref="member">getTheta</ref>();</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Slowly<sp/>update<sp/>theta</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(this-&gt;<ref refid="class_disc_1a11ef810f300a1b22d3720f6196f72322" kindref="member">getAngSpeed</ref>()*disc-&gt;<ref refid="class_disc_1a11ef810f300a1b22d3720f6196f72322" kindref="member">getAngSpeed</ref>()<sp/>&lt;<sp/>0)</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>theta<sp/>+=<sp/>speedFactor*(this-&gt;<ref refid="class_disc_1a11ef810f300a1b22d3720f6196f72322" kindref="member">getAngSpeed</ref>()-disc-&gt;<ref refid="class_disc_1a11ef810f300a1b22d3720f6196f72322" kindref="member">getAngSpeed</ref>());</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>theta<sp/>+=<sp/>speedFactor*(this-&gt;<ref refid="class_disc_1a11ef810f300a1b22d3720f6196f72322" kindref="member">getAngSpeed</ref>()+disc-&gt;<ref refid="class_disc_1a11ef810f300a1b22d3720f6196f72322" kindref="member">getAngSpeed</ref>());</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="class_disc_1ae8059105c2a24d3780d9ce4628ca1c2d" kindref="member">setTheta</ref>(theta);</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Formulas<sp/>explained<sp/>in<sp/>the<sp/>README</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="class_disc_1a56fdfdd10c1cb0886fd0b854c5aae8a0" kindref="member">setPosition</ref>(disc-&gt;<ref refid="class_disc_1a9fe58181fe38b92c2a09fafee048edba" kindref="member">getX</ref>()<sp/>+<sp/>(R1-R2)<sp/>*<sp/>cos(theta),</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>disc-&gt;<ref refid="class_disc_1a1e75a8dd50ec7bec7662d7caa61ccc25" kindref="member">getY</ref>()<sp/>+<sp/>(R1-R2)<sp/>*<sp/>sin(theta));</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/>this-&gt;<ref refid="class_disc_1a83d509fd3f88c9b443fb4bfe50cb2e42" kindref="member">getNbPencils</ref>();<sp/>j++)</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_pencil" kindref="compound">Pencil</ref>*<sp/>currentPencil<sp/>=<sp/>this-&gt;<ref refid="class_disc_1abd4ed813cd6f6c0ef194912eccb44762" kindref="member">getPencil</ref>(j);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>rho<sp/>=<sp/>currentPencil-&gt;<ref refid="class_pencil_1a563ca1872ed31d0aff7137693c897657" kindref="member">getRho</ref>();</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>phi<sp/>=<sp/>currentPencil-&gt;<ref refid="class_pencil_1a94d321ed1da0f27e33d03168eca656ee" kindref="member">getPhi</ref>();</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Formulas<sp/>explained<sp/>in<sp/>the<sp/>README</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>penAngSpeed<sp/>=<sp/>(R1/R2)*this-&gt;<ref refid="class_disc_1a11ef810f300a1b22d3720f6196f72322" kindref="member">getAngSpeed</ref>();</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>phi<sp/>+=<sp/>speedFactor*penAngSpeed;</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>currentPencil-&gt;<ref refid="class_pencil_1a388148b0a11eb1d721d1b0a4b4e2f24e" kindref="member">setPhi</ref>(phi);</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>currentPencil-&gt;<ref refid="class_pencil_1a09ac11e211a900dc4cc8b7bc0012b156" kindref="member">setPosition</ref>(this-&gt;<ref refid="class_disc_1a9fe58181fe38b92c2a09fafee048edba" kindref="member">getX</ref>()<sp/>+<sp/>rho<sp/>*<sp/>cos(theta-phi),</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="class_disc_1a1e75a8dd50ec7bec7662d7caa61ccc25" kindref="member">getY</ref>()<sp/>+<sp/>rho<sp/>*<sp/>sin(theta-phi));</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="190"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_disc_1a989640d588fa4285576a96e70fdc8f59" kindref="member">Disc::draw</ref>(sf::RenderTarget&amp;<sp/>target,sf::RenderStates<sp/>states)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="193"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/>target.draw(*circle,states);</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=0;j&lt;nbPencils;j++){</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>target.draw(*listPencils[j],states);</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="198"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="D:/git/Projet_Spirograph/Projet_Spirograph/src/Disc.cpp"/>
+  </compounddef>
+</doxygen>

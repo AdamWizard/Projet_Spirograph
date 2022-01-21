@@ -1,0 +1,411 @@
+\doxysection{Disc Class Reference}
+\label{class_disc}\index{Disc@{Disc}}
+
+
+Class for the discs that will build our \doxyref{Spirograph}{p.}{class_spirograph}.  
+
+
+
+
+{\ttfamily \#include $<$Disc.\+h$>$}
+
+
+
+Inheritance diagram for Disc\+:
+% FIG 0
+
+
+Collaboration diagram for Disc\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Disc} (double radius, double x, double y, double new\+Ang\+Speed, int new\+Rotation)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\textbf{ $\sim$\+Disc} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+sf\+::\+Circle\+Shape $\ast$ \textbf{ get\+Circle} () const
+\begin{DoxyCompactList}\small\item\em Getter. \end{DoxyCompactList}\item 
+virtual unsigned int \textbf{ get\+Nb\+Pencils} () const
+\begin{DoxyCompactList}\small\item\em Getter. \end{DoxyCompactList}\item 
+virtual \textbf{ Pencil} $\ast$ \textbf{ get\+Pencil} (int i)
+\begin{DoxyCompactList}\small\item\em Getter. \end{DoxyCompactList}\item 
+double \textbf{ get\+Radius} () const
+\begin{DoxyCompactList}\small\item\em Getter. \end{DoxyCompactList}\item 
+virtual float \textbf{ getX} () const
+\begin{DoxyCompactList}\small\item\em Getter. \end{DoxyCompactList}\item 
+virtual float \textbf{ getY} () const
+\begin{DoxyCompactList}\small\item\em Getter. \end{DoxyCompactList}\item 
+float \textbf{ get\+Theta} () const
+\begin{DoxyCompactList}\small\item\em Getter. \end{DoxyCompactList}\item 
+float \textbf{ get\+Ang\+Speed} () const
+\begin{DoxyCompactList}\small\item\em Getter. \end{DoxyCompactList}\item 
+int \textbf{ get\+Rotation} () const
+\begin{DoxyCompactList}\small\item\em Getter. \end{DoxyCompactList}\item 
+int \textbf{ get\+Direction} () const
+\begin{DoxyCompactList}\small\item\em Getter. \end{DoxyCompactList}\item 
+void \textbf{ set\+Position} (double newX, double newY)
+\begin{DoxyCompactList}\small\item\em Setter. \end{DoxyCompactList}\item 
+void \textbf{ set\+Theta} (double new\+Theta)
+\begin{DoxyCompactList}\small\item\em Setter. \end{DoxyCompactList}\item 
+void \textbf{ set\+Ang\+Speed} (double new\+Ang\+Speed)
+\begin{DoxyCompactList}\small\item\em Setter. \end{DoxyCompactList}\item 
+void \textbf{ set\+Rotation} (int new\+Rotation)
+\begin{DoxyCompactList}\small\item\em Setter. \end{DoxyCompactList}\item 
+void \textbf{ set\+Direction} (int new\+Direction)
+\begin{DoxyCompactList}\small\item\em Setter. \end{DoxyCompactList}\item 
+void \textbf{ add\+Pencil} (\textbf{ Pencil} $\ast$pencil)
+\begin{DoxyCompactList}\small\item\em Setter. \end{DoxyCompactList}\item 
+void \textbf{ roll\+Around} (\textbf{ Disc} $\ast$disc, float speed\+Factor)
+\begin{DoxyCompactList}\small\item\em Method to update the coordinates. \end{DoxyCompactList}\item 
+void \textbf{ roll\+Inside} (\textbf{ Disc} $\ast$disc, float speed\+Factor)
+\begin{DoxyCompactList}\small\item\em Method to update the coordinates. \end{DoxyCompactList}\item 
+virtual void \textbf{ draw} (sf\+::\+Render\+Target \&target, sf\+::\+Render\+States states) const
+\begin{DoxyCompactList}\small\item\em Method to draw the moving structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for the discs that will build our \doxyref{Spirograph}{p.}{class_spirograph}. 
+
+A \doxyref{Disc}{p.}{class_disc} object contains a sf\+::\+Circle\+Shape, an angular speed (to adjust its position every frame), and a list of \doxyref{Pencil}{p.}{class_pencil} objects to create multiple curves simultaneously. \doxyref{Disc}{p.}{class_disc} inherits from Virtual class \doxyref{Shape}{p.}{class_shape} 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{class_disc_a0ee4776bad980cb361733874fb4fd9b8}} 
+\index{Disc@{Disc}!Disc@{Disc}}
+\index{Disc@{Disc}!Disc@{Disc}}
+\doxysubsubsection{Disc()}
+{\footnotesize\ttfamily Disc\+::\+Disc (\begin{DoxyParamCaption}\item[{double}]{radius,  }\item[{double}]{x,  }\item[{double}]{y,  }\item[{double}]{new\+Ang\+Speed,  }\item[{int}]{new\+Rotation }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em radius} & a double, \\
+\hline
+{\em x} & a double, \\
+\hline
+{\em y} & and another double to initialize the sf\+::\+Circle\+Shape circle \\
+\hline
+{\em new\+Ang\+Speed} & a last double to set the initial angular speed \\
+\hline
+{\em new\+Rotation} & an int to set the internal/external rotation\\
+\hline
+\end{DoxyParams}
+No need to set the number of pencils, it\textquotesingle{}ll be done later and dynamically by the \doxyref{Spirograph}{p.}{class_spirograph} \begin{DoxyReturn}{Returns}
+An instantiated \doxyref{Disc}{p.}{class_disc} 
+\end{DoxyReturn}
+\mbox{\label{class_disc_ad329219b54a2a89be3d8c7c6665e9004}} 
+\index{Disc@{Disc}!````~Disc@{$\sim$Disc}}
+\index{````~Disc@{$\sim$Disc}!Disc@{Disc}}
+\doxysubsubsection{$\sim$Disc()}
+{\footnotesize\ttfamily Disc\+::$\sim$\+Disc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor. 
+
+Free the memory allocated by the \doxyref{Disc}{p.}{class_disc} object 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_disc_ada4d25ec9d0ab0ebe28ca80d699bdc4f}} 
+\index{Disc@{Disc}!addPencil@{addPencil}}
+\index{addPencil@{addPencil}!Disc@{Disc}}
+\doxysubsubsection{addPencil()}
+{\footnotesize\ttfamily void Disc\+::add\+Pencil (\begin{DoxyParamCaption}\item[{\textbf{ Pencil} $\ast$}]{pencil }\end{DoxyParamCaption})}
+
+
+
+Setter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pencil} & a pointer to a \doxyref{Pencil}{p.}{class_pencil}\\
+\hline
+\end{DoxyParams}
+A setter which add dynamically a \doxyref{Pencil}{p.}{class_pencil} pointer to list\+Pencils \mbox{\label{class_disc_a989640d588fa4285576a96e70fdc8f59}} 
+\index{Disc@{Disc}!draw@{draw}}
+\index{draw@{draw}!Disc@{Disc}}
+\doxysubsubsection{draw()}
+{\footnotesize\ttfamily void Disc\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Target \&}]{target,  }\item[{sf\+::\+Render\+States}]{states }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Method to draw the moving structure. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & an sf\+::\+Render\+Target object in which the disc will be drawn (i.\+e the window) \\
+\hline
+{\em states} & an sf\+::\+Render\+States object used by SFML to draw\\
+\hline
+\end{DoxyParams}
+This method is used to draw the \doxyref{Spirograph}{p.}{class_spirograph} structure (Discs and Pencils white circles) \mbox{\label{class_disc_a11ef810f300a1b22d3720f6196f72322}} 
+\index{Disc@{Disc}!getAngSpeed@{getAngSpeed}}
+\index{getAngSpeed@{getAngSpeed}!Disc@{Disc}}
+\doxysubsubsection{getAngSpeed()}
+{\footnotesize\ttfamily float Disc\+::get\+Ang\+Speed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter. 
+
+A getter for the angular speed of the \doxyref{Disc}{p.}{class_disc} \begin{DoxyReturn}{Returns}
+the angular speed 
+\end{DoxyReturn}
+\mbox{\label{class_disc_a8727efdd8ad5955c1753db9ffe274ac2}} 
+\index{Disc@{Disc}!getCircle@{getCircle}}
+\index{getCircle@{getCircle}!Disc@{Disc}}
+\doxysubsubsection{getCircle()}
+{\footnotesize\ttfamily sf\+::\+Circle\+Shape $\ast$ Disc\+::get\+Circle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter. 
+
+A getter for the circle associated with the \doxyref{Disc}{p.}{class_disc} \begin{DoxyReturn}{Returns}
+a pointer on the \doxyref{Disc}{p.}{class_disc} circle 
+\end{DoxyReturn}
+\mbox{\label{class_disc_a21ff01eed211e8152840742cd7678e9e}} 
+\index{Disc@{Disc}!getDirection@{getDirection}}
+\index{getDirection@{getDirection}!Disc@{Disc}}
+\doxysubsubsection{getDirection()}
+{\footnotesize\ttfamily int Disc\+::get\+Direction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter. 
+
+A getter for the direction of the \doxyref{Disc}{p.}{class_disc} \begin{DoxyReturn}{Returns}
+the direction 
+\end{DoxyReturn}
+\mbox{\label{class_disc_a83d509fd3f88c9b443fb4bfe50cb2e42}} 
+\index{Disc@{Disc}!getNbPencils@{getNbPencils}}
+\index{getNbPencils@{getNbPencils}!Disc@{Disc}}
+\doxysubsubsection{getNbPencils()}
+{\footnotesize\ttfamily unsigned int Disc\+::get\+Nb\+Pencils (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Getter. 
+
+A getter for the total number of pencils in list\+Pencils \begin{DoxyReturn}{Returns}
+the number of pencils 
+\end{DoxyReturn}
+
+
+Implements \textbf{ Shape} \doxyref{}{p.}{class_shape_a87e8ca2b6c7f10e33868d22457e4e656}.
+
+\mbox{\label{class_disc_abd4ed813cd6f6c0ef194912eccb44762}} 
+\index{Disc@{Disc}!getPencil@{getPencil}}
+\index{getPencil@{getPencil}!Disc@{Disc}}
+\doxysubsubsection{getPencil()}
+{\footnotesize\ttfamily \textbf{ Pencil} $\ast$ Disc\+::get\+Pencil (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Getter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & an int to get the ith \doxyref{Pencil}{p.}{class_pencil} of the list\\
+\hline
+\end{DoxyParams}
+A getter for the pencils in list\+Pencils \begin{DoxyReturn}{Returns}
+the \doxyref{Pencil}{p.}{class_pencil} located at list\+Pencils(i), or null if i is out of range 
+\end{DoxyReturn}
+
+
+Implements \textbf{ Shape} \doxyref{}{p.}{class_shape_ac66269ade77cf14bd6f1fa7006ba14a6}.
+
+\mbox{\label{class_disc_a47bb0a3911ee1f8d97e7bbe609325679}} 
+\index{Disc@{Disc}!getRadius@{getRadius}}
+\index{getRadius@{getRadius}!Disc@{Disc}}
+\doxysubsubsection{getRadius()}
+{\footnotesize\ttfamily double Disc\+::get\+Radius (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter. 
+
+A getter for the radius of the \doxyref{Disc}{p.}{class_disc} \begin{DoxyReturn}{Returns}
+the radius 
+\end{DoxyReturn}
+\mbox{\label{class_disc_a4539686b36a75c54b1161ab2e1b9dd0e}} 
+\index{Disc@{Disc}!getRotation@{getRotation}}
+\index{getRotation@{getRotation}!Disc@{Disc}}
+\doxysubsubsection{getRotation()}
+{\footnotesize\ttfamily int Disc\+::get\+Rotation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter. 
+
+A getter for the rotation of the \doxyref{Disc}{p.}{class_disc} \begin{DoxyReturn}{Returns}
+the rotation 
+\end{DoxyReturn}
+\mbox{\label{class_disc_a33cff2be5ecb630fd4b4899bb19e42d3}} 
+\index{Disc@{Disc}!getTheta@{getTheta}}
+\index{getTheta@{getTheta}!Disc@{Disc}}
+\doxysubsubsection{getTheta()}
+{\footnotesize\ttfamily float Disc\+::get\+Theta (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter. 
+
+A getter for the angle of the \char`\"{}theta\char`\"{} polar coordinate of the \doxyref{Disc}{p.}{class_disc} \begin{DoxyReturn}{Returns}
+the angle 
+\end{DoxyReturn}
+\mbox{\label{class_disc_a9fe58181fe38b92c2a09fafee048edba}} 
+\index{Disc@{Disc}!getX@{getX}}
+\index{getX@{getX}!Disc@{Disc}}
+\doxysubsubsection{getX()}
+{\footnotesize\ttfamily float Disc\+::getX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Getter. 
+
+A getter for the X coordinate of the \doxyref{Disc}{p.}{class_disc}, located in circle-\/$>$get\+Position() \begin{DoxyReturn}{Returns}
+the X coordinate 
+\end{DoxyReturn}
+
+
+Implements \textbf{ Shape} \doxyref{}{p.}{class_shape_a7005881bfcfd556be64a7d5eac5f1a8a}.
+
+\mbox{\label{class_disc_a1e75a8dd50ec7bec7662d7caa61ccc25}} 
+\index{Disc@{Disc}!getY@{getY}}
+\index{getY@{getY}!Disc@{Disc}}
+\doxysubsubsection{getY()}
+{\footnotesize\ttfamily float Disc\+::getY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Getter. 
+
+A getter for the Y coordinate of the \doxyref{Disc}{p.}{class_disc}, located in circle-\/$>$get\+Position() \begin{DoxyReturn}{Returns}
+the Y coordinate 
+\end{DoxyReturn}
+
+
+Implements \textbf{ Shape} \doxyref{}{p.}{class_shape_a097f34c3273a75b06184bb09af756c07}.
+
+\mbox{\label{class_disc_a9a3fe015d07ad3642ebbf1cfdc42a510}} 
+\index{Disc@{Disc}!rollAround@{rollAround}}
+\index{rollAround@{rollAround}!Disc@{Disc}}
+\doxysubsubsection{rollAround()}
+{\footnotesize\ttfamily void Disc\+::roll\+Around (\begin{DoxyParamCaption}\item[{\textbf{ Disc} $\ast$}]{disc,  }\item[{float}]{speed\+Factor }\end{DoxyParamCaption})}
+
+
+
+Method to update the coordinates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em disc} & a pointer on the \doxyref{Disc}{p.}{class_disc} it rolls around \\
+\hline
+{\em speed\+Factor} & a float to determine the disc velocity\\
+\hline
+\end{DoxyParams}
+This is the main method to simulate the \doxyref{Spirograph}{p.}{class_spirograph} movement by updating the \doxyref{Disc}{p.}{class_disc} members, along with roll\+Inside \mbox{\label{class_disc_a3fc58828a5462eaefc4fa1904b222170}} 
+\index{Disc@{Disc}!rollInside@{rollInside}}
+\index{rollInside@{rollInside}!Disc@{Disc}}
+\doxysubsubsection{rollInside()}
+{\footnotesize\ttfamily void Disc\+::roll\+Inside (\begin{DoxyParamCaption}\item[{\textbf{ Disc} $\ast$}]{disc,  }\item[{float}]{speed\+Factor }\end{DoxyParamCaption})}
+
+
+
+Method to update the coordinates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em disc} & a pointer on the \doxyref{Disc}{p.}{class_disc} it rolls inside \\
+\hline
+{\em speed\+Factor} & a float to determine the disc velocity\\
+\hline
+\end{DoxyParams}
+This is the main method to simulate the \doxyref{Spirograph}{p.}{class_spirograph} movement by updating the \doxyref{Disc}{p.}{class_disc} members, along with roll\+Around \mbox{\label{class_disc_a371079068a2ab2dcb6ce7639ab22f227}} 
+\index{Disc@{Disc}!setAngSpeed@{setAngSpeed}}
+\index{setAngSpeed@{setAngSpeed}!Disc@{Disc}}
+\doxysubsubsection{setAngSpeed()}
+{\footnotesize\ttfamily void Disc\+::set\+Ang\+Speed (\begin{DoxyParamCaption}\item[{double}]{new\+Ang\+Speed }\end{DoxyParamCaption})}
+
+
+
+Setter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Ang\+Speed} & a double for the angular speed\\
+\hline
+\end{DoxyParams}
+A setter for the angular speed of the \doxyref{Disc}{p.}{class_disc} \mbox{\label{class_disc_ac46f941a1a44deb99e7803f9d149ef35}} 
+\index{Disc@{Disc}!setDirection@{setDirection}}
+\index{setDirection@{setDirection}!Disc@{Disc}}
+\doxysubsubsection{setDirection()}
+{\footnotesize\ttfamily void Disc\+::set\+Direction (\begin{DoxyParamCaption}\item[{int}]{new\+Direction }\end{DoxyParamCaption})}
+
+
+
+Setter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Direction} & an int for the direction\\
+\hline
+\end{DoxyParams}
+A setter for the direction (clockwise or trigonometric) of the \doxyref{Disc}{p.}{class_disc} \mbox{\label{class_disc_a56fdfdd10c1cb0886fd0b854c5aae8a0}} 
+\index{Disc@{Disc}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!Disc@{Disc}}
+\doxysubsubsection{setPosition()}
+{\footnotesize\ttfamily void Disc\+::set\+Position (\begin{DoxyParamCaption}\item[{double}]{newX,  }\item[{double}]{newY }\end{DoxyParamCaption})}
+
+
+
+Setter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em newX} & a double for the X coordinate \\
+\hline
+{\em newY} & a double for the Y coordinate\\
+\hline
+\end{DoxyParams}
+A setter for the position of the \doxyref{Disc}{p.}{class_disc} \mbox{\label{class_disc_aeacb208f8ef2d031d19a5302eb5c905a}} 
+\index{Disc@{Disc}!setRotation@{setRotation}}
+\index{setRotation@{setRotation}!Disc@{Disc}}
+\doxysubsubsection{setRotation()}
+{\footnotesize\ttfamily void Disc\+::set\+Rotation (\begin{DoxyParamCaption}\item[{int}]{new\+Rotation }\end{DoxyParamCaption})}
+
+
+
+Setter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Rotation} & an int for the rotation\\
+\hline
+\end{DoxyParams}
+A setter for the rotation (internal or external) of the \doxyref{Disc}{p.}{class_disc} \mbox{\label{class_disc_ae8059105c2a24d3780d9ce4628ca1c2d}} 
+\index{Disc@{Disc}!setTheta@{setTheta}}
+\index{setTheta@{setTheta}!Disc@{Disc}}
+\doxysubsubsection{setTheta()}
+{\footnotesize\ttfamily void Disc\+::set\+Theta (\begin{DoxyParamCaption}\item[{double}]{new\+Theta }\end{DoxyParamCaption})}
+
+
+
+Setter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Theta} & a double for the angle\\
+\hline
+\end{DoxyParams}
+A setter for the angle of the \doxyref{Disc}{p.}{class_disc} 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git/\+Projet\+\_\+\+Spirograph/\+Projet\+\_\+\+Spirograph/headers/\textbf{ Disc.\+h}\item 
+D\+:/git/\+Projet\+\_\+\+Spirograph/\+Projet\+\_\+\+Spirograph/src/\textbf{ Disc.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,439 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="class_spirograph" kind="class" language="C++" prot="public">
+    <compoundname>Spirograph</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">sf::Drawable</basecompoundref>
+    <includes refid="_spirograph_8h" local="no">Spirograph.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_spirograph_1a8cfa18cd0b5effcae418591ba1fd3de2" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Spirograph::nbDiscs</definition>
+        <argsstring></argsstring>
+        <name>nbDiscs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Spirograph.h" line="100" column="13" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Spirograph.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_spirograph_1a7050d4f8daf872e3ae7136eabb1f5d5f" prot="private" static="no" mutable="no">
+        <type><ref refid="class_disc" kindref="compound">Disc</ref> **</type>
+        <definition>Disc** Spirograph::listDisc</definition>
+        <argsstring></argsstring>
+        <name>listDisc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Spirograph.h" line="101" column="14" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Spirograph.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_spirograph_1a8d5e7d9022403e7a556a4fd15f9a2651" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Spirograph::speedFactor</definition>
+        <argsstring></argsstring>
+        <name>speedFactor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Spirograph.h" line="102" column="15" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Spirograph.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_spirograph_1a0bc3838ac73ecd8a6f761a87e160c410" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Spirograph::Spirograph</definition>
+        <argsstring>(int dimX, int dimY, Shape *centralShape, Disc *rollingDisc)</argsstring>
+        <name>Spirograph</name>
+        <param>
+          <type>int</type>
+          <declname>dimX</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dimY</declname>
+        </param>
+        <param>
+          <type><ref refid="class_shape" kindref="compound">Shape</ref> *</type>
+          <declname>centralShape</declname>
+        </param>
+        <param>
+          <type><ref refid="class_disc" kindref="compound">Disc</ref> *</type>
+          <declname>rollingDisc</declname>
+        </param>
+        <briefdescription>
+<para>Constructor using a central <ref refid="class_shape" kindref="compound">Shape</ref> and a single <ref refid="class_disc" kindref="compound">Disc</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dimX</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an int, the width of the window the <ref refid="class_spirograph" kindref="compound">Spirograph</ref> will be built in </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dimY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an int, the height of the window the <ref refid="class_spirograph" kindref="compound">Spirograph</ref> will be built in </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>centralDisc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a <ref refid="class_disc" kindref="compound">Disc</ref> pointer, the <ref refid="class_disc" kindref="compound">Disc</ref> around which the <ref refid="class_disc" kindref="compound">Disc</ref> will roll </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="class_disc" kindref="compound">Disc</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a <ref refid="class_disc" kindref="compound">Disc</ref>, the <ref refid="class_disc" kindref="compound">Disc</ref> that will roll around the central <ref refid="class_disc" kindref="compound">Disc</ref> </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An instantiated <ref refid="class_spirograph" kindref="compound">Spirograph</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Spirograph.h" line="32" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spirograph_1a18b9ff1ef718a97f58d9cf4ab78e3b06" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Spirograph::Spirograph</definition>
+        <argsstring>(int dimX, int dimY)</argsstring>
+        <name>Spirograph</name>
+        <param>
+          <type>int</type>
+          <declname>dimX</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dimY</declname>
+        </param>
+        <briefdescription>
+<para>Constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dimX</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an int, the width of the window the <ref refid="class_spirograph" kindref="compound">Spirograph</ref> will be built in </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dimY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an int, the height of the window the <ref refid="class_spirograph" kindref="compound">Spirograph</ref> will be built in </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An instantiated <ref refid="class_spirograph" kindref="compound">Spirograph</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Spirograph.h" line="40" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spirograph_1abdb6da0508fdb19345b6825a659211dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Spirograph::Spirograph</definition>
+        <argsstring>(string filepath)</argsstring>
+        <name>Spirograph</name>
+        <param>
+          <type>string</type>
+          <declname>filepath</declname>
+        </param>
+        <briefdescription>
+<para>Constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>filepath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a string that gives the path to a normalized text file with which we will build the <ref refid="class_spirograph" kindref="compound">Spirograph</ref> object </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An instantiated <ref refid="class_spirograph" kindref="compound">Spirograph</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Spirograph.h" line="47" column="9" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/src/Spirograph.cpp" bodystart="13" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spirograph_1a327385bfbeb8831cf6232632d9508fde" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Spirograph::~Spirograph</definition>
+        <argsstring>()</argsstring>
+        <name>~Spirograph</name>
+        <briefdescription>
+<para>Destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Free the memory allocated by the <ref refid="class_spirograph" kindref="compound">Spirograph</ref> object </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Spirograph.h" line="54" column="9" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/src/Spirograph.cpp" bodystart="117" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spirograph_1ab8cbac5fd6c37669d91a78227ce9a014" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Spirograph::getNbDiscs</definition>
+        <argsstring>() const</argsstring>
+        <name>getNbDiscs</name>
+        <briefdescription>
+<para>Getter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>A getter for the total number of Discs in listDisc <simplesect kind="return"><para>the number of Discs </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Spirograph.h" line="62" column="13" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/src/Spirograph.cpp" bodystart="126" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spirograph_1a0dda4e99bc26dd6c3a989091de4d7df5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_disc" kindref="compound">Disc</ref> *</type>
+        <definition>Disc * Spirograph::getDisc</definition>
+        <argsstring>(int i)</argsstring>
+        <name>getDisc</name>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+<para>Getter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>i</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an int to get the ith <ref refid="class_disc" kindref="compound">Disc</ref> of the list</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+A getter for the Discs in listDisc <simplesect kind="return"><para>the <ref refid="class_disc" kindref="compound">Disc</ref> located at listDisc(i), or null if i is out of range </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Spirograph.h" line="71" column="14" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/src/Spirograph.cpp" bodystart="131" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spirograph_1a04d43a058b5061196773fcb45055e241" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Spirograph::setSpeedFactor</definition>
+        <argsstring>(float newSpeedFactor)</argsstring>
+        <name>setSpeedFactor</name>
+        <param>
+          <type>float</type>
+          <declname>newSpeedFactor</declname>
+        </param>
+        <briefdescription>
+<para>Setter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newSpeedFactor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a float, the value which multiplies the speed of rotation of all Discs (1 is default value) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Spirograph.h" line="78" column="14" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/src/Spirograph.cpp" bodystart="144" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spirograph_1a68bd977723ee619deeed0374969cd9e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float Spirograph::getSpeedFactor</definition>
+        <argsstring>()</argsstring>
+        <name>getSpeedFactor</name>
+        <briefdescription>
+<para>Getter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>A getter for the speedFactor value <simplesect kind="return"><para>the speedFactor value of the spirograph </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Spirograph.h" line="86" column="15" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/src/Spirograph.cpp" bodystart="139" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spirograph_1a28ed8a2e6d0ce8d9c956044328b5f45c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Spirograph::update</definition>
+        <argsstring>()</argsstring>
+        <name>update</name>
+        <briefdescription>
+<para>Main function to update the position of Discs within the spirograph. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method will be called in each frame to adjust the coordinates of the Discs and pencils thanks to the mathematical equations describing the movement of the centers of all the circles relatively to each others </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Spirograph.h" line="95" column="14" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/src/Spirograph.cpp" bodystart="149" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spirograph_1addde539363f6a6b511360aeb8c2c11cc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Spirograph::draw</definition>
+        <argsstring>(sf::RenderTarget &amp;target, sf::RenderStates states) const</argsstring>
+        <name>draw</name>
+        <param>
+          <type>sf::RenderTarget &amp;</type>
+          <declname>target</declname>
+        </param>
+        <param>
+          <type>sf::RenderStates</type>
+          <declname>states</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Spirograph.h" line="97" column="22" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/src/Spirograph.cpp" bodystart="176" bodyend="181"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_spirograph_1aa569417f40b2174a94a488e3d3a2f025" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Spirograph::checkLength</definition>
+        <argsstring>(int maxPencilDistance, int dimX)</argsstring>
+        <name>checkLength</name>
+        <param>
+          <type>int</type>
+          <declname>maxPencilDistance</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dimX</declname>
+        </param>
+        <briefdescription>
+<para>Small method to check if the window can contain the drawing. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>maxPencilDistance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an int to specify the farthest pencil </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dimX</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an int to get the length of the window</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true/false, i.e drawable or not </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Spirograph.h" line="111" column="14" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/src/Spirograph.cpp" bodystart="163" bodyend="174"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spirograph_1a428c2a0cb87304655fb352b85a025901" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Spirograph::checkReset</definition>
+        <argsstring>()</argsstring>
+        <name>checkReset</name>
+        <briefdescription>
+<para>Check if the <ref refid="class_spirograph" kindref="compound">Spirograph</ref> has done a full rotation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is done by checking if theta of every <ref refid="class_disc" kindref="compound">Disc</ref> is &gt;= 2*Pi <simplesect kind="return"><para>true/false, the reset happened or not </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Spirograph.h" line="119" column="14" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/src/Spirograph.cpp" bodystart="183" bodyend="225"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Main class that will keep track of every object position. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>A <ref refid="class_spirograph" kindref="compound">Spirograph</ref> object is an &quot;embedded&quot; list of <ref refid="class_disc" kindref="compound">Disc</ref> objects with a user-given size that will simulate the curves created by these Discs, even if the construction isn&apos;t achievable in real life. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>sf::Drawable</label>
+      </node>
+      <node id="1">
+        <label>Spirograph</label>
+        <link refid="class_spirograph"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>sf::Drawable</label>
+      </node>
+      <node id="1">
+        <label>Spirograph</label>
+        <link refid="class_spirograph"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Spirograph.h" line="20" column="1" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Spirograph.h" bodystart="21" bodyend="120"/>
+    <listofallmembers>
+      <member refid="class_spirograph_1aa569417f40b2174a94a488e3d3a2f025" prot="private" virt="non-virtual"><scope>Spirograph</scope><name>checkLength</name></member>
+      <member refid="class_spirograph_1a428c2a0cb87304655fb352b85a025901" prot="private" virt="non-virtual"><scope>Spirograph</scope><name>checkReset</name></member>
+      <member refid="class_spirograph_1addde539363f6a6b511360aeb8c2c11cc" prot="public" virt="virtual"><scope>Spirograph</scope><name>draw</name></member>
+      <member refid="class_spirograph_1a0dda4e99bc26dd6c3a989091de4d7df5" prot="public" virt="non-virtual"><scope>Spirograph</scope><name>getDisc</name></member>
+      <member refid="class_spirograph_1ab8cbac5fd6c37669d91a78227ce9a014" prot="public" virt="non-virtual"><scope>Spirograph</scope><name>getNbDiscs</name></member>
+      <member refid="class_spirograph_1a68bd977723ee619deeed0374969cd9e0" prot="public" virt="non-virtual"><scope>Spirograph</scope><name>getSpeedFactor</name></member>
+      <member refid="class_spirograph_1a7050d4f8daf872e3ae7136eabb1f5d5f" prot="private" virt="non-virtual"><scope>Spirograph</scope><name>listDisc</name></member>
+      <member refid="class_spirograph_1a8cfa18cd0b5effcae418591ba1fd3de2" prot="private" virt="non-virtual"><scope>Spirograph</scope><name>nbDiscs</name></member>
+      <member refid="class_spirograph_1a04d43a058b5061196773fcb45055e241" prot="public" virt="non-virtual"><scope>Spirograph</scope><name>setSpeedFactor</name></member>
+      <member refid="class_spirograph_1a8d5e7d9022403e7a556a4fd15f9a2651" prot="private" virt="non-virtual"><scope>Spirograph</scope><name>speedFactor</name></member>
+      <member refid="class_spirograph_1a0bc3838ac73ecd8a6f761a87e160c410" prot="public" virt="non-virtual"><scope>Spirograph</scope><name>Spirograph</name></member>
+      <member refid="class_spirograph_1a18b9ff1ef718a97f58d9cf4ab78e3b06" prot="public" virt="non-virtual"><scope>Spirograph</scope><name>Spirograph</name></member>
+      <member refid="class_spirograph_1abdb6da0508fdb19345b6825a659211dd" prot="public" virt="non-virtual"><scope>Spirograph</scope><name>Spirograph</name></member>
+      <member refid="class_spirograph_1a28ed8a2e6d0ce8d9c956044328b5f45c" prot="public" virt="non-virtual"><scope>Spirograph</scope><name>update</name></member>
+      <member refid="class_spirograph_1a327385bfbeb8831cf6232632d9508fde" prot="public" virt="non-virtual"><scope>Spirograph</scope><name>~Spirograph</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

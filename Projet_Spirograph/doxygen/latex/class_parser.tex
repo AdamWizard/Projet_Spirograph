@@ -1,0 +1,56 @@
+\doxysection{Parser Class Reference}
+\label{class_parser}\index{Parser@{Parser}}
+
+
+{\ttfamily \#include $<$Parser.\+h$>$}
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \textbf{ M\+\_\+\+Assert} (bool expr, const string \&msg)
+\begin{DoxyCompactList}\small\item\em Macro of assert to print specific messages. \end{DoxyCompactList}\item 
+static vector$<$ string $>$ \textbf{ explode} (const string \&s, char delim)
+\begin{DoxyCompactList}\small\item\em Explode method to split strings. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_parser_a94e08ce11f731921ba62a9637ef82e7d}} 
+\index{Parser@{Parser}!explode@{explode}}
+\index{explode@{explode}!Parser@{Parser}}
+\doxysubsubsection{explode()}
+{\footnotesize\ttfamily vector$<$ string $>$ Parser\+::explode (\begin{DoxyParamCaption}\item[{const string \&}]{s,  }\item[{char}]{delim }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Explode method to split strings. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & the string to explode \\
+\hline
+{\em delim} & the char used to separate the string\\
+\hline
+\end{DoxyParams}
+This method explode a string by using the char delim, and stores the results in a vector of string \mbox{\label{class_parser_a10f55cbf8e08c89d2a95775718f1aeaa}} 
+\index{Parser@{Parser}!M\_Assert@{M\_Assert}}
+\index{M\_Assert@{M\_Assert}!Parser@{Parser}}
+\doxysubsubsection{M\_Assert()}
+{\footnotesize\ttfamily void Parser\+::\+M\+\_\+\+Assert (\begin{DoxyParamCaption}\item[{bool}]{expr,  }\item[{const string \&}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Macro of assert to print specific messages. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em expr} & a boolean that will be the expression to test \\
+\hline
+{\em msg} & a string that will explain the error\\
+\hline
+\end{DoxyParams}
+This method does the same job of assert, and print custom messages for each error 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git/\+Projet\+\_\+\+Spirograph/\+Projet\+\_\+\+Spirograph/headers/\textbf{ Parser.\+h}\item 
+D\+:/git/\+Projet\+\_\+\+Spirograph/\+Projet\+\_\+\+Spirograph/src/\textbf{ Parser.\+cpp}\end{DoxyCompactItemize}

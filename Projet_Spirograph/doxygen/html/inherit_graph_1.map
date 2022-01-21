@@ -1,0 +1,7 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" title=" " alt="" coords="5,56,99,83"/>
+<area shape="rect" id="node2" href="$class_pencil.html" title="Class for the points generating the curve." alt="" coords="159,5,218,32"/>
+<area shape="rect" id="node3" href="$class_shape.html" title="Virtual class that represents a 2D shape." alt="" coords="159,56,218,83"/>
+<area shape="rect" id="node5" href="$class_spirograph.html" title="Main class that will keep track of every object position." alt="" coords="147,107,231,133"/>
+<area shape="rect" id="node4" href="$class_disc.html" title="Class for the discs that will build our Spirograph." alt="" coords="279,56,327,83"/>
+</map>

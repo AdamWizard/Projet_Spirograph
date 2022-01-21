@@ -1,0 +1,206 @@
+\doxysection{Spirograph Class Reference}
+\label{class_spirograph}\index{Spirograph@{Spirograph}}
+
+
+Main class that will keep track of every object position.  
+
+
+
+
+{\ttfamily \#include $<$Spirograph.\+h$>$}
+
+
+
+Inheritance diagram for Spirograph\+:
+% FIG 0
+
+
+Collaboration diagram for Spirograph\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Spirograph} (int dimX, int dimY, \textbf{ Shape} $\ast$central\+Shape, \textbf{ Disc} $\ast$rolling\+Disc)
+\begin{DoxyCompactList}\small\item\em Constructor using a central \doxyref{Shape}{p.}{class_shape} and a single \doxyref{Disc}{p.}{class_disc}. \end{DoxyCompactList}\item 
+\textbf{ Spirograph} (int dimX, int dimY)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\textbf{ Spirograph} (string filepath)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\textbf{ $\sim$\+Spirograph} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+int \textbf{ get\+Nb\+Discs} () const
+\begin{DoxyCompactList}\small\item\em Getter. \end{DoxyCompactList}\item 
+\textbf{ Disc} $\ast$ \textbf{ get\+Disc} (int i)
+\begin{DoxyCompactList}\small\item\em Getter. \end{DoxyCompactList}\item 
+void \textbf{ set\+Speed\+Factor} (float new\+Speed\+Factor)
+\begin{DoxyCompactList}\small\item\em Setter. \end{DoxyCompactList}\item 
+float \textbf{ get\+Speed\+Factor} ()
+\begin{DoxyCompactList}\small\item\em Getter. \end{DoxyCompactList}\item 
+void \textbf{ update} ()
+\begin{DoxyCompactList}\small\item\em Main function to update the position of Discs within the spirograph. \end{DoxyCompactList}\item 
+virtual void \textbf{ draw} (sf\+::\+Render\+Target \&target, sf\+::\+Render\+States states) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Main class that will keep track of every object position. 
+
+A \doxyref{Spirograph}{p.}{class_spirograph} object is an \char`\"{}embedded\char`\"{} list of \doxyref{Disc}{p.}{class_disc} objects with a user-\/given size that will simulate the curves created by these Discs, even if the construction isn\textquotesingle{}t achievable in real life. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{class_spirograph_a0bc3838ac73ecd8a6f761a87e160c410}} 
+\index{Spirograph@{Spirograph}!Spirograph@{Spirograph}}
+\index{Spirograph@{Spirograph}!Spirograph@{Spirograph}}
+\doxysubsubsection{Spirograph()\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Spirograph\+::\+Spirograph (\begin{DoxyParamCaption}\item[{int}]{dimX,  }\item[{int}]{dimY,  }\item[{\textbf{ Shape} $\ast$}]{central\+Shape,  }\item[{\textbf{ Disc} $\ast$}]{rolling\+Disc }\end{DoxyParamCaption})}
+
+
+
+Constructor using a central \doxyref{Shape}{p.}{class_shape} and a single \doxyref{Disc}{p.}{class_disc}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dimX} & an int, the width of the window the \doxyref{Spirograph}{p.}{class_spirograph} will be built in \\
+\hline
+{\em dimY} & an int, the height of the window the \doxyref{Spirograph}{p.}{class_spirograph} will be built in \\
+\hline
+{\em central\+Disc} & a \doxyref{Disc}{p.}{class_disc} pointer, the \doxyref{Disc}{p.}{class_disc} around which the \doxyref{Disc}{p.}{class_disc} will roll \\
+\hline
+{\em \doxyref{Disc}{p.}{class_disc}} & a \doxyref{Disc}{p.}{class_disc}, the \doxyref{Disc}{p.}{class_disc} that will roll around the central \doxyref{Disc}{p.}{class_disc} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An instantiated \doxyref{Spirograph}{p.}{class_spirograph} 
+\end{DoxyReturn}
+\mbox{\label{class_spirograph_a18b9ff1ef718a97f58d9cf4ab78e3b06}} 
+\index{Spirograph@{Spirograph}!Spirograph@{Spirograph}}
+\index{Spirograph@{Spirograph}!Spirograph@{Spirograph}}
+\doxysubsubsection{Spirograph()\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Spirograph\+::\+Spirograph (\begin{DoxyParamCaption}\item[{int}]{dimX,  }\item[{int}]{dimY }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dimX} & an int, the width of the window the \doxyref{Spirograph}{p.}{class_spirograph} will be built in \\
+\hline
+{\em dimY} & an int, the height of the window the \doxyref{Spirograph}{p.}{class_spirograph} will be built in \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An instantiated \doxyref{Spirograph}{p.}{class_spirograph} 
+\end{DoxyReturn}
+\mbox{\label{class_spirograph_abdb6da0508fdb19345b6825a659211dd}} 
+\index{Spirograph@{Spirograph}!Spirograph@{Spirograph}}
+\index{Spirograph@{Spirograph}!Spirograph@{Spirograph}}
+\doxysubsubsection{Spirograph()\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Spirograph\+::\+Spirograph (\begin{DoxyParamCaption}\item[{string}]{filepath }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filepath} & a string that gives the path to a normalized text file with which we will build the \doxyref{Spirograph}{p.}{class_spirograph} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An instantiated \doxyref{Spirograph}{p.}{class_spirograph} 
+\end{DoxyReturn}
+\mbox{\label{class_spirograph_a327385bfbeb8831cf6232632d9508fde}} 
+\index{Spirograph@{Spirograph}!````~Spirograph@{$\sim$Spirograph}}
+\index{````~Spirograph@{$\sim$Spirograph}!Spirograph@{Spirograph}}
+\doxysubsubsection{$\sim$Spirograph()}
+{\footnotesize\ttfamily Spirograph\+::$\sim$\+Spirograph (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor. 
+
+Free the memory allocated by the \doxyref{Spirograph}{p.}{class_spirograph} object 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_spirograph_addde539363f6a6b511360aeb8c2c11cc}} 
+\index{Spirograph@{Spirograph}!draw@{draw}}
+\index{draw@{draw}!Spirograph@{Spirograph}}
+\doxysubsubsection{draw()}
+{\footnotesize\ttfamily void Spirograph\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Target \&}]{target,  }\item[{sf\+::\+Render\+States}]{states }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\mbox{\label{class_spirograph_a0dda4e99bc26dd6c3a989091de4d7df5}} 
+\index{Spirograph@{Spirograph}!getDisc@{getDisc}}
+\index{getDisc@{getDisc}!Spirograph@{Spirograph}}
+\doxysubsubsection{getDisc()}
+{\footnotesize\ttfamily \textbf{ Disc} $\ast$ Spirograph\+::get\+Disc (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+Getter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & an int to get the ith \doxyref{Disc}{p.}{class_disc} of the list\\
+\hline
+\end{DoxyParams}
+A getter for the Discs in list\+Disc \begin{DoxyReturn}{Returns}
+the \doxyref{Disc}{p.}{class_disc} located at list\+Disc(i), or null if i is out of range 
+\end{DoxyReturn}
+\mbox{\label{class_spirograph_ab8cbac5fd6c37669d91a78227ce9a014}} 
+\index{Spirograph@{Spirograph}!getNbDiscs@{getNbDiscs}}
+\index{getNbDiscs@{getNbDiscs}!Spirograph@{Spirograph}}
+\doxysubsubsection{getNbDiscs()}
+{\footnotesize\ttfamily int Spirograph\+::get\+Nb\+Discs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter. 
+
+A getter for the total number of Discs in list\+Disc \begin{DoxyReturn}{Returns}
+the number of Discs 
+\end{DoxyReturn}
+\mbox{\label{class_spirograph_a68bd977723ee619deeed0374969cd9e0}} 
+\index{Spirograph@{Spirograph}!getSpeedFactor@{getSpeedFactor}}
+\index{getSpeedFactor@{getSpeedFactor}!Spirograph@{Spirograph}}
+\doxysubsubsection{getSpeedFactor()}
+{\footnotesize\ttfamily float Spirograph\+::get\+Speed\+Factor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter. 
+
+A getter for the speed\+Factor value \begin{DoxyReturn}{Returns}
+the speed\+Factor value of the spirograph 
+\end{DoxyReturn}
+\mbox{\label{class_spirograph_a04d43a058b5061196773fcb45055e241}} 
+\index{Spirograph@{Spirograph}!setSpeedFactor@{setSpeedFactor}}
+\index{setSpeedFactor@{setSpeedFactor}!Spirograph@{Spirograph}}
+\doxysubsubsection{setSpeedFactor()}
+{\footnotesize\ttfamily void Spirograph\+::set\+Speed\+Factor (\begin{DoxyParamCaption}\item[{float}]{new\+Speed\+Factor }\end{DoxyParamCaption})}
+
+
+
+Setter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Speed\+Factor} & a float, the value which multiplies the speed of rotation of all Discs (1 is default value) \\
+\hline
+\end{DoxyParams}
+\mbox{\label{class_spirograph_a28ed8a2e6d0ce8d9c956044328b5f45c}} 
+\index{Spirograph@{Spirograph}!update@{update}}
+\index{update@{update}!Spirograph@{Spirograph}}
+\doxysubsubsection{update()}
+{\footnotesize\ttfamily void Spirograph\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Main function to update the position of Discs within the spirograph. 
+
+This method will be called in each frame to adjust the coordinates of the Discs and pencils thanks to the mathematical equations describing the movement of the centers of all the circles relatively to each others 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git/\+Projet\+\_\+\+Spirograph/\+Projet\+\_\+\+Spirograph/headers/\textbf{ Spirograph.\+h}\item 
+D\+:/git/\+Projet\+\_\+\+Spirograph/\+Projet\+\_\+\+Spirograph/src/\textbf{ Spirograph.\+cpp}\end{DoxyCompactItemize}

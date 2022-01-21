@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir">
+    <compoundname>D:/git/Projet_Spirograph/Projet_Spirograph/src</compoundname>
+    <innerfile refid="_disc_8cpp">Disc.cpp</innerfile>
+    <innerfile refid="src_2main_8cpp">main.cpp</innerfile>
+    <innerfile refid="_parser_8cpp">Parser.cpp</innerfile>
+    <innerfile refid="_pencil_8cpp">Pencil.cpp</innerfile>
+    <innerfile refid="_shape_8cpp">Shape.cpp</innerfile>
+    <innerfile refid="_spirograph_8cpp">Spirograph.cpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/git/Projet_Spirograph/Projet_Spirograph/src/"/>
+  </compounddef>
+</doxygen>

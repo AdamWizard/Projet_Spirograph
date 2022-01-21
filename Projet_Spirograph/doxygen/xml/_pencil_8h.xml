@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="_pencil_8h" kind="file" language="C++">
+    <compoundname>Pencil.h</compoundname>
+    <includes local="yes">SFML/Graphics.hpp</includes>
+    <includedby refid="_disc_8h" local="yes">D:/git/Projet_Spirograph/Projet_Spirograph/headers/Disc.h</includedby>
+    <includedby refid="_shape_8h" local="yes">D:/git/Projet_Spirograph/Projet_Spirograph/headers/Shape.h</includedby>
+    <includedby refid="_pencil_8cpp" local="yes">D:/git/Projet_Spirograph/Projet_Spirograph/src/Pencil.cpp</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>SFML/Graphics.hpp</label>
+      </node>
+      <node id="1">
+        <label>D:/git/Projet_Spirograph/Projet_Spirograph/headers/Pencil.h</label>
+        <link refid="_pencil_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="8">
+        <label>D:/git/Projet_Spirograph/Projet_Spirograph/src/Shape.cpp</label>
+        <link refid="_shape_8cpp"/>
+      </node>
+      <node id="3">
+        <label>D:/git/Projet_Spirograph/Projet_Spirograph/headers/Spirograph.h</label>
+        <link refid="_spirograph_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>D:/git/Projet_Spirograph/Projet_Spirograph/headers/Disc.h</label>
+        <link refid="_disc_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>D:/git/Projet_Spirograph/Projet_Spirograph/src/Disc.cpp</label>
+        <link refid="_disc_8cpp"/>
+      </node>
+      <node id="4">
+        <label>D:/git/Projet_Spirograph/Projet_Spirograph/main.cpp</label>
+        <link refid="main_8cpp"/>
+      </node>
+      <node id="5">
+        <label>D:/git/Projet_Spirograph/Projet_Spirograph/src/Spirograph.cpp</label>
+        <link refid="_spirograph_8cpp"/>
+      </node>
+      <node id="1">
+        <label>D:/git/Projet_Spirograph/Projet_Spirograph/headers/Pencil.h</label>
+        <link refid="_pencil_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>D:/git/Projet_Spirograph/Projet_Spirograph/headers/Shape.h</label>
+        <link refid="_shape_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>D:/git/Projet_Spirograph/Projet_Spirograph/src/Pencil.cpp</label>
+        <link refid="_pencil_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_pencil" prot="public">Pencil</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>PENCIL_H_INCLUDED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PENCIL_H_INCLUDED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;SFML/Graphics.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="class_pencil" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_pencil" kindref="compound">Pencil</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>sf::Drawable</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>:</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_pencil_1a073273f10085fa880341425e46c01b5c" kindref="member">Pencil</ref>(sf::Color<sp/>newColor,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>newRho);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_pencil_1acb035596d44b2d603b1480caa7a2ef0d" kindref="member">~Pencil</ref>();</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_pencil_1abefbf4c6afe608af5d8f1b3aef128c9f" kindref="member">getX</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_pencil_1a8451dd308ed3cfa8ea78db65b25bac18" kindref="member">getY</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_pencil_1a563ca1872ed31d0aff7137693c897657" kindref="member">getRho</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_pencil_1a94d321ed1da0f27e33d03168eca656ee" kindref="member">getPhi</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_pencil_1a92c87ae7d39510fa3b23ab226de6a35e" kindref="member">getAngSpeed</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sf::Color<sp/><ref refid="class_pencil_1a772f15a320ef57167838c06ad77b3233" kindref="member">getColor</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sf::CircleShape*<sp/><ref refid="class_pencil_1a81b159d3bcac62735928d8e223b0d47f" kindref="member">getCircle</ref>();</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_pencil_1a09ac11e211a900dc4cc8b7bc0012b156" kindref="member">setPosition</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>newX,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>newY);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_pencil_1a388148b0a11eb1d721d1b0a4b4e2f24e" kindref="member">setPhi</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>newPhi);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_pencil_1a4405a94c63fcd844db1466c33c981600" kindref="member">setAngSpeed</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>newAngSpeed);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_pencil_1a5d38c2072f6d5092dff0f492d7514981" kindref="member">setColor</ref>(sf::Color<sp/>newColor);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_pencil_1a9d4b46e3caf03506cb408f338e647ded" kindref="member">draw</ref>(sf::RenderTarget&amp;<sp/>target,sf::RenderStates<sp/>states)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>:</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sf::CircleShape*<sp/>circle;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sf::Color<sp/>color;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>rho;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>phi;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>angSpeed;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>PENCIL_H_INCLUDED</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Pencil.h"/>
+  </compounddef>
+</doxygen>

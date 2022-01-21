@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="class_parser" kind="class" language="C++" prot="public">
+    <compoundname>Parser</compoundname>
+    <includes refid="_parser_8h" local="no">Parser.h</includes>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_parser_1a10f55cbf8e08c89d2a95775718f1aeaa" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parser::M_Assert</definition>
+        <argsstring>(bool expr, const string &amp;msg)</argsstring>
+        <name>M_Assert</name>
+        <param>
+          <type>bool</type>
+          <declname>expr</declname>
+        </param>
+        <param>
+          <type>const string &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Macro of assert to print specific messages. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>expr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a boolean that will be the expression to test </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a string that will explain the error</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+This method does the same job of assert, and print custom messages for each error </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Parser.h" line="22" column="17" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/src/Parser.cpp" bodystart="5" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="class_parser_1a94e08ce11f731921ba62a9637ef82e7d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>vector&lt; string &gt;</type>
+        <definition>vector&lt; string &gt; Parser::explode</definition>
+        <argsstring>(const string &amp;s, char delim)</argsstring>
+        <name>explode</name>
+        <param>
+          <type>const string &amp;</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>delim</declname>
+        </param>
+        <briefdescription>
+<para>Explode method to split strings. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>s</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the string to explode </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>delim</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the char used to separate the string</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+This method explode a string by using the char delim, and stores the results in a vector of string </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Parser.h" line="31" column="19" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/src/Parser.cpp" bodystart="14" bodyend="25"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Parser.h" line="12" column="1" bodyfile="D:/git/Projet_Spirograph/Projet_Spirograph/headers/Parser.h" bodystart="13" bodyend="32"/>
+    <listofallmembers>
+      <member refid="class_parser_1a94e08ce11f731921ba62a9637ef82e7d" prot="public" virt="non-virtual"><scope>Parser</scope><name>explode</name></member>
+      <member refid="class_parser_1a10f55cbf8e08c89d2a95775718f1aeaa" prot="public" virt="non-virtual"><scope>Parser</scope><name>M_Assert</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
