@@ -1,6 +1,7 @@
-Number_of_discs 2
-Disc 100 e c
-Disc 50 e t
+Number_of_discs 3
+Disc 120 e c
+Disc 60 e t
+Disc 20 i t
 Number_of_pencils 1
-Pencil 80
+Pencil 60
 

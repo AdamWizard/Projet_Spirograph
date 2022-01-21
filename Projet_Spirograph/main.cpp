@@ -49,8 +49,10 @@ int main()
 
 	cout << "List of commands  : " << endl;
     cout << "   - ESC : Close the window" << endl,
-    cout << "   - Space : Turn on/off the circles" << endl;
+    cout << "   - Space : Toggle structure visibility" << endl;
     cout << "   - S : Take a screenshot" << endl;
+    cout << "   - Right Arrow : Spin Discs faster" << endl;
+    cout << "   - Left Arrow : Spin Discs slower" << endl;
 
 	while(window.isOpen())
 	{
