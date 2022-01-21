@@ -28,7 +28,7 @@ int main()
 {
     int winX = 960; int winY = 960;
 	sf::RenderWindow window(sf::VideoMode(winX, winY), "Welcome to the fabulous world of Spirographs");
-    bool drawDiscs = false; // This boolean is linked with a key event to hide/show the white Discs
+    bool drawDiscs = true; // This boolean is linked with a key event to hide/show the white Discs
     float framerate = 0;
     window.setFramerateLimit(framerate);
 

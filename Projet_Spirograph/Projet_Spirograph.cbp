@@ -45,10 +45,30 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add option="-std=c++14" />
+					<Add option="-DSFML_STATIC" />
 					<Add directory="include" />
+					<Add directory="SFML-2.5.1/include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
+					<Add library="sfml-graphics-s-d" />
+					<Add library="sfml-window-s-d" />
+					<Add library="sfml-audio-s-d" />
+					<Add library="sfml-network-s-d" />
+					<Add library="sfml-system-s-d" />
+					<Add library="freetype" />
+					<Add library="opengl32" />
+					<Add library="gdi32" />
+					<Add library="winmm" />
+					<Add library="ws2_32" />
+					<Add library="openal32" />
+					<Add library="flac" />
+					<Add library="vorbisenc" />
+					<Add library="vorbisfile" />
+					<Add library="vorbis" />
+					<Add library="ogg" />
+					<Add directory="SFML-2.5.1/lib" />
 				</Linker>
 			</Target>
 		</Build>
