@@ -9,7 +9,8 @@
 
     A Disc object contains a sf::CircleShape,
     an angular speed (to adjust its position every frame), and
-    a list of Pencil objects to create multiple curves simultaneously
+    a list of Pencil objects to create multiple curves simultaneously.
+    Disc inherits from Virtual class Shape
  */
 class Disc : public Shape
 {

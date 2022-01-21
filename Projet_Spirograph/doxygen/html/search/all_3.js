@@ -1,4 +1,19 @@
 var searchData=
 [
-  ['pencil_0',['Pencil',['../class_pencil.html',1,'Pencil'],['../class_pencil.html#a073273f10085fa880341425e46c01b5c',1,'Pencil::Pencil()']]]
+  ['getangspeed_4',['getAngSpeed',['../class_disc.html#a11ef810f300a1b22d3720f6196f72322',1,'Disc::getAngSpeed()'],['../class_pencil.html#a92c87ae7d39510fa3b23ab226de6a35e',1,'Pencil::getAngSpeed()']]],
+  ['getcircle_5',['getCircle',['../class_disc.html#a8727efdd8ad5955c1753db9ffe274ac2',1,'Disc::getCircle()'],['../class_pencil.html#a81b159d3bcac62735928d8e223b0d47f',1,'Pencil::getCircle()']]],
+  ['getcolor_6',['getColor',['../class_pencil.html#a772f15a320ef57167838c06ad77b3233',1,'Pencil']]],
+  ['getdirection_7',['getDirection',['../class_disc.html#a21ff01eed211e8152840742cd7678e9e',1,'Disc']]],
+  ['getdisc_8',['getDisc',['../class_spirograph.html#a0dda4e99bc26dd6c3a989091de4d7df5',1,'Spirograph']]],
+  ['getnbdiscs_9',['getNbDiscs',['../class_spirograph.html#ab8cbac5fd6c37669d91a78227ce9a014',1,'Spirograph']]],
+  ['getnbpencils_10',['getNbPencils',['../class_disc.html#a83d509fd3f88c9b443fb4bfe50cb2e42',1,'Disc::getNbPencils()'],['../class_shape.html#a87e8ca2b6c7f10e33868d22457e4e656',1,'Shape::getNbPencils()']]],
+  ['getpencil_11',['getPencil',['../class_disc.html#abd4ed813cd6f6c0ef194912eccb44762',1,'Disc::getPencil()'],['../class_shape.html#ac66269ade77cf14bd6f1fa7006ba14a6',1,'Shape::getPencil()']]],
+  ['getphi_12',['getPhi',['../class_pencil.html#a94d321ed1da0f27e33d03168eca656ee',1,'Pencil']]],
+  ['getradius_13',['getRadius',['../class_disc.html#a47bb0a3911ee1f8d97e7bbe609325679',1,'Disc']]],
+  ['getrho_14',['getRho',['../class_pencil.html#a563ca1872ed31d0aff7137693c897657',1,'Pencil']]],
+  ['getrotation_15',['getRotation',['../class_disc.html#a4539686b36a75c54b1161ab2e1b9dd0e',1,'Disc']]],
+  ['getspeedfactor_16',['getSpeedFactor',['../class_spirograph.html#a68bd977723ee619deeed0374969cd9e0',1,'Spirograph']]],
+  ['gettheta_17',['getTheta',['../class_disc.html#a33cff2be5ecb630fd4b4899bb19e42d3',1,'Disc']]],
+  ['getx_18',['getX',['../class_disc.html#a9fe58181fe38b92c2a09fafee048edba',1,'Disc::getX()'],['../class_pencil.html#abefbf4c6afe608af5d8f1b3aef128c9f',1,'Pencil::getX()'],['../class_shape.html#a7005881bfcfd556be64a7d5eac5f1a8a',1,'Shape::getX()']]],
+  ['gety_19',['getY',['../class_disc.html#a1e75a8dd50ec7bec7662d7caa61ccc25',1,'Disc::getY()'],['../class_pencil.html#a8451dd308ed3cfa8ea78db65b25bac18',1,'Pencil::getY()'],['../class_shape.html#a097f34c3273a75b06184bb09af756c07',1,'Shape::getY()']]]
 ];

@@ -59,6 +59,7 @@
 		<Unit filename="headers/Disc.h" />
 		<Unit filename="headers/Parser.h" />
 		<Unit filename="headers/Pencil.h" />
+		<Unit filename="headers/Shape.h" />
 		<Unit filename="headers/Spirograph.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="resources/init.txt" />

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['_7edisc_0',['~Disc',['../class_disc.html#ad329219b54a2a89be3d8c7c6665e9004',1,'Disc']]],
-  ['_7epencil_1',['~Pencil',['../class_pencil.html#acb035596d44b2d603b1480caa7a2ef0d',1,'Pencil']]],
-  ['_7espirograph_2',['~Spirograph',['../class_spirograph.html#a327385bfbeb8831cf6232632d9508fde',1,'Spirograph']]]
+  ['rollaround_66',['rollAround',['../class_disc.html#a9a3fe015d07ad3642ebbf1cfdc42a510',1,'Disc']]],
+  ['rollinside_67',['rollInside',['../class_disc.html#a3fc58828a5462eaefc4fa1904b222170',1,'Disc']]]
 ];
