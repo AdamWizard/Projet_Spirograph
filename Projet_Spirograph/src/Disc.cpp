@@ -1,6 +1,9 @@
 #include "../headers/Disc.h"
 #include <cmath>
 
+#include <string>
+#include <iostream>
+
 Disc::Disc(double radius, double x, double y, double newAngSpeed, int newRotation)
 {
     circle = new sf::CircleShape();
@@ -124,7 +127,7 @@ void Disc::rollAround(Disc* disc, float speedFactor)
 
         // Slowly update theta
         if(this->getAngSpeed()*disc->getAngSpeed() < 0)
-            theta += this->getAngSpeed()-disc->getAngSpeed();
+            theta += speedFactor*(this->getAngSpeed()-disc->getAngSpeed());
         else
             theta += speedFactor*(this->getAngSpeed()+disc->getAngSpeed());
 
@@ -181,8 +184,8 @@ void Disc::rollInside(Disc* disc, float speedFactor)
             phi += speedFactor*penAngSpeed;
             currentPencil->setPhi(phi);
 
-            currentPencil->setPosition(this->getX() + rho * cos(theta - phi),
-                                       this->getY() + rho * sin(theta - phi));
+            currentPencil->setPosition(this->getX() + rho * cos(theta-phi),
+                                       this->getY() + rho * sin(theta-phi));
         }
 }
 

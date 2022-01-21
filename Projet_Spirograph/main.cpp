@@ -77,7 +77,7 @@ int main()
                 int tempx = int(currentPencil->getX());
                 int tempy = int(currentPencil->getY());
                 float diffX = tempx-spiro->getDisc(i)->getX();
-                int phi = currentPencil->getPhi();
+                float phi = currentPencil->getPhi();
 
                 if (4*(tempy*winX+tempx) < winX*winY*4)
                 {
@@ -88,9 +88,10 @@ int main()
 
                     if (spiro->getDisc(i)->getNbPencils() == 1)
                     {
-                        pixels[4*(tempy*winX+tempx)] = 100+2*int(cos(phi)*50);
-                        pixels[4*(tempy*winX+tempx)+1] = 100-2*int(sin(phi)*50);
-                        pixels[4*(tempy*winX+tempx)+2] = 100;
+                        pixels[4*(tempy*winX+tempx)] = 150+100*cos(phi);
+                        pixels[4*(tempy*winX+tempx)+1] = 150-100*cos(phi);
+                        pixels[4*(tempy*winX+tempx)+2] = 150;
+                        cout<<"phi is: "<<phi<<" cos(phi) is: "<<cos(phi)<<endl;
                     }
                     else
                     {
@@ -104,7 +105,6 @@ int main()
                     }
                 }
             }
-
         }
         texture.update(pixels);
 		window.display();

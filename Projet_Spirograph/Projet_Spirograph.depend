@@ -10,9 +10,11 @@
 
 1634315605 d:\git\projet_spirograph\projet_spirograph\include\point.h
 
-1641075892 source:d:\git\projet_spirograph\projet_spirograph\src\spirograph.cpp
+1642720415 source:d:\git\projet_spirograph\projet_spirograph\src\spirograph.cpp
 	"../headers/Spirograph.h"
 	<assert.h>
+	<iostream>
+	<string>
 	<vector>
 	<cmath>
 
@@ -454,21 +456,20 @@
 	"../include/Point.h"
 	<cmath>
 
-1641076204 source:d:\git\projet_spirograph\projet_spirograph\src\disc.cpp
+1642722628 source:d:\git\projet_spirograph\projet_spirograph\src\disc.cpp
 	"../headers/Disc.h"
 	<cmath>
+	<string>
+	<iostream>
 
 1634759673 d:\git\projet_spirograph\projet_spirograph\include\disc.h
 	"SFML/Graphics.hpp"
 	"Pencil.h"
 
-1641075938 source:d:\git\projet_spirograph\projet_spirograph\main.cpp
+1642723272 source:d:\git\projet_spirograph\projet_spirograph\main.cpp
 	<iostream>
-	<SFML/Graphics.hpp>
-	<SFML/Window.hpp>
-	<SFML/Graphics/Texture.hpp>
+	"SFML/Graphics.hpp"
 	"headers/Spirograph.h"
-	<cmath>
 
 1633116832 d:\git\projet_spirograph\projet_spirograph\sfml-2.5.1\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -1347,25 +1348,22 @@
 1634778533 c:\users\florian\desktop\projet_spiro\projet_spirograph\projet_spirograph\headers\pencil.h
 	"SFML/Graphics.hpp"
 
-1641074562 d:\git\projet_spirograph\projet_spirograph\headers\spirograph.h
+1642718510 d:\git\projet_spirograph\projet_spirograph\headers\spirograph.h
 	<fstream>
 	<string>
 	<iostream>
 	<SFML/Window.hpp>
-	"Shape.h"
 	"Disc.h"
-	"Rectangle.h"
 	"Parser.h"
 
-1641072885 d:\git\projet_spirograph\projet_spirograph\headers\disc.h
+1642718352 d:\git\projet_spirograph\projet_spirograph\headers\disc.h
 	"Shape.h"
-	"Rectangle.h"
 	"Pencil.h"
 
-1641076048 d:\git\projet_spirograph\projet_spirograph\headers\pencil.h
+1642703793 d:\git\projet_spirograph\projet_spirograph\headers\pencil.h
 	"SFML/Graphics.hpp"
 
-1640953021 source:d:\git\projet_spirograph\projet_spirograph\src\pencil.cpp
+1642703793 source:d:\git\projet_spirograph\projet_spirograph\src\pencil.cpp
 	"../headers/Pencil.h"
 	<cmath>
 
@@ -1922,6 +1920,11 @@
 	"Shape.h"
 
 1642716016 c:\users\florian\desktop\projet_spirograph\projet_spirograph\headers\shape.h
+	"../headers/pencil.h"
+	"SFML/Graphics.hpp"
+	"SFML/Graphics/Drawable.hpp"
+
+1642717865 d:\git\projet_spirograph\projet_spirograph\headers\shape.h
 	"../headers/pencil.h"
 	"SFML/Graphics.hpp"
 	"SFML/Graphics/Drawable.hpp"

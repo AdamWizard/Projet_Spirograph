@@ -130,7 +130,7 @@ int Spirograph::getNbDiscs() const
 
 Disc* Spirograph::getDisc(int i)
 {
-    if(i >= 0 && i < nbDiscs) // TO avoid read memory problems
+    if(i >= 0 && i < nbDiscs) // To avoid read memory problems
         return listDisc[i];
     else
         return nullptr;
@@ -150,7 +150,7 @@ void Spirograph::update()
 {
     for (int i = 1;i < nbDiscs; i++) // Start at 1 because the first Shape does not move
     {
-        if(!checkReset())
+        if( (nbDiscs==2 && !checkReset()) || nbDiscs>2)
         {
             if(getDisc(i)->getRotation()==1)
                 getDisc(i)->rollAround(getDisc(i-1),speedFactor);
