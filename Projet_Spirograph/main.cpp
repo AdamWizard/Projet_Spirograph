@@ -91,7 +91,6 @@ int main()
                         pixels[4*(tempy*winX+tempx)] = 150+100*cos(phi);
                         pixels[4*(tempy*winX+tempx)+1] = 150-100*cos(phi);
                         pixels[4*(tempy*winX+tempx)+2] = 150;
-                        cout<<"phi is: "<<phi<<" cos(phi) is: "<<cos(phi)<<endl;
                     }
                     else
                     {
