@@ -7,10 +7,9 @@
  *  @class Disc
     @brief Class for the discs that will build our Spirograph
 
-    A Disc object is an extension of a sf::CircleShape with
-    an angular speed (to update its position every frame), and
-    a list of Pencil objects to create several curves simultaneously
-    with some offset between them
+    A Disc object contains a sf::CircleShape,
+    an angular speed (to adjust its position every frame), and
+    a list of Pencil objects to create multiple curves simultaneously
  */
 class Disc : public Shape
 {
@@ -89,7 +88,7 @@ class Disc : public Shape
         /**
          * @brief Getter
          *
-         * A getter for the angle of the Disc between its center and the horizontal axis
+         * A getter for the angle of the "theta" polar coordinate of the Disc
          * @return the angle
          */
         float getTheta() const;
@@ -167,10 +166,31 @@ class Disc : public Shape
          */
         void addPencil(Pencil* pencil);
 
+        /**
+         * @brief Method to update the coordinates
+         * @param disc a pointer on the Disc it rolls around
+         * @param speedFactor a float to determine the disc velocity
+         *
+         * This is the main method to simulate the Spirograph movement by updating the Disc members, along with rollInside
+         */
         void rollAround(Disc* disc, float speedFactor);
 
+         /**
+         * @brief Method to update the coordinates
+         * @param disc a pointer on the Disc it rolls inside
+         * @param speedFactor a float to determine the disc velocity
+         *
+         * This is the main method to simulate the Spirograph movement by updating the Disc members, along with rollAround
+         */
         void rollInside(Disc* disc, float speedFactor);
 
+         /**
+         * @brief Method to draw the moving structure
+         * @param target an sf::RenderTarget object in which the disc will be drawn (i.e the window)
+         * @param states an sf::RenderStates object used by SFML to draw
+         *
+         * This method is used to draw the Spirograph structure (Discs and Pencils white circles)
+         */
         virtual void draw(sf::RenderTarget& target,sf::RenderStates states) const;
 
     private :

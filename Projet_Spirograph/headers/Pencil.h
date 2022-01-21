@@ -5,8 +5,8 @@
 /**
  *  @brief Class for the points generating the curve
  *
- *  Basically, a Pencil object is a sf::CircleShape with a color
- *  and an angular speed that will update its position every frame
+ *  A Pencil object is a sf::CircleShape with a color
+ *  and an angular speed that will adjust its position every frame
  */
 class Pencil : public sf::Drawable
 {
@@ -116,6 +116,13 @@ class Pencil : public sf::Drawable
          */
         void setColor(sf::Color newColor);
 
+        /**
+         * @brief Method to draw the moving structure
+         * @param target an sf::RenderTarget object in which the disc will be drawn (i.e the window)
+         * @param states an sf::RenderStates object used by SFML to draw
+         *
+         * This method is used to draw the Spirograph structure (Discs and Pencils white circles)
+         */
         virtual void draw(sf::RenderTarget& target,sf::RenderStates states) const;
 
     private :
