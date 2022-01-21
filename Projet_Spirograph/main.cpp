@@ -1,6 +1,28 @@
 #include <iostream>
+#include <ctime>
 #include "SFML/Graphics.hpp"
 #include "headers/Spirograph.h"
+
+void screenshot(int winX, int winY, sf::RenderWindow& window)
+{
+    time_t ttime = time(0);
+    tm *local_time = localtime(&ttime);
+
+    string day = to_string(local_time->tm_mday); string mon = to_string(1+local_time->tm_mon);
+    string year = to_string(1900+local_time->tm_year); string hour = to_string(local_time->tm_hour);
+    string minute = to_string(1+local_time->tm_min); string sec = to_string(1+local_time->tm_sec);
+
+    string screenshotName = "screenshots/" + day + "-" + mon + "-" + year + "_" +
+                                hour + "-" + minute + "-" + sec + ".jpg";
+
+    sf::Texture screenTexture;
+    screenTexture.create(winX, winY);
+    screenTexture.update(window);
+    if (screenTexture.copyToImage().saveToFile(screenshotName))
+    {
+        cout << "Screenshot saved to " << screenshotName << endl;
+    }
+}
 
 int main()
 {
@@ -25,6 +47,11 @@ int main()
 		pixels[i+3] = 255;
 	}
 
+	cout << "List of commands  : " << endl;
+    cout << "   - ESC : Close the window" << endl,
+    cout << "   - Space : Turn on/off the circles" << endl;
+    cout << "   - S : Take a screenshot" << endl;
+
 	while(window.isOpen())
 	{
 		sf::Event ev;
@@ -48,6 +75,8 @@ int main()
                         spiro->setSpeedFactor(0);
                 if (ev.key.code == sf::Keyboard::Right)
                     spiro->setSpeedFactor(spiro->getSpeedFactor()+0.10);
+                if (ev.key.code == sf::Keyboard::S)
+                    screenshot(winX, winY, window);
 
                 break;
 			}
